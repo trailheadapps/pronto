@@ -1,0 +1,340 @@
+{
+  "records": [
+    {
+      "attributes": {
+        "type": "Storefront__c",
+        "referenceId": "Storefront__cRef1"
+      },
+      "Name": "Urban Table",
+      "Cuisine__c": "Italian",
+      "Status__c": "Active",
+      "Type__c": "Fine Dining",
+      "Address__City__s": "Dallas",
+      "Address__CountryCode__s": "US",
+      "Address__PostalCode__s": "75219",
+      "Address__StateCode__s": "TX",
+      "Address__Street__s": "2401 Victory Avenue",
+      "Description__c": "Urban Table reimagines modern dining with dishes like wild mushroom risotto, grilled ribeye, and lemon thyme chicken. With its chic decor and diverse menu, it’s perfect for a sophisticated night out."
+    },
+    {
+      "attributes": {
+        "type": "Storefront__c",
+        "referenceId": "Storefront__cRef2"
+      },
+      "Name": "Artisan’s Edge",
+      "Cuisine__c": "Fine Dining",
+      "Status__c": "Active",
+      "Type__c": "Upscale Restaurant",
+      "Address__City__s": "Dallas",
+      "Address__CountryCode__s": "US",
+      "Address__PostalCode__s": "75204",
+      "Address__StateCode__s": "TX",
+      "Address__Street__s": "2140 North Hall Street",
+      "Description__c": "Indulge in an upscale dining experience where seasonal ingredients and creative techniques take center stage. Artisan’s Edge serves refined dishes like truffle-infused risotto, seared scallops, and expertly prepared steak. Perfect for an elegant night out or celebrating special occasions."
+    },
+    {
+      "attributes": {
+        "type": "Storefront__c",
+        "referenceId": "Storefront__cRef3"
+      },
+      "Name": "Basil Thyme Cafe",
+      "Cuisine__c": "Bakery",
+      "Status__c": "Active",
+      "Type__c": "Artisan Cafe",
+      "Address__City__s": "Dallas",
+      "Address__CountryCode__s": "US",
+      "Address__PostalCode__s": "75208",
+      "Address__StateCode__s": "TX",
+      "Address__Street__s": "1101 West Davis Street",
+      "Description__c": "A cozy cafe specializing in freshly baked artisan bread, gourmet sandwiches, and handcrafted pastries. Favorites include the caprese panini, smoked salmon bagels, and warm apple tarts. A perfect spot for a relaxed brunch or coffee break."
+    },
+    {
+      "attributes": {
+        "type": "Storefront__c",
+        "referenceId": "Storefront__cRef4"
+      },
+      "Name": "Harvest Grill",
+      "Cuisine__c": "Farm-to-Table",
+      "Status__c": "Active",
+      "Type__c": "Rustic Eatery",
+      "Address__City__s": "Dallas",
+      "Address__CountryCode__s": "US",
+      "Address__PostalCode__s": "75212",
+      "Address__StateCode__s": "TX",
+      "Address__Street__s": "320 Singleton Boulevard",
+      "Description__c": "Harvest Grill celebrates fresh, locally sourced ingredients with a menu featuring roasted vegetable medleys, herb-crusted chicken, and hearty grain bowls. A farm-to-table favorite offering rustic, flavorful meals in a cozy setting."
+    },
+    {
+      "attributes": {
+        "type": "Storefront__c",
+        "referenceId": "Storefront__cRef5"
+      },
+      "Name": "Epicurean Flame",
+      "Cuisine__c": "Steakhouse",
+      "Status__c": "Active",
+      "Type__c": "Classic Grill",
+      "Address__City__s": "Dallas",
+      "Address__CountryCode__s": "US",
+      "Address__PostalCode__s": "75204",
+      "Address__StateCode__s": "TX",
+      "Address__Street__s": "3839 McKinney Avenue",
+      "Description__c": "A classic steakhouse experience with a modern twist, serving premium cuts like filet mignon, ribeye, and lamb chops. Pair your meal with signature sides like truffle mashed potatoes or grilled asparagus. Ideal for steak lovers and fine dining enthusiasts."
+    },
+    {
+      "attributes": {
+        "type": "Storefront__c",
+        "referenceId": "Storefront__cRef6"
+      },
+      "Name": "Urban Table Downtown",
+      "Cuisine__c": "Various",
+      "Status__c": "Active",
+      "Type__c": "Restaurant",
+      "Address__City__s": "Dallas",
+      "Address__CountryCode__s": "US",
+      "Address__PostalCode__s": "75219",
+      "Address__StateCode__s": "TX",
+      "Address__Street__s": "2401 Victory Avenue",
+      "Description__c": "Located in the heart of downtown Dallas, Urban Table serves elevated favorites like pan-roasted chicken, crab cakes, and spinach-stuffed ravioli. Perfect for business lunches or elegant evenings in the city."
+    },
+    {
+      "attributes": {
+        "type": "Storefront__c",
+        "referenceId": "Storefront__cRef7"
+      },
+      "Name": "Urban Table Uptown",
+      "Cuisine__c": "Various",
+      "Status__c": "Active",
+      "Type__c": "Restaurant",
+      "Address__City__s": "Dallas",
+      "Address__CountryCode__s": "US",
+      "Address__PostalCode__s": "75201",
+      "Address__StateCode__s": "TX",
+      "Address__Street__s": "500 Uptown Blvd",
+      "Description__c": "In Uptown Dallas, Urban Table offers an upscale menu featuring filet mignon, seared scallops, and decadent chocolate lava cake. Ideal for a refined dining experience in one of the city’s chicest neighborhoods."
+    },
+    {
+      "attributes": {
+        "type": "Storefront__c",
+        "referenceId": "Storefront__cRef8"
+      },
+      "Name": "Fusion Bites Knox-Henderson",
+      "Cuisine__c": "Various",
+      "Status__c": "Active",
+      "Type__c": "Restaurant",
+      "Address__City__s": "Dallas",
+      "Address__CountryCode__s": "US",
+      "Address__PostalCode__s": "75205",
+      "Address__StateCode__s": "TX",
+      "Address__Street__s": "789 Knox Blvd",
+      "Description__c": "Located in the heart of Knox-Henderson, Fusion Bites offers an exciting menu featuring spicy shrimp tacos, banh mi sandwiches, and Japanese-inspired rice bowls. A great spot for foodies seeking creative global dishes."
+    },
+    {
+      "attributes": {
+        "type": "Storefront__c",
+        "referenceId": "Storefront__cRef9"
+      },
+      "Name": "Fusion Bites Oak Lawn",
+      "Cuisine__c": "Various",
+      "Status__c": "Active",
+      "Type__c": "Restaurant",
+      "Address__City__s": "Dallas",
+      "Address__CountryCode__s": "US",
+      "Address__PostalCode__s": "75219",
+      "Address__StateCode__s": "TX",
+      "Address__Street__s": "110 Oak Lawn Blvd",
+      "Description__c": "Bringing its signature fusion cuisine to Oak Lawn, Fusion Bites serves crowd favorites like miso-glazed salmon, tikka masala flatbreads, and sesame-crusted chicken. A vibrant destination for those who love innovative dining."
+    },
+    {
+      "attributes": {
+        "type": "Storefront__c",
+        "referenceId": "Storefront__cRef10"
+      },
+      "Name": "Artisan’s Edge Plano",
+      "Cuisine__c": "Various",
+      "Status__c": "Active",
+      "Type__c": "Restaurant",
+      "Address__City__s": "Plano",
+      "Address__CountryCode__s": "US",
+      "Address__PostalCode__s": "75024",
+      "Address__StateCode__s": "TX",
+      "Address__Street__s": "150 Plano Blvd",
+      "Description__c": "Bringing fine dining to Plano, Artisan’s Edge offers a menu of elevated dishes, including pan-seared salmon, braised short ribs, and rich chocolate tarts. With a sophisticated ambiance and attention to detail, it’s perfect for a luxurious dining experience in the suburbs."
+    },
+    {
+      "attributes": {
+        "type": "Storefront__c",
+        "referenceId": "Storefront__cRef11"
+      },
+      "Name": "The Savory Spot",
+      "Cuisine__c": "Comfort Food",
+      "Status__c": "Active",
+      "Type__c": "Casual Dining",
+      "Address__City__s": "Dallas",
+      "Address__CountryCode__s": "US",
+      "Address__PostalCode__s": "75208",
+      "Address__StateCode__s": "TX",
+      "Address__Street__s": "330 West Davis Street",
+      "Description__c": "Your go-to destination for hearty comfort food, featuring dishes like fried chicken, creamy mac and cheese, and beef pot pie. Perfect for satisfying your cravings in a warm and inviting setting."
+    },
+    {
+      "attributes": {
+        "type": "Storefront__c",
+        "referenceId": "Storefront__cRef12"
+      },
+      "Name": "Fusion Bites",
+      "Cuisine__c": "Fusion",
+      "Status__c": "Active",
+      "Type__c": "Trendy Bistro",
+      "Address__City__s": "Dallas",
+      "Address__CountryCode__s": "US",
+      "Address__PostalCode__s": "75226",
+      "Address__StateCode__s": "TX",
+      "Address__Street__s": "2615 Elm Street",
+      "Description__c": "Discover bold global flavors at Fusion Bites, where dishes like Korean BBQ tacos, Mediterranean flatbreads, and Thai-inspired salads take center stage. This trendy bistro is perfect for adventurous eaters craving something unique."
+    },
+    {
+      "attributes": {
+        "type": "Storefront__c",
+        "referenceId": "Storefront__cRef13"
+      },
+      "Name": "The Green Fork",
+      "Cuisine__c": "Vegan",
+      "Status__c": "Active",
+      "Type__c": "Cafe",
+      "Address__City__s": "Dallas",
+      "Address__CountryCode__s": "US",
+      "Address__PostalCode__s": "75212",
+      "Address__StateCode__s": "TX",
+      "Address__Street__s": "3011 Gulden Lane",
+      "Description__c": "The Green Fork specializes in vibrant vegan and vegetarian dishes, including quinoa power bowls, avocado toasts, and roasted veggie wraps. A must-visit for plant-based food lovers seeking healthy and flavorful meals."
+    },
+    {
+      "attributes": {
+        "type": "Storefront__c",
+        "referenceId": "Storefront__cRef14"
+      },
+      "Name": "Trailside Deli",
+      "Cuisine__c": "Deli",
+      "Status__c": "Active",
+      "Type__c": "Deli",
+      "Address__City__s": "Dallas",
+      "Address__CountryCode__s": "US",
+      "Address__PostalCode__s": "75204",
+      "Address__StateCode__s": "TX",
+      "Address__Street__s": "2720 McKinney Avenue",
+      "Description__c": "Trailside Deli offers freshly made sandwiches, crisp salads, and comforting soups. Popular picks include the turkey avocado club, Italian hoagie, and creamy tomato basil soup. Perfect for a quick, satisfying meal."
+    },
+    {
+      "attributes": {
+        "type": "Storefront__c",
+        "referenceId": "Storefront__cRef15"
+      },
+      "Name": "Munch Central",
+      "Cuisine__c": "Marketplace",
+      "Status__c": "Active",
+      "Type__c": "Food Hall",
+      "Address__City__s": "Dallas",
+      "Address__CountryCode__s": "US",
+      "Address__PostalCode__s": "75201",
+      "Address__StateCode__s": "TX",
+      "Address__Street__s": "2800 Routh Street",
+      "Description__c": "A dynamic food hall offering a variety of delicious options, including wood-fired pizzas, gourmet burgers, and fresh salads. Perfect for group dining or solo indulgence, Munch Central is where food lovers come together."
+    },
+    {
+      "attributes": {
+        "type": "Storefront__c",
+        "referenceId": "Storefront__cRef16"
+      },
+      "Name": "Urban Table Deep Ellum",
+      "Cuisine__c": "Various",
+      "Status__c": "Active",
+      "Type__c": "Restaurant",
+      "Address__City__s": "Dallas",
+      "Address__CountryCode__s": "US",
+      "Address__PostalCode__s": "75226",
+      "Address__StateCode__s": "TX",
+      "Address__Street__s": "101 Deep Ellum Blvd",
+      "Description__c": "Urban Table Deep Ellum combines bold flavors and a lively atmosphere with dishes like blackened shrimp pasta, artisan flatbreads, and fresh ceviche. A trendy dining spot in one of Dallas’ most vibrant neighborhoods."
+    },
+    {
+      "attributes": {
+        "type": "Storefront__c",
+        "referenceId": "Storefront__cRef17"
+      },
+      "Name": "The Savory Spot Bishop Arts",
+      "Cuisine__c": "Various",
+      "Status__c": "Active",
+      "Type__c": "Restaurant",
+      "Address__City__s": "Dallas",
+      "Address__CountryCode__s": "US",
+      "Address__PostalCode__s": "75208",
+      "Address__StateCode__s": "TX",
+      "Address__Street__s": "456 Bishop Arts Ave",
+      "Description__c": "Located in the eclectic Bishop Arts District, The Savory Spot serves elevated comfort food such as loaded baked potatoes, braised beef brisket, and indulgent bread pudding. A cozy spot to enjoy timeless favorites."
+    },
+    {
+      "attributes": {
+        "type": "Storefront__c",
+        "referenceId": "Storefront__cRef18"
+      },
+      "Name": "The Savory Spot Uptown",
+      "Cuisine__c": "Various",
+      "Status__c": "Active",
+      "Type__c": "Restaurant",
+      "Address__City__s": "Dallas",
+      "Address__CountryCode__s": "US",
+      "Address__PostalCode__s": "75201",
+      "Address__StateCode__s": "TX",
+      "Address__Street__s": "333 Uptown St",
+      "Description__c": "In the stylish Uptown area, The Savory Spot delivers classic comfort food with dishes like chicken and waffles, shepherd’s pie, and decadent pecan pie. Great for relaxed dining in a modern, chic environment."
+    },
+    {
+      "attributes": {
+        "type": "Storefront__c",
+        "referenceId": "Storefront__cRef19"
+      },
+      "Name": "Munch Central Trinity Groves",
+      "Cuisine__c": "Various",
+      "Status__c": "Active",
+      "Type__c": "Restaurant",
+      "Address__City__s": "Dallas",
+      "Address__CountryCode__s": "US",
+      "Address__PostalCode__s": "75212",
+      "Address__StateCode__s": "TX",
+      "Address__Street__s": "303 Trinity Groves St",
+      "Description__c": "Located in the scenic Trinity Groves area, Munch Central offers everything from crispy fried chicken to freshly rolled sushi. Enjoy panoramic views of the Dallas skyline while sampling the best local eats."
+    },
+    {
+      "attributes": {
+        "type": "Storefront__c",
+        "referenceId": "Storefront__cRef20"
+      },
+      "Name": "Munch Central Knox-Henderson",
+      "Cuisine__c": "Various",
+      "Status__c": "Active",
+      "Type__c": "Restaurant",
+      "Address__City__s": "Dallas",
+      "Address__CountryCode__s": "US",
+      "Address__PostalCode__s": "75204",
+      "Address__StateCode__s": "TX",
+      "Address__Street__s": "202 Knox-Henderson Blvd",
+      "Description__c": "Nestled in the lively Knox-Henderson area, Munch Central features diverse dishes like artisan tacos, loaded fries, and handcrafted pastas. A bustling hub for quick bites or leisurely meals with friends."
+    },
+    {
+      "attributes": {
+        "type": "Storefront__c",
+        "referenceId": "Storefront__cRef21"
+      },
+      "Name": "Artisan’s Edge Uptown",
+      "Cuisine__c": "Various",
+      "Status__c": "Active",
+      "Type__c": "Restaurant",
+      "Address__City__s": "Dallas",
+      "Address__CountryCode__s": "US",
+      "Address__PostalCode__s": "75201",
+      "Address__StateCode__s": "TX",
+      "Address__Street__s": "404 Uptown Way",
+      "Description__c": "Located in the vibrant Uptown neighborhood, Artisan’s Edge Uptown serves modern fine dining favorites like duck confit, lobster bisque, and decadent crème brûlée. Enjoy a chic atmosphere and a curated wine list for the ultimate dining escape."
+    }
+  ]
+}

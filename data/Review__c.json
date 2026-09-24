@@ -1,0 +1,1104 @@
+{
+  "records": [
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef1"
+      },
+      "Comments__c": "Perfect spot for a special evening. The food, ambiance, and service were all outstanding.",
+      "Order_Date__c": "2025-06-30",
+      "Rating__c": 4,
+      "Storefront__c": "@Storefront__cRef2",
+      "Customer__c": "@ContactRef24"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef2"
+      },
+      "Comments__c": "The flavors were decent, but the service was a bit slow. Could be better.",
+      "Order_Date__c": "2025-07-05",
+      "Rating__c": 5,
+      "Storefront__c": "@Storefront__cRef2",
+      "Customer__c": "@ContactRef20"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef3"
+      },
+      "Comments__c": "I was blown away by the variety and quality of the meals. The atmosphere was warm and welcoming, and every dish we tried was a hit. Definitely one of my favorite spots!",
+      "Order_Date__c": "2025-08-03",
+      "Rating__c": 4,
+      "Storefront__c": "@Storefront__cRef2",
+      "Customer__c": "@ContactRef21"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef4"
+      },
+      "Comments__c": "The atmosphere was lovely, but the food didn't live up to the hype. The service was rushed and not very attentive. I expected more given the reviews.",
+      "Order_Date__c": "2025-07-15",
+      "Rating__c": 5,
+      "Storefront__c": "@Storefront__cRef2",
+      "Customer__c": "@ContactRef21"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef5"
+      },
+      "Comments__c": "This restaurant exceeded my expectations. The creative dishes and cozy ambiance made for an unforgettable experience. The staff were attentive and the food was cooked to perfection.",
+      "Order_Date__c": "2025-07-18",
+      "Rating__c": 2,
+      "Storefront__c": "@Storefront__cRef2",
+      "Customer__c": "@ContactRef12"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef6"
+      },
+      "Comments__c": "The flavors were exquisite, and the service was top-notch. Highly recommend this place for any food enthusiast.",
+      "Order_Date__c": "2025-07-30",
+      "Rating__c": 4,
+      "Storefront__c": "@Storefront__cRef3",
+      "Customer__c": "@ContactRef9"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef7"
+      },
+      "Comments__c": "The restaurant had potential, but my meal fell short. The portions were small, and the food lacked the bold flavors I was expecting. Service was subpar too.",
+      "Order_Date__c": "2025-07-26",
+      "Rating__c": 5,
+      "Storefront__c": "@Storefront__cRef3",
+      "Customer__c": "@ContactRef1"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef8"
+      },
+      "Comments__c": "The food was absolutely amazing, with flavors that burst in every bite. The staff were friendly and made the experience even better. I can't wait to come back!",
+      "Order_Date__c": "2025-07-28",
+      "Rating__c": 4,
+      "Storefront__c": "@Storefront__cRef3",
+      "Customer__c": "@ContactRef23"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef9"
+      },
+      "Comments__c": "A delightful dining experience! The ingredients were fresh, the presentation was beautiful, and the service was impeccable. Highly recommend this place to food lovers.",
+      "Order_Date__c": "2025-07-20",
+      "Rating__c": 3,
+      "Storefront__c": "@Storefront__cRef3",
+      "Customer__c": "@ContactRef6"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef10"
+      },
+      "Comments__c": "The food was underwhelming and lacked flavor. The service was slow, and the overall experience left much to be desired. I wouldn't recommend it.",
+      "Order_Date__c": "2025-07-02",
+      "Rating__c": 1,
+      "Storefront__c": "@Storefront__cRef3",
+      "Customer__c": "@ContactRef21"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef11"
+      },
+      "Comments__c": "A delightful dining experience! The ingredients were fresh, the presentation was beautiful, and the service was impeccable. Highly recommend this place to food lovers.",
+      "Order_Date__c": "2025-08-03",
+      "Rating__c": 5,
+      "Storefront__c": "@Storefront__cRef4",
+      "Customer__c": "@ContactRef7"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef12"
+      },
+      "Comments__c": "The atmosphere was lovely, but the food didn't live up to the hype. The service was rushed and not very attentive. I expected more given the reviews.",
+      "Order_Date__c": "2025-07-04",
+      "Rating__c": 2,
+      "Storefront__c": "@Storefront__cRef4",
+      "Customer__c": "@ContactRef4"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef13"
+      },
+      "Comments__c": "I was disappointed by the overall quality. The flavors were bland, and the service could use significant improvement. It was a mediocre experience.",
+      "Order_Date__c": "2025-08-07",
+      "Rating__c": 5,
+      "Storefront__c": "@Storefront__cRef4",
+      "Customer__c": "@ContactRef18"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef14"
+      },
+      "Comments__c": "Such a gem of a place! The flavors were unique and the dishes were prepared with great attention to detail. The service was outstanding as well.",
+      "Order_Date__c": "2025-07-09",
+      "Rating__c": 3,
+      "Storefront__c": "@Storefront__cRef4",
+      "Customer__c": "@ContactRef25"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef15"
+      },
+      "Comments__c": "Perfect spot for a special evening. The food, ambiance, and service were all outstanding.",
+      "Order_Date__c": "2025-07-26",
+      "Rating__c": 5,
+      "Storefront__c": "@Storefront__cRef5",
+      "Customer__c": "@ContactRef18"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef16"
+      },
+      "Comments__c": "The flavors were exquisite, and the service was top-notch. Highly recommend this place for any food enthusiast.",
+      "Order_Date__c": "2025-08-07",
+      "Rating__c": 5,
+      "Storefront__c": "@Storefront__cRef5",
+      "Customer__c": "@ContactRef30"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef17"
+      },
+      "Comments__c": "Not the best experience. The meal arrived cold, and the staff seemed inattentive. The ambiance was nice, but the food didn't meet my expectations.",
+      "Order_Date__c": "2025-07-01",
+      "Rating__c": 2,
+      "Storefront__c": "@Storefront__cRef5",
+      "Customer__c": "@ContactRef17"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef18"
+      },
+      "Comments__c": "Such a gem of a place! The flavors were unique and the dishes were prepared with great attention to detail. The service was outstanding as well.",
+      "Order_Date__c": "2025-07-07",
+      "Rating__c": 5,
+      "Storefront__c": "@Storefront__cRef5",
+      "Customer__c": "@ContactRef14"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef19"
+      },
+      "Comments__c": "The food was absolutely amazing, with flavors that burst in every bite. The staff were friendly and made the experience even better. I can't wait to come back!",
+      "Order_Date__c": "2025-08-05",
+      "Rating__c": 1,
+      "Storefront__c": "@Storefront__cRef5",
+      "Customer__c": "@ContactRef26"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef20"
+      },
+      "Comments__c": "Such a gem of a place! The flavors were unique and the dishes were prepared with great attention to detail. The service was outstanding as well.",
+      "Order_Date__c": "2025-07-03",
+      "Rating__c": 5,
+      "Storefront__c": "@Storefront__cRef5",
+      "Customer__c": "@ContactRef11"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef21"
+      },
+      "Comments__c": "Absolutely loved the food! Every dish was flavorful and beautifully presented. The staff were incredibly attentive.",
+      "Order_Date__c": "2025-07-22",
+      "Rating__c": 4,
+      "Storefront__c": "@Storefront__cRef6",
+      "Customer__c": "@ContactRef19"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef22"
+      },
+      "Comments__c": "A mixed experience; some dishes were good, but others fell flat. The staff seemed overworked.",
+      "Order_Date__c": "2025-07-29",
+      "Rating__c": 5,
+      "Storefront__c": "@Storefront__cRef6",
+      "Customer__c": "@ContactRef25"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef23"
+      },
+      "Comments__c": "The atmosphere was lovely, but the food didn't live up to the hype. The service was rushed and not very attentive. I expected more given the reviews.",
+      "Order_Date__c": "2025-08-02",
+      "Rating__c": 4,
+      "Storefront__c": "@Storefront__cRef6",
+      "Customer__c": "@ContactRef16"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef24"
+      },
+      "Comments__c": "Not the best experience. The meal arrived cold, and the staff seemed inattentive. The ambiance was nice, but the food didn't meet my expectations.",
+      "Order_Date__c": "2025-08-07",
+      "Rating__c": 4,
+      "Storefront__c": "@Storefront__cRef6",
+      "Customer__c": "@ContactRef11"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef25"
+      },
+      "Comments__c": "Such a gem of a place! The flavors were unique and the dishes were prepared with great attention to detail. The service was outstanding as well.",
+      "Order_Date__c": "2025-08-06",
+      "Rating__c": 3,
+      "Storefront__c": "@Storefront__cRef6",
+      "Customer__c": "@ContactRef27"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef26"
+      },
+      "Comments__c": "I was disappointed by the overall quality. The flavors were bland, and the service could use significant improvement. It was a mediocre experience.",
+      "Order_Date__c": "2025-07-14",
+      "Rating__c": 3,
+      "Storefront__c": "@Storefront__cRef6",
+      "Customer__c": "@ContactRef23"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef27"
+      },
+      "Comments__c": "The atmosphere was lovely, but the food didn't live up to the hype. The service was rushed and not very attentive. I expected more given the reviews.",
+      "Order_Date__c": "2025-07-11",
+      "Rating__c": 5,
+      "Storefront__c": "@Storefront__cRef6",
+      "Customer__c": "@ContactRef30"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef28"
+      },
+      "Comments__c": "This restaurant exceeded my expectations. The creative dishes and cozy ambiance made for an unforgettable experience. The staff were attentive and the food was cooked to perfection.",
+      "Order_Date__c": "2025-07-29",
+      "Rating__c": 3,
+      "Storefront__c": "@Storefront__cRef7",
+      "Customer__c": "@ContactRef3"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef29"
+      },
+      "Comments__c": "A delightful dining experience! The ingredients were fresh, the presentation was beautiful, and the service was impeccable. Highly recommend this place to food lovers.",
+      "Order_Date__c": "2025-06-30",
+      "Rating__c": 5,
+      "Storefront__c": "@Storefront__cRef7",
+      "Customer__c": "@ContactRef13"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef30"
+      },
+      "Comments__c": "The atmosphere was lovely, but the food didn't live up to the hype. The service was rushed and not very attentive. I expected more given the reviews.",
+      "Order_Date__c": "2025-07-13",
+      "Rating__c": 5,
+      "Storefront__c": "@Storefront__cRef7",
+      "Customer__c": "@ContactRef28"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef31"
+      },
+      "Comments__c": "The food was absolutely amazing, with flavors that burst in every bite. The staff were friendly and made the experience even better. I can't wait to come back!",
+      "Order_Date__c": "2025-07-10",
+      "Rating__c": 2,
+      "Storefront__c": "@Storefront__cRef7",
+      "Customer__c": "@ContactRef27"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef32"
+      },
+      "Comments__c": "The atmosphere was lovely, but the food didn't live up to the hype. The service was rushed and not very attentive. I expected more given the reviews.",
+      "Order_Date__c": "2025-07-31",
+      "Rating__c": 3,
+      "Storefront__c": "@Storefront__cRef8",
+      "Customer__c": "@ContactRef16"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef33"
+      },
+      "Comments__c": "A delightful dining experience! The ingredients were fresh, the presentation was beautiful, and the service was impeccable. Highly recommend this place to food lovers.",
+      "Order_Date__c": "2025-07-14",
+      "Rating__c": 4,
+      "Storefront__c": "@Storefront__cRef8",
+      "Customer__c": "@ContactRef15"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef34"
+      },
+      "Comments__c": "The food was underwhelming and lacked flavor. The service was slow, and the overall experience left much to be desired. I wouldn't recommend it.",
+      "Order_Date__c": "2025-06-30",
+      "Rating__c": 1,
+      "Storefront__c": "@Storefront__cRef8",
+      "Customer__c": "@ContactRef15"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef35"
+      },
+      "Comments__c": "Such a gem of a place! The flavors were unique and the dishes were prepared with great attention to detail. The service was outstanding as well.",
+      "Order_Date__c": "2025-07-19",
+      "Rating__c": 3,
+      "Storefront__c": "@Storefront__cRef8",
+      "Customer__c": "@ContactRef5"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef36"
+      },
+      "Comments__c": "Such a gem of a place! The flavors were unique and the dishes were prepared with great attention to detail. The service was outstanding as well.",
+      "Order_Date__c": "2025-07-31",
+      "Rating__c": 2,
+      "Storefront__c": "@Storefront__cRef8",
+      "Customer__c": "@ContactRef17"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef37"
+      },
+      "Comments__c": "Not the best experience. The meal arrived cold, and the staff seemed inattentive. The ambiance was nice, but the food didn't meet my expectations.",
+      "Order_Date__c": "2025-07-08",
+      "Rating__c": 4,
+      "Storefront__c": "@Storefront__cRef8",
+      "Customer__c": "@ContactRef28"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef38"
+      },
+      "Comments__c": "The atmosphere was lovely, but the food didn't live up to the hype. The service was rushed and not very attentive. I expected more given the reviews.",
+      "Order_Date__c": "2025-07-06",
+      "Rating__c": 1,
+      "Storefront__c": "@Storefront__cRef9",
+      "Customer__c": "@ContactRef5"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef39"
+      },
+      "Comments__c": "This restaurant exceeded my expectations. The creative dishes and cozy ambiance made for an unforgettable experience. The staff were attentive and the food was cooked to perfection.",
+      "Order_Date__c": "2025-07-14",
+      "Rating__c": 3,
+      "Storefront__c": "@Storefront__cRef9",
+      "Customer__c": "@ContactRef13"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef40"
+      },
+      "Comments__c": "I was blown away by the variety and quality of the meals. The atmosphere was warm and welcoming, and every dish we tried was a hit. Definitely one of my favorite spots!",
+      "Order_Date__c": "2025-07-04",
+      "Rating__c": 5,
+      "Storefront__c": "@Storefront__cRef10",
+      "Customer__c": "@ContactRef8"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef41"
+      },
+      "Comments__c": "This restaurant exceeded my expectations. The creative dishes and cozy ambiance made for an unforgettable experience. The staff were attentive and the food was cooked to perfection.",
+      "Order_Date__c": "2025-07-10",
+      "Rating__c": 5,
+      "Storefront__c": "@Storefront__cRef10",
+      "Customer__c": "@ContactRef14"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef42"
+      },
+      "Comments__c": "The food was absolutely amazing, with flavors that burst in every bite. The staff were friendly and made the experience even better. I can't wait to come back!",
+      "Order_Date__c": "2025-08-08",
+      "Rating__c": 5,
+      "Storefront__c": "@Storefront__cRef10",
+      "Customer__c": "@ContactRef14"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef43"
+      },
+      "Comments__c": "Absolutely loved the food! Every dish was flavorful and beautifully presented. The staff were incredibly attentive.",
+      "Order_Date__c": "2025-07-12",
+      "Rating__c": 5,
+      "Storefront__c": "@Storefront__cRef12",
+      "Customer__c": "@ContactRef7"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef44"
+      },
+      "Comments__c": "Absolutely loved the food! Every dish was flavorful and beautifully presented. The staff were incredibly attentive.",
+      "Order_Date__c": "2025-07-07",
+      "Rating__c": 5,
+      "Storefront__c": "@Storefront__cRef12",
+      "Customer__c": "@ContactRef22"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef45"
+      },
+      "Comments__c": "Not the best experience. The meal arrived cold, and the staff seemed inattentive. The ambiance was nice, but the food didn't meet my expectations.",
+      "Order_Date__c": "2025-07-18",
+      "Rating__c": 4,
+      "Storefront__c": "@Storefront__cRef12",
+      "Customer__c": "@ContactRef25"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef46"
+      },
+      "Comments__c": "This restaurant exceeded my expectations. The creative dishes and cozy ambiance made for an unforgettable experience. The staff were attentive and the food was cooked to perfection.",
+      "Order_Date__c": "2025-08-04",
+      "Rating__c": 1,
+      "Storefront__c": "@Storefront__cRef12",
+      "Customer__c": "@ContactRef19"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef47"
+      },
+      "Comments__c": "The restaurant had potential, but my meal fell short. The portions were small, and the food lacked the bold flavors I was expecting. Service was subpar too.",
+      "Order_Date__c": "2025-06-30",
+      "Rating__c": 4,
+      "Storefront__c": "@Storefront__cRef12",
+      "Customer__c": "@ContactRef3"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef48"
+      },
+      "Comments__c": "I was disappointed by the overall quality. The flavors were bland, and the service could use significant improvement. It was a mediocre experience.",
+      "Order_Date__c": "2025-07-20",
+      "Rating__c": 1,
+      "Storefront__c": "@Storefront__cRef12",
+      "Customer__c": "@ContactRef12"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef49"
+      },
+      "Comments__c": "Not the best experience. The meal arrived cold, and the staff seemed inattentive. The ambiance was nice, but the food didn't meet my expectations.",
+      "Order_Date__c": "2025-08-08",
+      "Rating__c": 3,
+      "Storefront__c": "@Storefront__cRef12",
+      "Customer__c": "@ContactRef26"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef50"
+      },
+      "Comments__c": "A mixed experience; some dishes were good, but others fell flat. The staff seemed overworked.",
+      "Order_Date__c": "2025-07-19",
+      "Rating__c": 5,
+      "Storefront__c": "@Storefront__cRef13",
+      "Customer__c": "@ContactRef16"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef51"
+      },
+      "Comments__c": "A wonderful dining experience with a warm ambiance and mouthwatering dishes. Will definitely return soon!",
+      "Order_Date__c": "2025-08-05",
+      "Rating__c": 5,
+      "Storefront__c": "@Storefront__cRef13",
+      "Customer__c": "@ContactRef1"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef52"
+      },
+      "Comments__c": "A wonderful dining experience with a warm ambiance and mouthwatering dishes. Will definitely return soon!",
+      "Order_Date__c": "2025-08-01",
+      "Rating__c": 5,
+      "Storefront__c": "@Storefront__cRef13",
+      "Customer__c": "@ContactRef6"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef53"
+      },
+      "Comments__c": "Absolutely loved the food! Every dish was flavorful and beautifully presented. The staff were incredibly attentive.",
+      "Order_Date__c": "2025-07-27",
+      "Rating__c": 5,
+      "Storefront__c": "@Storefront__cRef13",
+      "Customer__c": "@ContactRef13"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef54"
+      },
+      "Comments__c": "Such a gem of a place! The flavors were unique and the dishes were prepared with great attention to detail. The service was outstanding as well.",
+      "Order_Date__c": "2025-08-04",
+      "Rating__c": 1,
+      "Storefront__c": "@Storefront__cRef13",
+      "Customer__c": "@ContactRef22"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef55"
+      },
+      "Comments__c": "The food was underwhelming and lacked flavor. The service was slow, and the overall experience left much to be desired. I wouldn't recommend it.",
+      "Order_Date__c": "2025-07-21",
+      "Rating__c": 3,
+      "Storefront__c": "@Storefront__cRef13",
+      "Customer__c": "@ContactRef8"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef56"
+      },
+      "Comments__c": "I was blown away by the variety and quality of the meals. The atmosphere was warm and welcoming, and every dish we tried was a hit. Definitely one of my favorite spots!",
+      "Order_Date__c": "2025-07-10",
+      "Rating__c": 4,
+      "Storefront__c": "@Storefront__cRef13",
+      "Customer__c": "@ContactRef20"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef57"
+      },
+      "Comments__c": "The food was underwhelming and lacked flavor. The service was slow, and the overall experience left much to be desired. I wouldn't recommend it.",
+      "Order_Date__c": "2025-07-29",
+      "Rating__c": 5,
+      "Storefront__c": "@Storefront__cRef13",
+      "Customer__c": "@ContactRef9"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef58"
+      },
+      "Comments__c": "A wonderful dining experience with a warm ambiance and mouthwatering dishes. Will definitely return soon!",
+      "Order_Date__c": "2025-07-30",
+      "Rating__c": 5,
+      "Storefront__c": "@Storefront__cRef14",
+      "Customer__c": "@ContactRef2"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef59"
+      },
+      "Comments__c": "Absolutely loved the food! Every dish was flavorful and beautifully presented. The staff were incredibly attentive.",
+      "Order_Date__c": "2025-07-05",
+      "Rating__c": 4,
+      "Storefront__c": "@Storefront__cRef14",
+      "Customer__c": "@ContactRef3"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef60"
+      },
+      "Comments__c": "An underwhelming experience. The meal was alright, but it lacked the wow factor I was hoping for.",
+      "Order_Date__c": "2025-07-09",
+      "Rating__c": 4,
+      "Storefront__c": "@Storefront__cRef14",
+      "Customer__c": "@ContactRef8"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef61"
+      },
+      "Comments__c": "A wonderful dining experience with a warm ambiance and mouthwatering dishes. Will definitely return soon!",
+      "Order_Date__c": "2025-07-26",
+      "Rating__c": 5,
+      "Storefront__c": "@Storefront__cRef14",
+      "Customer__c": "@ContactRef17"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef62"
+      },
+      "Comments__c": "The food was underwhelming and lacked flavor. The service was slow, and the overall experience left much to be desired. I wouldn't recommend it.",
+      "Order_Date__c": "2025-07-28",
+      "Rating__c": 4,
+      "Storefront__c": "@Storefront__cRef14",
+      "Customer__c": "@ContactRef29"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef63"
+      },
+      "Comments__c": "A delightful dining experience! The ingredients were fresh, the presentation was beautiful, and the service was impeccable. Highly recommend this place to food lovers.",
+      "Order_Date__c": "2025-07-17",
+      "Rating__c": 2,
+      "Storefront__c": "@Storefront__cRef14",
+      "Customer__c": "@ContactRef4"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef64"
+      },
+      "Comments__c": "The food was absolutely amazing, with flavors that burst in every bite. The staff were friendly and made the experience even better. I can't wait to come back!",
+      "Order_Date__c": "2025-07-14",
+      "Rating__c": 3,
+      "Storefront__c": "@Storefront__cRef14",
+      "Customer__c": "@ContactRef23"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef65"
+      },
+      "Comments__c": "I was blown away by the variety and quality of the meals. The atmosphere was warm and welcoming, and every dish we tried was a hit. Definitely one of my favorite spots!",
+      "Order_Date__c": "2025-07-01",
+      "Rating__c": 2,
+      "Storefront__c": "@Storefront__cRef14",
+      "Customer__c": "@ContactRef15"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef66"
+      },
+      "Comments__c": "The flavors were exquisite, and the service was top-notch. Highly recommend this place for any food enthusiast.",
+      "Order_Date__c": "2025-07-23",
+      "Rating__c": 4,
+      "Storefront__c": "@Storefront__cRef15",
+      "Customer__c": "@ContactRef28"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef67"
+      },
+      "Comments__c": "This restaurant exceeded my expectations. The creative dishes and cozy ambiance made for an unforgettable experience. The staff were attentive and the food was cooked to perfection.",
+      "Order_Date__c": "2025-08-09",
+      "Rating__c": 5,
+      "Storefront__c": "@Storefront__cRef15",
+      "Customer__c": "@ContactRef7"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef68"
+      },
+      "Comments__c": "Not the best experience. The meal arrived cold, and the staff seemed inattentive. The ambiance was nice, but the food didn't meet my expectations.",
+      "Order_Date__c": "2025-07-29",
+      "Rating__c": 2,
+      "Storefront__c": "@Storefront__cRef15",
+      "Customer__c": "@ContactRef1"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef69"
+      },
+      "Comments__c": "A delightful dining experience! The ingredients were fresh, the presentation was beautiful, and the service was impeccable. Highly recommend this place to food lovers.",
+      "Order_Date__c": "2025-08-06",
+      "Rating__c": 2,
+      "Storefront__c": "@Storefront__cRef15",
+      "Customer__c": "@ContactRef21"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef70"
+      },
+      "Comments__c": "A delightful dining experience! The ingredients were fresh, the presentation was beautiful, and the service was impeccable. Highly recommend this place to food lovers.",
+      "Order_Date__c": "2025-07-29",
+      "Rating__c": 4,
+      "Storefront__c": "@Storefront__cRef15",
+      "Customer__c": "@ContactRef20"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef71"
+      },
+      "Comments__c": "Fantastic restaurant! The atmosphere was lively, and the food exceeded all my expectations.",
+      "Order_Date__c": "2025-07-11",
+      "Rating__c": 4,
+      "Storefront__c": "@Storefront__cRef16",
+      "Customer__c": "@ContactRef30"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef72"
+      },
+      "Comments__c": "The food was absolutely amazing, with flavors that burst in every bite. The staff were friendly and made the experience even better. I can't wait to come back!",
+      "Order_Date__c": "2025-08-04",
+      "Rating__c": 4,
+      "Storefront__c": "@Storefront__cRef16",
+      "Customer__c": "@ContactRef18"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef73"
+      },
+      "Comments__c": "The food was absolutely amazing, with flavors that burst in every bite. The staff were friendly and made the experience even better. I can't wait to come back!",
+      "Order_Date__c": "2025-07-22",
+      "Rating__c": 1,
+      "Storefront__c": "@Storefront__cRef16",
+      "Customer__c": "@ContactRef29"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef74"
+      },
+      "Comments__c": "Not the best experience. The meal arrived cold, and the staff seemed inattentive. The ambiance was nice, but the food didn't meet my expectations.",
+      "Order_Date__c": "2025-07-12",
+      "Rating__c": 3,
+      "Storefront__c": "@Storefront__cRef17",
+      "Customer__c": "@ContactRef9"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef75"
+      },
+      "Comments__c": "The food was absolutely amazing, with flavors that burst in every bite. The staff were friendly and made the experience even better. I can't wait to come back!",
+      "Order_Date__c": "2025-07-23",
+      "Rating__c": 3,
+      "Storefront__c": "@Storefront__cRef17",
+      "Customer__c": "@ContactRef24"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef76"
+      },
+      "Comments__c": "The food was absolutely amazing, with flavors that burst in every bite. The staff were friendly and made the experience even better. I can't wait to come back!",
+      "Order_Date__c": "2025-08-09",
+      "Rating__c": 5,
+      "Storefront__c": "@Storefront__cRef17",
+      "Customer__c": "@ContactRef27"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef77"
+      },
+      "Comments__c": "Such a gem of a place! The flavors were unique and the dishes were prepared with great attention to detail. The service was outstanding as well.",
+      "Order_Date__c": "2025-07-11",
+      "Rating__c": 2,
+      "Storefront__c": "@Storefront__cRef17",
+      "Customer__c": "@ContactRef22"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef78"
+      },
+      "Comments__c": "The atmosphere was lovely, but the food didn't live up to the hype. The service was rushed and not very attentive. I expected more given the reviews.",
+      "Order_Date__c": "2025-07-18",
+      "Rating__c": 4,
+      "Storefront__c": "@Storefront__cRef18",
+      "Customer__c": "@ContactRef10"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef79"
+      },
+      "Comments__c": "The food was absolutely amazing, with flavors that burst in every bite. The staff were friendly and made the experience even better. I can't wait to come back!",
+      "Order_Date__c": "2025-07-19",
+      "Rating__c": 3,
+      "Storefront__c": "@Storefront__cRef18",
+      "Customer__c": "@ContactRef10"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef80"
+      },
+      "Comments__c": "The food was absolutely amazing, with flavors that burst in every bite. The staff were friendly and made the experience even better. I can't wait to come back!",
+      "Order_Date__c": "2025-06-30",
+      "Rating__c": 1,
+      "Storefront__c": "@Storefront__cRef18",
+      "Customer__c": "@ContactRef29"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef81"
+      },
+      "Comments__c": "The food was underwhelming and lacked flavor. The service was slow, and the overall experience left much to be desired. I wouldn't recommend it.",
+      "Order_Date__c": "2025-07-19",
+      "Rating__c": 1,
+      "Storefront__c": "@Storefront__cRef18",
+      "Customer__c": "@ContactRef4"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef82"
+      },
+      "Comments__c": "Such a gem of a place! The flavors were unique and the dishes were prepared with great attention to detail. The service was outstanding as well.",
+      "Order_Date__c": "2025-07-04",
+      "Rating__c": 4,
+      "Storefront__c": "@Storefront__cRef18",
+      "Customer__c": "@ContactRef2"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef83"
+      },
+      "Comments__c": "Such a gem of a place! The flavors were unique and the dishes were prepared with great attention to detail. The service was outstanding as well.",
+      "Order_Date__c": "2025-07-16",
+      "Rating__c": 3,
+      "Storefront__c": "@Storefront__cRef19",
+      "Customer__c": "@ContactRef19"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef84"
+      },
+      "Comments__c": "The food was absolutely amazing, with flavors that burst in every bite. The staff were friendly and made the experience even better. I can't wait to come back!",
+      "Order_Date__c": "2025-07-27",
+      "Rating__c": 4,
+      "Storefront__c": "@Storefront__cRef19",
+      "Customer__c": "@ContactRef26"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef85"
+      },
+      "Comments__c": "Such a gem of a place! The flavors were unique and the dishes were prepared with great attention to detail. The service was outstanding as well.",
+      "Order_Date__c": "2025-07-01",
+      "Rating__c": 2,
+      "Storefront__c": "@Storefront__cRef19",
+      "Customer__c": "@ContactRef4"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef86"
+      },
+      "Comments__c": "The restaurant had potential, but my meal fell short. The portions were small, and the food lacked the bold flavors I was expecting. Service was subpar too.",
+      "Order_Date__c": "2025-07-30",
+      "Rating__c": 3,
+      "Storefront__c": "@Storefront__cRef20",
+      "Customer__c": "@ContactRef24"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef87"
+      },
+      "Comments__c": "Such a gem of a place! The flavors were unique and the dishes were prepared with great attention to detail. The service was outstanding as well.",
+      "Order_Date__c": "2025-07-25",
+      "Rating__c": 5,
+      "Storefront__c": "@Storefront__cRef20",
+      "Customer__c": "@ContactRef5"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef88"
+      },
+      "Comments__c": "The restaurant had potential, but my meal fell short. The portions were small, and the food lacked the bold flavors I was expecting. Service was subpar too.",
+      "Order_Date__c": "2025-08-02",
+      "Rating__c": 1,
+      "Storefront__c": "@Storefront__cRef21",
+      "Customer__c": "@ContactRef6"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef89"
+      },
+      "Comments__c": "A delightful dining experience! The ingredients were fresh, the presentation was beautiful, and the service was impeccable. Highly recommend this place to food lovers.",
+      "Order_Date__c": "2025-07-27",
+      "Rating__c": 1,
+      "Storefront__c": "@Storefront__cRef21",
+      "Customer__c": "@ContactRef10"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef90"
+      },
+      "Comments__c": "Such a gem of a place! The flavors were unique and the dishes were prepared with great attention to detail. The service was outstanding as well.",
+      "Order_Date__c": "2025-07-23",
+      "Rating__c": 2,
+      "Storefront__c": "@Storefront__cRef21",
+      "Customer__c": "@ContactRef11"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef91"
+      },
+      "Comments__c": "The food was absolutely amazing, with flavors that burst in every bite. The staff were friendly and made the experience even better. I can't wait to come back!",
+      "Order_Date__c": "2025-08-04",
+      "Rating__c": 2,
+      "Storefront__c": "@Storefront__cRef21",
+      "Customer__c": "@ContactRef12"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef92"
+      },
+      "Comments__c": "This restaurant exceeded my expectations. The creative dishes and cozy ambiance made for an unforgettable experience. The staff were attentive and the food was cooked to perfection.",
+      "Order_Date__c": "2025-07-05",
+      "Rating__c": 1,
+      "Storefront__c": "@Storefront__cRef21",
+      "Customer__c": "@ContactRef2"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef93"
+      },
+      "Comments__c": "Absolutely loved the atmosphere and the food! The wild mushroom risotto was divine. Will definitely be back.",
+      "Order_Date__c": "2025-05-15",
+      "Rating__c": 5,
+      "Storefront__c": "@Storefront__cRef1",
+      "Customer__c": "@ContactRef21"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef94"
+      },
+      "Comments__c": "Great Italian dining experience. The grilled ribeye was cooked perfectly and the service was excellent.",
+      "Order_Date__c": "2025-06-20",
+      "Rating__c": 4,
+      "Storefront__c": "@Storefront__cRef1",
+      "Customer__c": "@ContactRef4"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef95"
+      },
+      "Comments__c": "Urban Table never disappoints! The lemon thyme chicken and the chic decor make this my favorite spot for date nights.",
+      "Order_Date__c": "2025-07-10",
+      "Rating__c": 5,
+      "Storefront__c": "@Storefront__cRef1",
+      "Customer__c": "@ContactRef1"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef96"
+      },
+      "Comments__c": "Food was good but a bit pricey. The portions could be larger for the cost.",
+      "Order_Date__c": "2025-08-05",
+      "Rating__c": 3,
+      "Storefront__c": "@Storefront__cRef1",
+      "Customer__c": "@ContactRef24"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef97"
+      },
+      "Comments__c": "Wonderful modern dining experience. The menu is diverse and everything we tried was delicious.",
+      "Order_Date__c": "2025-08-22",
+      "Rating__c": 4,
+      "Storefront__c": "@Storefront__cRef1",
+      "Customer__c": "@ContactRef9"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef98"
+      },
+      "Comments__c": "Best comfort food in Dallas! The fried chicken is crispy and juicy, and the mac and cheese is absolutely heavenly.",
+      "Order_Date__c": "2025-06-18",
+      "Rating__c": 5,
+      "Storefront__c": "@Storefront__cRef11",
+      "Customer__c": "@ContactRef2"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef99"
+      },
+      "Comments__c": "Great cozy spot for hearty meals. The beef pot pie was delicious and very filling. Perfect for a cold day.",
+      "Order_Date__c": "2025-07-25",
+      "Rating__c": 4,
+      "Storefront__c": "@Storefront__cRef11",
+      "Customer__c": "@ContactRef10"
+    },
+    {
+      "attributes": {
+        "type": "Review__c",
+        "referenceId": "Review__cRef100"
+      },
+      "Comments__c": "This place is a gem! Everything tastes like home cooking but better. The warm atmosphere makes it even better.",
+      "Order_Date__c": "2025-08-12",
+      "Rating__c": 5,
+      "Storefront__c": "@Storefront__cRef11",
+      "Customer__c": "@ContactRef23"
+    }
+  ]
+}

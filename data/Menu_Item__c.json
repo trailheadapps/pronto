@@ -1,0 +1,1334 @@
+{
+  "records": [
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef1"
+      },
+      "Name": "Gelato Trio",
+      "Description__c": "Three scoops of artisan gelato in classic Italian flavors.",
+      "Price__c": 12,
+      "Menu__c": "@Menu__cRef1"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef2"
+      },
+      "Name": "Chocolate Torte",
+      "Description__c": "Rich chocolate torte with a hint of espresso and whipped cream.",
+      "Price__c": 14,
+      "Menu__c": "@Menu__cRef1"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef3"
+      },
+      "Name": "Wild Mushroom Risotto",
+      "Description__c": "Creamy risotto with wild mushrooms, parmesan, and truffle oil.",
+      "Price__c": 32,
+      "Menu__c": "@Menu__cRef1"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef4"
+      },
+      "Name": "Grilled Ribeye",
+      "Description__c": "12 oz. ribeye steak with roasted potatoes and grilled broccolini.",
+      "Price__c": 42,
+      "Menu__c": "@Menu__cRef1"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef5"
+      },
+      "Name": "Stuffed Mushrooms",
+      "Description__c": "Portobello mushrooms filled with spinach, ricotta, and breadcrumbs.",
+      "Price__c": 12,
+      "Menu__c": "@Menu__cRef1"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef6"
+      },
+      "Name": "Caprese Salad",
+      "Description__c": "Fresh mozzarella, tomatoes, and basil drizzled with balsamic glaze.",
+      "Price__c": 14,
+      "Menu__c": "@Menu__cRef1"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef7"
+      },
+      "Name": "Braised Short Ribs",
+      "Description__c": "Slow-braised short ribs served with creamy polenta.",
+      "Price__c": 36,
+      "Menu__c": "@Menu__cRef2"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef8"
+      },
+      "Name": "Seared Scallops",
+      "Description__c": "Seared scallops on a bed of saffron risotto.",
+      "Price__c": 38,
+      "Menu__c": "@Menu__cRef2"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef9"
+      },
+      "Name": "Duck Confit Salad",
+      "Description__c": "Mixed greens with duck confit, candied walnuts, and a raspberry vinaigrette.",
+      "Price__c": 20,
+      "Menu__c": "@Menu__cRef2"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef10"
+      },
+      "Name": "Lobster Bisque",
+      "Description__c": "Rich lobster bisque with a hint of sherry.",
+      "Price__c": 18,
+      "Menu__c": "@Menu__cRef2"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef11"
+      },
+      "Name": "Chocolate Croissant",
+      "Description__c": "Flaky croissant filled with rich chocolate.",
+      "Price__c": 6,
+      "Menu__c": "@Menu__cRef3"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef12"
+      },
+      "Name": "Warm Apple Tart",
+      "Description__c": "Served with a scoop of vanilla ice cream.",
+      "Price__c": 8,
+      "Menu__c": "@Menu__cRef3"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef13"
+      },
+      "Name": "Veggie Wrap",
+      "Description__c": "Whole wheat wrap with hummus, spinach, and roasted veggies.",
+      "Price__c": 13,
+      "Menu__c": "@Menu__cRef3"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef14"
+      },
+      "Name": "Turkey Pesto Panini",
+      "Description__c": "Served with a side salad.",
+      "Price__c": 15,
+      "Menu__c": "@Menu__cRef3"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef15"
+      },
+      "Name": "Caprese Omelet",
+      "Description__c": "Omelet with mozzarella, tomatoes, and basil.",
+      "Price__c": 12,
+      "Menu__c": "@Menu__cRef3"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef16"
+      },
+      "Name": "Smoked Salmon Bagel",
+      "Description__c": "Bagel with cream cheese, smoked salmon, and capers.",
+      "Price__c": 14,
+      "Menu__c": "@Menu__cRef3"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef17"
+      },
+      "Name": "Seasonal Berry Tart",
+      "Description__c": "Crisp tart filled with fresh seasonal berries.",
+      "Price__c": 9,
+      "Menu__c": "@Menu__cRef4"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef18"
+      },
+      "Name": "Apple Crumble",
+      "Description__c": "Warm apple crumble with a scoop of vanilla ice cream.",
+      "Price__c": 8,
+      "Menu__c": "@Menu__cRef4"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef19"
+      },
+      "Name": "Quinoa Power Bowl",
+      "Description__c": "Quinoa, roasted sweet potatoes, kale, and a citrus dressing.",
+      "Price__c": 18,
+      "Menu__c": "@Menu__cRef4"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef20"
+      },
+      "Name": "Herb-Crusted Chicken",
+      "Description__c": "Served with roasted vegetables and mashed potatoes.",
+      "Price__c": 22,
+      "Menu__c": "@Menu__cRef4"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef21"
+      },
+      "Name": "Sweet Potato Fritters",
+      "Description__c": "Golden fritters served with a spicy aioli.",
+      "Price__c": 12,
+      "Menu__c": "@Menu__cRef4"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef22"
+      },
+      "Name": "Farm Fresh Bruschetta",
+      "Description__c": "Crispy bread topped with fresh tomatoes, basil, and balsamic glaze.",
+      "Price__c": 10,
+      "Menu__c": "@Menu__cRef4"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef23"
+      },
+      "Name": "Seared Scallops",
+      "Description__c": "Pan-seared scallops served with a saffron risotto.",
+      "Price__c": 42,
+      "Menu__c": "@Menu__cRef5"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef24"
+      },
+      "Name": "Grilled Salmon",
+      "Description__c": "Fresh Atlantic salmon served with a dill cream sauce.",
+      "Price__c": 36,
+      "Menu__c": "@Menu__cRef5"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef25"
+      },
+      "Name": "Ribeye Steak",
+      "Description__c": "12 oz ribeye grilled to perfection, served with seasonal vegetables.",
+      "Price__c": 48,
+      "Menu__c": "@Menu__cRef5"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef26"
+      },
+      "Name": "Filet Mignon",
+      "Description__c": "8 oz filet served with garlic mashed potatoes and asparagus.",
+      "Price__c": 52,
+      "Menu__c": "@Menu__cRef5"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef27"
+      },
+      "Name": "Chocolate Chip Cookie",
+      "Description__c": "Warm cookie served with a glass of milk.",
+      "Price__c": 5,
+      "Menu__c": "@Menu__cRef6"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef28"
+      },
+      "Name": "Philly Cheesesteak",
+      "Description__c": "Shaved steak, onions, peppers, and provolone on a hoagie roll.",
+      "Price__c": 15,
+      "Menu__c": "@Menu__cRef6"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef29"
+      },
+      "Name": "Classic BLT",
+      "Description__c": "Bacon, lettuce, and tomato on toasted sourdough.",
+      "Price__c": 12,
+      "Menu__c": "@Menu__cRef6"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef30"
+      },
+      "Name": "Spinach Strawberry Salad",
+      "Description__c": "Baby spinach, strawberries, goat cheese, and a balsamic glaze.",
+      "Price__c": 12,
+      "Menu__c": "@Menu__cRef6"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef31"
+      },
+      "Name": "Grilled Chicken Salad",
+      "Description__c": "Mixed greens, grilled chicken, cherry tomatoes, and ranch dressing.",
+      "Price__c": 14,
+      "Menu__c": "@Menu__cRef6"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef32"
+      },
+      "Name": "Caesar Salad",
+      "Description__c": "Crisp romaine, parmesan, and croutons tossed in Caesar dressing.",
+      "Price__c": 10,
+      "Menu__c": "@Menu__cRef6"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef33"
+      },
+      "Name": "Crab Cakes",
+      "Description__c": "Golden crab cakes with a tangy remoulade sauce.",
+      "Price__c": 12,
+      "Menu__c": "@Menu__cRef6"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef34"
+      },
+      "Name": "Chocolate Pot de Crème",
+      "Description__c": "Rich chocolate custard with whipped cream and a hint of orange.",
+      "Price__c": 12,
+      "Menu__c": "@Menu__cRef7"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef35"
+      },
+      "Name": "Classic Tiramisu",
+      "Description__c": "Espresso-soaked ladyfingers layered with mascarpone cream.",
+      "Price__c": 12,
+      "Menu__c": "@Menu__cRef7"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef36"
+      },
+      "Name": "Spinach-Stuffed Ravioli",
+      "Description__c": "House-made ravioli filled with spinach and ricotta, served with marinara sauce.",
+      "Price__c": 24,
+      "Menu__c": "@Menu__cRef7"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef37"
+      },
+      "Name": "Pan-Roasted Chicken",
+      "Description__c": "Juicy chicken breast with creamy mashed potatoes and grilled asparagus.",
+      "Price__c": 28,
+      "Menu__c": "@Menu__cRef7"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef38"
+      },
+      "Name": "Ahi Tuna Tartare",
+      "Description__c": "Fresh tuna tartare served with wonton crisps and a sesame soy glaze.",
+      "Price__c": 18,
+      "Menu__c": "@Menu__cRef7"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef39"
+      },
+      "Name": "Garlic Shrimp Bruschetta",
+      "Description__c": "Garlic butter shrimp on toasted baguette slices, topped with basil and parmesan.",
+      "Price__c": 15,
+      "Menu__c": "@Menu__cRef7"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef40"
+      },
+      "Name": "Pan-Roasted Crab Cakes",
+      "Description__c": "Golden crab cakes served with remoulade sauce and a side of fresh greens.",
+      "Price__c": 20,
+      "Menu__c": "@Menu__cRef7"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef41"
+      },
+      "Name": "Mini Cheesecake",
+      "Description__c": "Individual cheesecake topped with fresh berries.",
+      "Price__c": 6,
+      "Menu__c": "@Menu__cRef8"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef42"
+      },
+      "Name": "Caprese Panini",
+      "Description__c": "Mozzarella, tomatoes, and pesto on ciabatta bread.",
+      "Price__c": 13,
+      "Menu__c": "@Menu__cRef8"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef43"
+      },
+      "Name": "Turkey Avocado Sandwich",
+      "Description__c": "Sliced turkey, avocado, and lettuce on whole wheat bread.",
+      "Price__c": 14,
+      "Menu__c": "@Menu__cRef8"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef44"
+      },
+      "Name": "Asian Sesame Salad",
+      "Description__c": "Mixed greens with mandarin oranges, sesame seeds, and a ginger dressing.",
+      "Price__c": 14,
+      "Menu__c": "@Menu__cRef8"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef45"
+      },
+      "Name": "Cobb Salad",
+      "Description__c": "Romaine lettuce, grilled chicken, bacon, avocado, and blue cheese.",
+      "Price__c": 15,
+      "Menu__c": "@Menu__cRef8"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef46"
+      },
+      "Name": "House Salad",
+      "Description__c": "Mixed greens, cherry tomatoes, cucumbers, and a balsamic vinaigrette.",
+      "Price__c": 10,
+      "Menu__c": "@Menu__cRef8"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef47"
+      },
+      "Name": "Tomato Basil Soup",
+      "Description__c": "A creamy tomato soup with fresh basil and a drizzle of olive oil.",
+      "Price__c": 8,
+      "Menu__c": "@Menu__cRef8"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef48"
+      },
+      "Name": "Crème Brûlée",
+      "Description__c": "Classic French custard with a caramelized sugar crust and fresh berries.",
+      "Price__c": 10,
+      "Menu__c": "@Menu__cRef9"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef49"
+      },
+      "Name": "Chocolate Lava Cake",
+      "Description__c": "Warm chocolate cake with a gooey center, served with vanilla bean ice cream.",
+      "Price__c": 12,
+      "Menu__c": "@Menu__cRef9"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef50"
+      },
+      "Name": "Wild Mushroom Risotto",
+      "Description__c": "Creamy Arborio rice with wild mushrooms and parmesan.",
+      "Price__c": 32,
+      "Menu__c": "@Menu__cRef9"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef51"
+      },
+      "Name": "Seared Sea Bass",
+      "Description__c": "Pan-seared Chilean sea bass with wild rice and seasonal vegetables.",
+      "Price__c": 42,
+      "Menu__c": "@Menu__cRef9"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef52"
+      },
+      "Name": "Filet Mignon",
+      "Description__c": "Grilled 8 oz. filet mignon with garlic mashed potatoes and red wine reduction.",
+      "Price__c": 48,
+      "Menu__c": "@Menu__cRef9"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef53"
+      },
+      "Name": "Burrata & Heirloom Tomatoes",
+      "Description__c": "Creamy burrata cheese with heirloom tomatoes and a balsamic reduction.",
+      "Price__c": 15,
+      "Menu__c": "@Menu__cRef9"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef54"
+      },
+      "Name": "Truffle Mushroom Soup",
+      "Description__c": "Rich and creamy soup made with wild mushrooms, drizzled with truffle oil.",
+      "Price__c": 14,
+      "Menu__c": "@Menu__cRef9"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef55"
+      },
+      "Name": "Seared Scallops",
+      "Description__c": "Pan-seared scallops served with a lemon beurre blanc and microgreens.",
+      "Price__c": 18,
+      "Menu__c": "@Menu__cRef9"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef56"
+      },
+      "Name": "Black Sesame Ice Cream",
+      "Description__c": "Homemade black sesame ice cream with a hint of honey.",
+      "Price__c": 8,
+      "Menu__c": "@Menu__cRef10"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef57"
+      },
+      "Name": "Coconut Panna Cotta",
+      "Description__c": "Creamy panna cotta infused with coconut milk.",
+      "Price__c": 9,
+      "Menu__c": "@Menu__cRef10"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef58"
+      },
+      "Name": "Korean BBQ Beef",
+      "Description__c": "Beef marinated in Korean BBQ sauce, served with rice and kimchi.",
+      "Price__c": 24,
+      "Menu__c": "@Menu__cRef10"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef59"
+      },
+      "Name": "Japanese Rice Bowl",
+      "Description__c": "Rice bowl topped with grilled chicken, teriyaki sauce, and vegetables.",
+      "Price__c": 18,
+      "Menu__c": "@Menu__cRef10"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef60"
+      },
+      "Name": "Banh Mi Sandwich",
+      "Description__c": "Vietnamese-style sandwich with pickled vegetables and pork.",
+      "Price__c": 14,
+      "Menu__c": "@Menu__cRef10"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef61"
+      },
+      "Name": "Spicy Shrimp Tacos",
+      "Description__c": "Tacos filled with spicy shrimp, lettuce, and avocado.",
+      "Price__c": 16,
+      "Menu__c": "@Menu__cRef10"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef62"
+      },
+      "Name": "Mango Sticky Rice",
+      "Description__c": "Sweet sticky rice with fresh mango slices.",
+      "Price__c": 8,
+      "Menu__c": "@Menu__cRef11"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef63"
+      },
+      "Name": "Matcha Cheesecake",
+      "Description__c": "Cheesecake infused with matcha green tea.",
+      "Price__c": 10,
+      "Menu__c": "@Menu__cRef11"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef64"
+      },
+      "Name": "Fusion Fried Rice",
+      "Description__c": "Rice with a blend of Asian spices, shrimp, and vegetables.",
+      "Price__c": 20,
+      "Menu__c": "@Menu__cRef11"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef65"
+      },
+      "Name": "Sesame-Crusted Chicken",
+      "Description__c": "Chicken breast crusted with sesame seeds, served with stir-fried vegetables.",
+      "Price__c": 26,
+      "Menu__c": "@Menu__cRef11"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef66"
+      },
+      "Name": "Tikka Masala Flatbread",
+      "Description__c": "Flatbread topped with tikka masala sauce, chicken, and cilantro.",
+      "Price__c": 18,
+      "Menu__c": "@Menu__cRef11"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef67"
+      },
+      "Name": "Miso-Glazed Salmon",
+      "Description__c": "Salmon with a miso glaze, served with pickled cucumbers.",
+      "Price__c": 22,
+      "Menu__c": "@Menu__cRef11"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef68"
+      },
+      "Name": "Vanilla Bean Crème Brûlée",
+      "Description__c": "Classic crème brûlée with a caramelized sugar crust.",
+      "Price__c": 12,
+      "Menu__c": "@Menu__cRef12"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef69"
+      },
+      "Name": "Rich Chocolate Tart",
+      "Description__c": "Decadent chocolate tart with a whipped cream topping.",
+      "Price__c": 14,
+      "Menu__c": "@Menu__cRef12"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef70"
+      },
+      "Name": "Pan-Seared Salmon",
+      "Description__c": "Fresh salmon filet served with roasted seasonal vegetables.",
+      "Price__c": 32,
+      "Menu__c": "@Menu__cRef12"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef71"
+      },
+      "Name": "Braised Short Ribs",
+      "Description__c": "Tender short ribs served with creamy mashed potatoes.",
+      "Price__c": 36,
+      "Menu__c": "@Menu__cRef12"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef72"
+      },
+      "Name": "Artisan Cheese Board",
+      "Description__c": "A selection of fine cheeses served with crackers and fresh fruit.",
+      "Price__c": 18,
+      "Menu__c": "@Menu__cRef12"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef73"
+      },
+      "Name": "Pan-Seared Scallops",
+      "Description__c": "Seared scallops served with a lemon butter sauce.",
+      "Price__c": 20,
+      "Menu__c": "@Menu__cRef12"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef74"
+      },
+      "Name": "Chocolate Brownie Sundae",
+      "Description__c": "Fudgy brownie topped with ice cream and chocolate syrup.",
+      "Price__c": 12,
+      "Menu__c": "@Menu__cRef13"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef75"
+      },
+      "Name": "Southern Peach Cobbler",
+      "Description__c": "Warm peach cobbler topped with vanilla ice cream.",
+      "Price__c": 10,
+      "Menu__c": "@Menu__cRef13"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef76"
+      },
+      "Name": "Beef Pot Pie",
+      "Description__c": "Classic pot pie filled with slow-cooked beef and vegetables.",
+      "Price__c": 18,
+      "Menu__c": "@Menu__cRef13"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef77"
+      },
+      "Name": "Fried Chicken",
+      "Description__c": "Crispy fried chicken served with macaroni and cheese.",
+      "Price__c": 16,
+      "Menu__c": "@Menu__cRef13"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef78"
+      },
+      "Name": "Mozzarella Sticks",
+      "Description__c": "Golden-fried mozzarella sticks with marinara sauce.",
+      "Price__c": 10,
+      "Menu__c": "@Menu__cRef13"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef79"
+      },
+      "Name": "Fried Pickles",
+      "Description__c": "Crispy fried pickles served with a spicy ranch dip.",
+      "Price__c": 8,
+      "Menu__c": "@Menu__cRef13"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef80"
+      },
+      "Name": "Indian Butter Chicken",
+      "Description__c": "Creamy tomato-based curry served with basmati rice.",
+      "Price__c": 18,
+      "Menu__c": "@Menu__cRef14"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef81"
+      },
+      "Name": "Japanese Ramen",
+      "Description__c": "Pork belly, soft-boiled egg, and scallions in a rich miso broth.",
+      "Price__c": 16,
+      "Menu__c": "@Menu__cRef14"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef82"
+      },
+      "Name": "Korean BBQ Wings",
+      "Description__c": "Crispy chicken wings tossed in a tangy Korean BBQ sauce.",
+      "Price__c": 12,
+      "Menu__c": "@Menu__cRef14"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef83"
+      },
+      "Name": "Spicy Tuna Tartare",
+      "Description__c": "Diced tuna with avocado, spicy mayo, and wonton crisps.",
+      "Price__c": 14,
+      "Menu__c": "@Menu__cRef14"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef84"
+      },
+      "Name": "Vegan Chocolate Cake",
+      "Description__c": "Rich chocolate cake made with plant-based ingredients.",
+      "Price__c": 9,
+      "Menu__c": "@Menu__cRef15"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef85"
+      },
+      "Name": "Chia Pudding",
+      "Description__c": "Chilled chia pudding with almond milk and fresh berries.",
+      "Price__c": 8,
+      "Menu__c": "@Menu__cRef15"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef86"
+      },
+      "Name": "Plant-Based Burger",
+      "Description__c": "Served with sweet potato fries and a side salad.",
+      "Price__c": 20,
+      "Menu__c": "@Menu__cRef15"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef87"
+      },
+      "Name": "Vegan Buddha Bowl",
+      "Description__c": "Quinoa, chickpeas, roasted vegetables, and tahini dressing.",
+      "Price__c": 18,
+      "Menu__c": "@Menu__cRef15"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef88"
+      },
+      "Name": "Vegan Spring Rolls",
+      "Description__c": "Filled with fresh vegetables and served with peanut sauce.",
+      "Price__c": 10,
+      "Menu__c": "@Menu__cRef15"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef89"
+      },
+      "Name": "Avocado Toast",
+      "Description__c": "Smashed avocado on whole-grain bread with chili flakes.",
+      "Price__c": 12,
+      "Menu__c": "@Menu__cRef15"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef90"
+      },
+      "Name": "Chicken Noodle Soup",
+      "Description__c": "Classic chicken noodle soup with a hearty broth.",
+      "Price__c": 8,
+      "Menu__c": "@Menu__cRef16"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef91"
+      },
+      "Name": "Creamy Tomato Basil Soup",
+      "Description__c": "Rich tomato soup with fresh basil, served with crackers.",
+      "Price__c": 8,
+      "Menu__c": "@Menu__cRef16"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef92"
+      },
+      "Name": "Italian Hoagie",
+      "Description__c": "Ham, salami, and provolone with lettuce, tomato, and Italian dressing.",
+      "Price__c": 11,
+      "Menu__c": "@Menu__cRef16"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef93"
+      },
+      "Name": "Turkey Avocado Club",
+      "Description__c": "Turkey, avocado, bacon, lettuce, and tomato on artisan bread.",
+      "Price__c": 12,
+      "Menu__c": "@Menu__cRef16"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef94"
+      },
+      "Name": "Milkshake Trio",
+      "Description__c": "Three mini milkshakes in chocolate, vanilla, and strawberry.",
+      "Price__c": 12,
+      "Menu__c": "@Menu__cRef17"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef95"
+      },
+      "Name": "Chocolate Chip Cookie Skillet",
+      "Description__c": "Warm cookie topped with vanilla ice cream.",
+      "Price__c": 8,
+      "Menu__c": "@Menu__cRef17"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef96"
+      },
+      "Name": "BBQ Pulled Pork Sandwich",
+      "Description__c": "Served with coleslaw on a brioche bun.",
+      "Price__c": 14,
+      "Menu__c": "@Menu__cRef17"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef97"
+      },
+      "Name": "Classic Cheeseburger",
+      "Description__c": "Juicy burger with cheddar, lettuce, and tomato.",
+      "Price__c": 16,
+      "Menu__c": "@Menu__cRef17"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef98"
+      },
+      "Name": "Pretzel Bites",
+      "Description__c": "Warm pretzel bites with a cheesy dipping sauce.",
+      "Price__c": 10,
+      "Menu__c": "@Menu__cRef17"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef99"
+      },
+      "Name": "Loaded Nachos",
+      "Description__c": "Crispy nachos topped with cheese, jalapenos, and sour cream.",
+      "Price__c": 14,
+      "Menu__c": "@Menu__cRef17"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef100"
+      },
+      "Name": "Fried Banana Foster",
+      "Description__c": "Bananas sautéed in rum and brown sugar, served over vanilla ice cream.",
+      "Price__c": 14,
+      "Menu__c": "@Menu__cRef18"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef101"
+      },
+      "Name": "Deep Ellum Cheesecake",
+      "Description__c": "Classic cheesecake with a raspberry swirl and graham cracker crust.",
+      "Price__c": 14,
+      "Menu__c": "@Menu__cRef18"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef102"
+      },
+      "Name": "Grilled Salmon Tacos",
+      "Description__c": "Grilled salmon, avocado crema, and mango salsa in warm corn tortillas.",
+      "Price__c": 26,
+      "Menu__c": "@Menu__cRef18"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef103"
+      },
+      "Name": "Blackened Shrimp Pasta",
+      "Description__c": "Linguine tossed in a Cajun cream sauce with blackened shrimp and fresh herbs.",
+      "Price__c": 30,
+      "Menu__c": "@Menu__cRef18"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef104"
+      },
+      "Name": "Artisan Flatbread",
+      "Description__c": "Crispy flatbread topped with caramelized onions, prosciutto, and arugula.",
+      "Price__c": 16,
+      "Menu__c": "@Menu__cRef18"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef105"
+      },
+      "Name": "Fresh Ceviche",
+      "Description__c": "Citrus-marinated shrimp and fish served with avocado and tortilla chips.",
+      "Price__c": 18,
+      "Menu__c": "@Menu__cRef18"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef106"
+      },
+      "Name": "Pecan Pie",
+      "Description__c": "Southern-style pecan pie with whipped cream.",
+      "Price__c": 8,
+      "Menu__c": "@Menu__cRef19"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef107"
+      },
+      "Name": "Bread Pudding",
+      "Description__c": "Rich bread pudding topped with a caramel sauce.",
+      "Price__c": 10,
+      "Menu__c": "@Menu__cRef19"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef108"
+      },
+      "Name": "Chicken Pot Pie",
+      "Description__c": "Classic pot pie with a flaky crust.",
+      "Price__c": 18,
+      "Menu__c": "@Menu__cRef19"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef109"
+      },
+      "Name": "Braised Beef Brisket",
+      "Description__c": "Slow-cooked brisket served with mashed potatoes and gravy.",
+      "Price__c": 22,
+      "Menu__c": "@Menu__cRef19"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef110"
+      },
+      "Name": "Braised Beef Sliders",
+      "Description__c": "Mini sliders with tender braised beef and coleslaw.",
+      "Price__c": 14,
+      "Menu__c": "@Menu__cRef19"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef111"
+      },
+      "Name": "Loaded Baked Potato",
+      "Description__c": "Baked potato loaded with cheese, bacon, and sour cream.",
+      "Price__c": 10,
+      "Menu__c": "@Menu__cRef19"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef112"
+      },
+      "Name": "Grilled Salmon",
+      "Description__c": "Salmon fillet with a lemon butter sauce, served with asparagus.",
+      "Price__c": 22,
+      "Menu__c": "@Menu__cRef20"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef113"
+      },
+      "Name": "Braised Short Ribs",
+      "Description__c": "Tender short ribs served with roasted root vegetables.",
+      "Price__c": 24,
+      "Menu__c": "@Menu__cRef20"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef114"
+      },
+      "Name": "Shepherd’s Pie",
+      "Description__c": "Ground beef, peas, and carrots topped with creamy mashed potatoes.",
+      "Price__c": 14,
+      "Menu__c": "@Menu__cRef20"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef115"
+      },
+      "Name": "Chicken and Waffles",
+      "Description__c": "Crispy fried chicken served atop a fluffy waffle, drizzled with maple syrup.",
+      "Price__c": 16,
+      "Menu__c": "@Menu__cRef20"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef116"
+      },
+      "Name": "Chocolate Croissant",
+      "Description__c": "Flaky croissant filled with rich chocolate.",
+      "Price__c": 6,
+      "Menu__c": "@Menu__cRef21"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef117"
+      },
+      "Name": "Warm Apple Tart",
+      "Description__c": "Warm apple tart served with a scoop of vanilla ice cream.",
+      "Price__c": 8,
+      "Menu__c": "@Menu__cRef21"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef118"
+      },
+      "Name": "Veggie Wrap",
+      "Description__c": "Whole wheat wrap with hummus, spinach, and roasted vegetables.",
+      "Price__c": 13,
+      "Menu__c": "@Menu__cRef21"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef119"
+      },
+      "Name": "Skyline Burger",
+      "Description__c": "Juicy burger with cheddar cheese and special sauce.",
+      "Price__c": 14,
+      "Menu__c": "@Menu__cRef21"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef120"
+      },
+      "Name": "Sushi Rolls",
+      "Description__c": "A selection of freshly prepared sushi rolls.",
+      "Price__c": 18,
+      "Menu__c": "@Menu__cRef21"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef121"
+      },
+      "Name": "Crispy Fried Chicken",
+      "Description__c": "Golden fried chicken served with a side of coleslaw.",
+      "Price__c": 16,
+      "Menu__c": "@Menu__cRef21"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef122"
+      },
+      "Name": "Chocolate Chip Cookie Skillet",
+      "Description__c": "Warm cookie topped with vanilla ice cream.",
+      "Price__c": 8,
+      "Menu__c": "@Menu__cRef22"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef123"
+      },
+      "Name": "Milkshake Trio",
+      "Description__c": "A trio of milkshakes: chocolate, vanilla, and strawberry.",
+      "Price__c": 12,
+      "Menu__c": "@Menu__cRef22"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef124"
+      },
+      "Name": "Grilled Chicken Sandwich",
+      "Description__c": "Marinated chicken breast served on a toasted bun.",
+      "Price__c": 16,
+      "Menu__c": "@Menu__cRef22"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef125"
+      },
+      "Name": "Handcrafted Pasta",
+      "Description__c": "Fresh pasta with your choice of marinara or Alfredo sauce.",
+      "Price__c": 18,
+      "Menu__c": "@Menu__cRef22"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef126"
+      },
+      "Name": "Loaded Fries",
+      "Description__c": "Crispy fries topped with cheese, bacon, and green onions.",
+      "Price__c": 12,
+      "Menu__c": "@Menu__cRef22"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef127"
+      },
+      "Name": "Artisan Tacos",
+      "Description__c": "Handcrafted tacos with your choice of fillings.",
+      "Price__c": 14,
+      "Menu__c": "@Menu__cRef22"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef128"
+      },
+      "Name": "Classic Tiramisu",
+      "Description__c": "Espresso-soaked ladyfingers layered with mascarpone.",
+      "Price__c": 12,
+      "Menu__c": "@Menu__cRef23"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef129"
+      },
+      "Name": "Chocolate Fondant",
+      "Description__c": "Rich molten chocolate cake with fresh berries.",
+      "Price__c": 14,
+      "Menu__c": "@Menu__cRef23"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef130"
+      },
+      "Name": "Filet Mignon",
+      "Description__c": "8 oz filet served with garlic mashed potatoes and asparagus.",
+      "Price__c": 48,
+      "Menu__c": "@Menu__cRef23"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef131"
+      },
+      "Name": "Seared Scallops",
+      "Description__c": "Pan-seared scallops served over a saffron risotto.",
+      "Price__c": 38,
+      "Menu__c": "@Menu__cRef23"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef132"
+      },
+      "Name": "Lobster Bisque",
+      "Description__c": "Creamy lobster bisque with a hint of sherry.",
+      "Price__c": 18,
+      "Menu__c": "@Menu__cRef23"
+    },
+    {
+      "attributes": {
+        "type": "Menu_Item__c",
+        "referenceId": "Menu_Item__cRef133"
+      },
+      "Name": "Duck Confit Salad",
+      "Description__c": "Mixed greens topped with duck confit and candied walnuts.",
+      "Price__c": 22,
+      "Menu__c": "@Menu__cRef23"
+    }
+  ]
+}

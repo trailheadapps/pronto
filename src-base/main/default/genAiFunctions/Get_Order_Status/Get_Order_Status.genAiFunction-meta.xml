@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<GenAiFunction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Gets the status and details of an order by its ID</description>
+    <developerName>Get_Order_Status</developerName>
+    <invocationTarget>GetOrderStatusAction</invocationTarget>
+    <invocationTargetType>apex</invocationTargetType>
+    <isConfirmationRequired>false</isConfirmationRequired>
+    <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+    <localDeveloperName>Get_Order_Status</localDeveloperName>
+    <masterLabel>Get Order Status</masterLabel>
+    <progressIndicatorMessage>Retrieving order status...</progressIndicatorMessage>
+</GenAiFunction>

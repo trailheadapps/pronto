@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>67.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>Generic Page Header</masterLabel>
+    <description
+  >A reusable and flexible page header component that can be used across different pages and applications</description>
+    <targets>
+        <target>lightning__AppPage</target>
+        <target>lightning__HomePage</target>
+        <target>lightning__RecordPage</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__AppPage,lightning__HomePage,lightning__RecordPage">
+            <property
+        label="Title"
+        name="title"
+        type="String"
+        description="The main title displayed in the page header"
+      />
+            <property
+        label="Subtitle"
+        name="subtitle"
+        type="String"
+        description="Optional subtitle or description text"
+      />
+            <property
+        label="Icon Name"
+        name="iconName"
+        type="String"
+        description="SLDS icon name (e.g., 'standard:home', 'utility:apps')"
+      />
+            <property
+        label="Show Icon"
+        name="showIcon"
+        type="Boolean"
+        default="true"
+        description="Whether to display the icon"
+      />
+            <property
+        label="Icon Size"
+        name="iconSize"
+        type="String"
+        default="large"
+        description="Size of the icon (xx-small, x-small, small, medium, large)"
+      />
+            <property
+        label="Icon Alternative Text"
+        name="iconAlternativeText"
+        type="String"
+        description="Alternative text for the icon (for accessibility)"
+      />
+            <property
+        label="Header CSS Class"
+        name="headerClass"
+        type="String"
+        description="Additional CSS classes for the header container"
+      />
+            <property
+        label="Title CSS Class"
+        name="titleClass"
+        type="String"
+        description="Additional CSS classes for the title"
+      />
+            <property
+        label="Subtitle CSS Class"
+        name="subtitleClass"
+        type="String"
+        description="Additional CSS classes for the subtitle"
+      />
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

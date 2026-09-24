@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<DigitalExperienceConfig xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>Pronto Customer Site</label>
+    <site>
+        <urlPathPrefix>customers</urlPathPrefix>
+    </site>
+    <space>site/Pronto_Customer_Site1</space>
+</DigitalExperienceConfig>

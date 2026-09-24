@@ -1,0 +1,7 @@
+c-store-tile {
+  min-width: 220px;
+}
+
+c-store-tile:hover {
+  box-shadow: 4px 5px 5px #9d9fa0;
+}

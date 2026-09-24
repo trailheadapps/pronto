@@ -1,0 +1,46 @@
+{
+  "orgName": "Pronto",
+  "edition": "Developer",
+  "language": "en_US",
+  "hasSampleData": false,
+  "features": [
+    "Communities",
+    "ServiceCloud",
+    "LiveAgent",
+    "LiveMessage",
+    "Sites",
+    "StateAndCountryPicklist",
+    "FlowSites",
+    "Einstein1AIPlatform",
+    "EnableSetPasswordInApi"
+  ],
+  "settings": {
+    "customAddressFieldSettings": {
+      "enableCustomAddressField": true
+    },
+    "communitiesSettings": {
+      "enableNetworksEnabled": true
+    },
+    "experienceBundleSettings": {
+      "enableExperienceBundleMetadata": true
+    },
+    "lightningExperienceSettings": {
+      "enableS1DesktopEnabled": true
+    },
+    "liveAgentSettings": { "enableLiveAgent": true },
+    "liveMessageSettings": { "enableLiveMessage": true },
+    "mobileSettings": {
+      "enableS1EncryptedStoragePref2": false
+    },
+    "omniChannelSettings": { "enableOmniChannel": true },
+    "userEngagementSettings": {
+      "enableShowSalesforceUserAssist": false
+    },
+    "einsteinGptSettings": {
+      "enableEinsteinGptPlatform": true
+    },
+    "agentPlatformSettings": {
+      "enableAgentPlatform": true
+    }
+  }
+}

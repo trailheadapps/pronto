@@ -1,0 +1,57 @@
+{
+  "packageDirectories": [
+    {
+      "path": "src-base",
+      "default": true
+    },
+    {
+      "path": "src-site"
+    }
+  ],
+  "name": "pronto",
+  "namespace": "",
+  "sfdcLoginUrl": "https://login.salesforce.com",
+  "sourceApiVersion": "67.0",
+  "replacements": [
+    {
+      "glob": "**/aiAuthoringBundles/**/*.agent",
+      "stringToReplace": "%%PRONTO_PLACEHOLDER_AGENT_USERNAME%%",
+      "replaceWithEnv": "PRONTO_AGENT_USERNAME"
+    },
+    {
+      "filename": "src-base/main/default/flows/Customer_Service_Agent_Routing_Flow.flow-meta.xml",
+      "stringToReplace": "%%PRONTO_PLACEHOLDER_QUEUE_ID%%",
+      "replaceWithEnv": "PRONTO_AGENT_ROUTING_QUEUE_ID"
+    },
+    {
+      "filename": "src-base/main/default/flows/Customer_Service_Escalation_Routing_Flow.flow-meta.xml",
+      "stringToReplace": "%%PRONTO_PLACEHOLDER_QUEUE_ID%%",
+      "replaceWithEnv": "PRONTO_ESCALATION_ROUTING_QUEUE_ID"
+    },
+    {
+      "filename": "src-site/main/default/pages/ESWCustomerServiceAgent.page",
+      "stringToReplace": "%%PRONTO_PLACEHOLDER_ORG_DOMAIN%%",
+      "replaceWithEnv": "PRONTO_ORG_DOMAIN"
+    },
+    {
+      "filename": "src-site/main/default/pages/ESWCustomerServiceAgent.page",
+      "stringToReplace": "%%PRONTO_PLACEHOLDER_ORG_ID%%",
+      "replaceWithEnv": "PRONTO_ORG_ID"
+    },
+    {
+      "filename": "src-site/main/default/digitalExperiences/site/ESW_Customer_Service_Agent1/sfdc_cms__trustedSites/trustedSites/content.json",
+      "stringToReplace": "%%PRONTO_PLACEHOLDER_ORG_DOMAIN%%",
+      "replaceWithEnv": "PRONTO_ORG_DOMAIN"
+    },
+    {
+      "filename": "src-site/main/default/digitalExperiences/site/Pronto_Customer_Site1/sfdc_cms__view/home/content.json",
+      "stringToReplace": "%%PRONTO_PLACEHOLDER_ORG_DOMAIN%%",
+      "replaceWithEnv": "PRONTO_ORG_DOMAIN"
+    },
+    {
+      "filename": "src-site/main/default/digitalExperiences/site/Pronto_Customer_Site1/sfdc_cms__themeLayout/scopedHeaderAndFooter/content.json",
+      "stringToReplace": "%%PRONTO_PLACEHOLDER_ORG_DOMAIN%%",
+      "replaceWithEnv": "PRONTO_ORG_DOMAIN"
+    }
+  ]
+}

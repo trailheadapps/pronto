@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <activeVersionIdentifier>NWe5ey43TcfBa+4hPyPjwJOdYntsY9tBGVvrmmwVh/k=_5</activeVersionIdentifier>
+    <description>Parses the PDF attached to a storefront and turn it into structured menu data.</description>
+    <developerName>Extract_Menu</developerName>
+    <masterLabel>Extract Menu</masterLabel>
+    <overridable>false</overridable>
+    <templateVersions>
+        <content>The attached files hold a menu for this restaurant:
+{!$RelatedList:storefront.CombinedAttachments.Records}
+
+Parse the files and output a single JSON array holding the list of menu items following the structure of the Menu_Item__c object like this:
+
+[{
+&quot;Name&quot;: &quot;&quot;,
+&quot;Description__c&quot;: &quot;&quot;,
+&quot;Price__c&quot;: 0,
+}]
+
+All fields are strings except for Price__c which is a number.
+Directly output the array as above.
+</content>
+        <inputs>
+            <apiName>storefront</apiName>
+            <definition>SOBJECT://Storefront__c</definition>
+            <masterLabel>storefront</masterLabel>
+            <referenceName>Input:storefront</referenceName>
+            <required>true</required>
+        </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
+        <responseFormat>JSON</responseFormat>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>invocable://getRelatedList</definition>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>parentRecordId</parameterName>
+                <valueExpression>{!$Input:storefront.Id}</valueExpression>
+            </parameters>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>relatedListName</parameterName>
+                <valueExpression>CombinedAttachments</valueExpression>
+            </parameters>
+            <referenceName>RelatedList:storefront.CombinedAttachments.Records</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>NWe5ey43TcfBa+4hPyPjwJOdYntsY9tBGVvrmmwVh/k=_5</versionIdentifier>
+    </templateVersions>
+    <type>einstein_gpt__flex</type>
+    <visibility>Global</visibility>
+</GenAiPromptTemplate>

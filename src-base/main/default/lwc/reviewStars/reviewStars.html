@@ -1,0 +1,18 @@
+<template>
+  <div class="rating-container">
+    <span lwc:if={isFullDisplay} class="slds-form-element__label slds-var-m-left_xx-small"> Rating: </span>
+    <div title={overviewLabel}>
+      <template for:each={stars} for:item="star">
+        <lightning-icon
+          key={star.index}
+          icon-name={star.iconName}
+          size="x-small"
+          class="star-icon"
+          alternative-text="star"
+        ></lightning-icon>
+      </template>
+    </div>
+    <span lwc:if={isCompactDisplay} class="slds-var-m-left_xx-small">({numberOfReviews})</span>
+    <span lwc:elseif={isFullDisplay} class="slds-var-m-left_xx-small">{overviewLabel}</span>
+  </div>
+</template>

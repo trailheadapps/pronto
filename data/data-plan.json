@@ -1,0 +1,30 @@
+[
+  {
+    "sobject": "Contact",
+    "files": ["Contact.json"]
+  },
+  {
+    "sobject": "Storefront__c",
+    "files": ["Storefront__c.json"]
+  },
+  {
+    "sobject": "Menu__c",
+    "files": ["Menu__c.json"]
+  },
+  {
+    "sobject": "Menu_Item__c",
+    "files": ["Menu_Item__c.json"]
+  },
+  {
+    "sobject": "Review__c",
+    "files": ["Review__c.json"]
+  },
+  {
+    "sobject": "Order__c",
+    "files": ["Order__c.json"]
+  },
+  {
+    "sobject": "Order_Item__c",
+    "files": ["Order_Item__c.json"]
+  }
+]

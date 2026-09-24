@@ -1,0 +1,43 @@
+<template>
+  <div class="slds-page-header">
+    <div class="slds-page-header__row">
+      <div class="slds-page-header__col-title">
+        <div class="slds-media">
+          <template lwc:if={shouldShowIcon}>
+            <div class="slds-media__figure">
+              <span class="slds-icon_container slds-icon-standard-home">
+                <lightning-icon icon-name={iconName} alternative-text={iconAltText} size={iconSize}></lightning-icon>
+              </span>
+            </div>
+          </template>
+          <div class="slds-media__body">
+            <template lwc:if={subtitle}>
+              <p class="slds-page-header__name-meta">{subtitle}</p>
+            </template>
+            <template lwc:if={title}>
+              <div class="slds-page-header__name">
+                <div class="slds-page-header__name-title">
+                  <h1>
+                    <span class="slds-page-header__title slds-truncate" title={title}>{title}</span>
+                  </h1>
+                </div>
+              </div>
+            </template>
+          </div>
+        </div>
+      </div>
+      <div class="slds-page-header__col-actions">
+        <div class="slds-page-header__controls">
+          <slot name="actions"></slot>
+        </div>
+      </div>
+    </div>
+    <template lwc:if={hasDetailsSlot}>
+      <div class="slds-page-header__row slds-page-header__row_gutters">
+        <div class="slds-page-header__col-details">
+          <slot name="details"></slot>
+        </div>
+      </div>
+    </template>
+  </div>
+</template>

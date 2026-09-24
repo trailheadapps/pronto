@@ -1,0 +1,21 @@
+{
+  "required": ["customerId", "orderId"],
+  "unevaluatedProperties": false,
+  "properties": {
+    "customerId": {
+      "title": "Customer ID",
+      "description": "The customer ID of the order to get status for",
+      "lightning:type": "lightning__textType",
+      "lightning:isPII": false,
+      "copilotAction:isUserInput": false
+    },
+    "orderId": {
+      "title": "Order ID",
+      "description": "The order ID of the order to get status for",
+      "lightning:type": "lightning__textType",
+      "lightning:isPII": false,
+      "copilotAction:isUserInput": false
+    }
+  },
+  "lightning:type": "lightning__objectType"
+}

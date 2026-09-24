@@ -1,0 +1,71 @@
+<template>
+  <lightning-card lwc:if={value} title={cardTitle} icon-name="standard:work_order_item">
+    <!-- Actions -->
+    <div slot="actions">
+      <lightning-button-icon icon-name="utility:expand_alt" onclick={handleNavigateToOrderRecord}>
+        <label>Navigate to Record</label>
+      </lightning-button-icon>
+    </div>
+
+    <div class="slds-card__body slds-card__body_inner">
+      <!-- Order status and badge -->
+      <header class="slds-media slds-media_center slds-has-flexi-truncate">
+        <div class="slds-media__figure">
+          <lightning-icon icon-name={statusIconName} size="medium" variant={statusVariant}> </lightning-icon>
+        </div>
+        <div class="slds-media__body">
+          <lightning-badge label={statusLabel} class={statusBadgeClass}></lightning-badge>
+        </div>
+      </header>
+
+      <!-- Order Details Grid -->
+      <div class="slds-grid slds-wrap slds-gutters">
+        <!-- Storefront Information -->
+        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
+          <div class="slds-form-element">
+            <label class="slds-form-element__label">Storefront</label>
+            <div class="slds-form-element__control">
+              <span class="slds-form-element__static">{storefrontName}</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Total Amount -->
+        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
+          <div class="slds-form-element">
+            <label class="slds-form-element__label">Total Amount</label>
+            <div class="slds-form-element__control">
+              <span class="slds-form-element__static slds-text-heading_small slds-text-color_success">
+                {formattedTotalAmount}
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Order Time -->
+        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
+          <div class="slds-form-element">
+            <label class="slds-form-element__label">Order Time</label>
+            <div class="slds-form-element__control">
+              <span class="slds-form-element__static">{formattedOrderTime}</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Delivery Time -->
+        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
+          <div class="slds-form-element">
+            <label class="slds-form-element__label">Expected Delivery</label>
+            <div class="slds-form-element__control">
+              <span class="slds-form-element__static">{formattedDeliveryTime}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Delivery Tracker -->
+    <c-order-delivery-tracker lwc:if={mapMarkers} map-markers={mapMarkers}></c-order-delivery-tracker>
+  </lightning-card>
+  <lightning-spinner lwc:else size="medium" variant="brand" alternative-text="Loading order status"></lightning-spinner>
+</template>

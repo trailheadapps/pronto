@@ -1,0 +1,12 @@
+:host {
+  display: block;
+}
+
+.rating-container {
+  display: flex;
+  align-items: center;
+}
+
+.star-icon {
+  --slds-c-icon-color-foreground-default: #ffc400;
+}

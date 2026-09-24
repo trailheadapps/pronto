@@ -1,0 +1,35 @@
+engines:
+  flow:
+    # Disable flow validation
+    disable_engine: true
+  eslint:
+    # Force our local ESlint config to be used
+    eslint_config_file: "eslint.config.js"
+    auto_discover_eslint_config: true
+    disable_javascript_base_config: true
+    disable_lwc_base_config: true
+    disable_typescript_base_config: true
+  pmd:
+    file_extensions:
+      # Disable Visualforce validation
+      visualforce:
+        - ".vfnoop"
+rules:
+  pmd:
+    # Disable rule that warns about global modifiers as these are needed for MCP action
+    AvoidGlobalModifier:
+      disabled: true
+ignores:
+  files:
+    - "bin/**"
+    - "**/staticresources/**"
+    - "**/classes/xpCloudSiteDefault/**"
+suppressions:
+  "src-base/test/":
+    - rule_selector: "pmd:MethodNamingConventions"
+      max_suppressed_violations: null
+      reason: "Test method names don't need to follow standard naming conventions"
+  "src-site/main/default/digitalExperiences/":
+    - rule_selector: "eslint:@salesforce-ux/slds/no-hardcoded-values-slds2"
+      max_suppressed_violations: null
+      reason: "Experience Cloud site do not use SLDS"

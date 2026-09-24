@@ -1,0 +1,9 @@
+{
+  "type": "sfdc_cms__site",
+  "title": "ESW_Customer_Service_Agent",
+  "contentBody": {
+    "authenticationType": "AUTHENTICATED_WITH_PUBLIC_ACCESS_ENABLED",
+    "geoBotsAllowed": false
+  },
+  "urlName": "esw-customer-service-agent"
+}

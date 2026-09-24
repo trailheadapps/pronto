@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Type__c</fullName>
+    <description>The type of storefront</description>
+    <label>Type</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Bakery</fullName>
+                <default>false</default>
+                <label>Bakery</label>
+            </value>
+            <value>
+                <fullName>Bar/Pub</fullName>
+                <default>false</default>
+                <label>Bar/Pub</label>
+            </value>
+            <value>
+                <fullName>Café</fullName>
+                <default>false</default>
+                <label>Café</label>
+            </value>
+            <value>
+                <fullName>Convenience Store</fullName>
+                <default>false</default>
+                <label>Convenience Store</label>
+            </value>
+            <value>
+                <fullName>Dessert Shop</fullName>
+                <default>false</default>
+                <label>Dessert Shop</label>
+            </value>
+            <value>
+                <fullName>Food Truck</fullName>
+                <default>false</default>
+                <label>Food Truck</label>
+            </value>
+            <value>
+                <fullName>Grocery Store</fullName>
+                <default>false</default>
+                <label>Grocery Store</label>
+            </value>
+            <value>
+                <fullName>Juice Bar/Smoothie Shop</fullName>
+                <default>false</default>
+                <label>Juice Bar/Smoothie Shop</label>
+            </value>
+            <value>
+                <fullName>Restaurant</fullName>
+                <default>false</default>
+                <label>Restaurant</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

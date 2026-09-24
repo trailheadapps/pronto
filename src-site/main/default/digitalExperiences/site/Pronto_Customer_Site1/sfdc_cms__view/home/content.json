@@ -1,0 +1,170 @@
+{
+  "type": "sfdc_cms__view",
+  "title": "Home",
+  "contentBody": {
+    "component": {
+      "children": [
+        {
+          "children": [
+            {
+              "attributes": {
+                "backgroundImageConfig": "",
+                "backgroundImageOverlay": "rgba(0,0,0,0)",
+                "componentSpacerSize": "0rem",
+                "dxpStyle": {
+                  "margin": {
+                    "bottom": "0px",
+                    "left": "0px",
+                    "right": "0px",
+                    "top": "0px"
+                  },
+                  "padding": {
+                    "bottom": "0px",
+                    "left": "0px",
+                    "right": "0px",
+                    "top": "0px"
+                  }
+                },
+                "layoutDirectionDesktop": "row",
+                "layoutDirectionMobile": "column",
+                "layoutDirectionTablet": "column",
+                "maxContentWidth": "",
+                "sectionColumnGutterWidth": "0rem",
+                "sectionConfig": "{\"UUID\":\"5ba498dd-18ef-40a3-bd7e-353d4ca7464d\",\"columns\":[{\"UUID\":\"9cde1bd2-1685-44f6-a406-80f753eaee64\",\"columnName\":\"Column 1\",\"columnKey\":\"col1\",\"columnWidth\":\"12\",\"seedComponents\":null}]}",
+                "sectionMinHeight": "",
+                "sectionVerticalAlign": "flex-start"
+              },
+              "children": [
+                {
+                  "children": [
+                    {
+                      "attributes": {
+                        "clientVersion": "WebV1",
+                        "deploymentName": "Customer_Service_Agent",
+                        "dxpStyle": {},
+                        "hideChatButtonOnLoad": "Default",
+                        "isExpSiteAuthMode": false,
+                        "scrtUrl": "%%PRONTO_PLACEHOLDER_ORG_DOMAIN%%.my.salesforce-scrt.com",
+                        "siteEndpoint": "%%PRONTO_PLACEHOLDER_ORG_DOMAIN%%.my.site.com/ESWCustomerServiceAgent"
+                      },
+                      "definition": "experience_messaging:embeddedMessaging",
+                      "id": "322dad9d-b28e-4c0c-a4f0-f71a4016e3f7",
+                      "type": "component"
+                    },
+                    {
+                      "attributes": {
+                        "dxpStyle": {
+                          "margin": {
+                            "bottom": "0px",
+                            "left": "0px",
+                            "right": "0px",
+                            "top": "0px"
+                          },
+                          "padding": {
+                            "bottom": "0px",
+                            "left": "0px",
+                            "right": "0px",
+                            "top": "0px"
+                          }
+                        },
+                        "imageInfos": "",
+                        "richTextValue": "<div class=\"hero\">\n    <div class=\"hero__content\">\n        <h1 class=\"hero__headline\">Welcome to Pronto Customer Support</h1>\n        <p class=\"hero__subheadline\">\n            Let us help you track your orders, resolve issues, or find answers to your questions.\n        </p>\n        <div class=\"hero__cta\">\n            <button>Contact Support</button>\n        </div>\n    </div>\n</div>"
+                      },
+                      "definition": "community_builder:htmlEditor",
+                      "id": "c2351f4f-031f-4f7a-8fb2-fe4d5b9cff7b",
+                      "type": "component"
+                    },
+                    {
+                      "attributes": {
+                        "dxpStyle": {
+                          "margin": {
+                            "bottom": "0px",
+                            "left": "0px",
+                            "right": "0px",
+                            "top": "0px"
+                          },
+                          "padding": {
+                            "bottom": "0px",
+                            "left": "0px",
+                            "right": "0px",
+                            "top": "0px"
+                          }
+                        },
+                        "imageInfos": "",
+                        "richTextValue": "<div class=\"customer-card-section\">\n    <h2 class=\"customer-card-section__title\">How can we help you today?</h2>\n    <p class=\"customer-card-section__subtitle\">Select a category to explore resources and solutions.</p>\n    <div class=\"customer-cards\">\n        <!-- Card 1 -->\n        <div class=\"customer-card\">\n            <div class=\"customer-card__icon\">\n                <img src=\"/sfsites/c/resource/prontosite/pronto-site/track_your_order.png\" alt=\"Order Tracking\">\n            </div>\n            <h3 class=\"customer-card__title\">Track Your Order</h3>\n        </div>\n        <!-- Card 2 -->\n        <div class=\"customer-card\">\n            <div class=\"customer-card__icon\">\n                <img src=\"/sfsites/c/resource/prontosite/pronto-site/refund.png\" alt=\"Refund Requests\">\n            </div>\n            <h3 class=\"customer-card__title\">Refund Requests</h3>\n        </div>\n        <!-- Card 3 -->\n        <div class=\"customer-card\">\n            <div class=\"customer-card__icon\">\n                <img src=\"/sfsites/c/resource/prontosite/pronto-site/customer_support.png\" alt=\"Customer Support\">\n            </div>\n            <h3 class=\"customer-card__title\">Customer Support</h3>\n        </div>\n        <!-- Card 4 -->\n        <div class=\"customer-card\">\n            <div class=\"customer-card__icon\">\n                <img src=\"/sfsites/c/resource/prontosite/pronto-site/delivery_issues.png\" alt=\"Delivery Issues\">\n            </div>\n            <h3 class=\"customer-card__title\">Delivery Issues</h3>\n        </div>\n        <!-- Card 5 -->\n        <div class=\"customer-card\">\n            <div class=\"customer-card__icon\">\n                <img src=\"/sfsites/c/resource/prontosite/pronto-site/account_settings.png\" alt=\"Account Settings\">\n            </div>\n            <h3 class=\"customer-card__title\">Account Settings</h3>\n        </div>\n    </div>\n</div>"
+                      },
+                      "definition": "community_builder:htmlEditor",
+                      "id": "c91b09fe-e4c8-47cf-85c8-56b260d342e6",
+                      "type": "component"
+                    },
+                    {
+                      "attributes": {
+                        "dxpStyle": {
+                          "margin": {
+                            "bottom": "0px",
+                            "left": "0px",
+                            "right": "0px",
+                            "top": "0px"
+                          },
+                          "padding": {
+                            "bottom": "0px",
+                            "left": "0px",
+                            "right": "0px",
+                            "top": "0px"
+                          }
+                        },
+                        "imageInfos": "",
+                        "richTextValue": "<div class=\"support-section\">\n    <!-- Section Header -->\n    <h2 class=\"support-section__title\">Need Assistance?</h2>\n    <p class=\"support-section__subtitle\">\n        We're here to help. Choose the support option that works best for you.\n    </p>\n    <!-- Support Options -->\n    <div class=\"support-grid\">\n        <!-- Support Card 1: Live Chat -->\n        <div class=\"support-card\">\n            <div class=\"support-card__header\">Live Chat</div>\n            <div class=\"support-card__body\">\n                Chat with one of our team members for real-time assistance. Get help with account questions, orders, and more.\n            </div>\n            <div class=\"support-card__footer\">\n                <a href=\"/chat\">Start Chat</a>\n            </div>\n        </div>\n        <!-- Support Card 2: Phone Support -->\n        <div class=\"support-card\">\n            <div class=\"support-card__header\">Phone Support</div>\n            <div class=\"support-card__body\">\n                Call us to speak directly with a support specialist. We're here to assist with any complex issues or inquiries.\n            </div>\n            <div class=\"support-card__footer\">\n                <a href=\"/call\">Call Us</a>\n            </div>\n        </div>\n        <!-- Support Card 3: Email Support -->\n        <div class=\"support-card\">\n            <div class=\"support-card__header\">Email Support</div>\n            <div class=\"support-card__body\">\n                Send us an email with your questions or concerns. We'll respond as soon as possible with the answers you need.\n            </div>\n            <div class=\"support-card__footer\">\n                <a href=\"/email\">Email Us</a>\n            </div>\n        </div>\n    </div>\n</div>"
+                      },
+                      "definition": "community_builder:htmlEditor",
+                      "id": "57f4dc5a-eb50-427a-813f-a4120599628b",
+                      "type": "component"
+                    }
+                  ],
+                  "id": "9cde1bd2-1685-44f6-a406-80f753eaee64",
+                  "name": "col1",
+                  "title": "Column 1",
+                  "type": "region"
+                }
+              ],
+              "definition": "community_layout:section",
+              "id": "5ba498dd-18ef-40a3-bd7e-353d4ca7464d",
+              "type": "component"
+            }
+          ],
+          "id": "3d8d6cd3-f006-4d14-9d10-5027eb42832c",
+          "name": "content",
+          "title": "Content",
+          "type": "region"
+        },
+        {
+          "children": [
+            {
+              "attributes": {
+                "customHeadTags": "",
+                "description": "",
+                "dxpStyle": {},
+                "pageTitle": "Home",
+                "recordId": "{!recordId}"
+              },
+              "definition": "community_builder:seoAssistant",
+              "id": "f50f3cfd-0d27-4135-a4f7-3dfeb0b83b09",
+              "type": "component"
+            }
+          ],
+          "id": "4321ecd6-dd84-4650-beba-39521c917596",
+          "name": "sfdcHiddenRegion",
+          "title": "sfdcHiddenRegion",
+          "type": "region"
+        }
+      ],
+      "definition": "community_layout:sldsFlexibleLayout",
+      "id": "8c1cbf06-e90c-4192-a150-e5bc861594eb",
+      "type": "component"
+    },
+    "dataProviders": [],
+    "themeLayoutType": "Inner",
+    "viewType": "home"
+  },
+  "urlName": "home"
+}

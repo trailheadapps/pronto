@@ -1,0 +1,277 @@
+# Unique name for this workflow
+name: CI on PR
+
+# Definition when the workflow should run
+on:
+  workflow_dispatch:
+    inputs:
+      prerelease:
+        description: "Run on a prerelease org?"
+        required: false
+        type: boolean
+  pull_request:
+    types: [opened, edited, synchronize, reopened]
+
+# Workflow environment variables
+env:
+  # Is the PR base branch a prerelease branch
+  IS_PRERELEASE: ${{ startsWith(github.event.pull_request.base.ref, 'prerelease/') || inputs.prerelease  }}
+
+# Jobs to be executed
+jobs:
+  # Formatting and linting
+  format-lint-lwc-tests:
+    if: github.actor != 'dependabot[bot]'
+    runs-on: trailheadapps-Ubuntu
+    steps:
+      # Checkout the source code
+      - name: "Checkout source code"
+        uses: actions/checkout@v7.0.0
+
+      # Check for hardcoded username in Experience Cloud site config
+      - name: "Check for hardcoded username in Experience Cloud site config"
+        run: |
+          fileToCheck="src-site/main/default/sites/Pronto_Customer_Site.site-meta.xml"
+          if grep -q siteAdmin $fileToCheck; then
+              echo "siteAdmin tag detected in $fileToCheck. Remove the tag to fix this.";
+              exit 1;
+          fi
+          if grep -q siteGuestRecordDefaultOwner $fileToCheck; then
+              echo "siteGuestRecordDefaultOwner tag detected in $fileToCheck. Remove the tag to fix this.";
+              exit 1;
+          fi
+
+      # Set up Node.js
+      - name: "Set up Node.js"
+        uses: actions/setup-node@v7.0.0
+        with:
+          node-version: 22
+
+      # Cache node_modules to speed up the process
+      - name: "Restore node_modules cache"
+        id: cache-npm
+        uses: actions/cache@v6.0.0
+        with:
+          path: node_modules
+          key: npm-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            npm-${{ env.cache-name }}-
+            npm-
+
+      # Install npm dependencies for Prettier and Jest
+      - name: "Install npm dependencies"
+        if: steps.cache-npm.outputs.cache-hit != 'true'
+        run: HUSKY=0 npm ci
+
+      # Prettier formatting
+      - name: "Code formatting verification with Prettier"
+        run: npm run prettier:verify
+
+      # Install Salesforce CLI
+      - name: "Install Salesforce CLI"
+        run: |
+          npm install @salesforce/cli --location=global
+          nodeInstallPath=$(npm config get prefix)
+          echo "$nodeInstallPath/bin" >> $GITHUB_PATH
+          cd "$nodeInstallPath/bin"
+          ./sf --version
+
+      # Install Salesforce CLI Code Analyzer plugin
+      - name: "Install Salesforce CLI Code Analyzer plugin"
+        run: sf plugins install code-analyzer
+
+      # Run Code Analyzer
+      - name: "Run Code Analyzer"
+        id: run-code-analyzer
+        uses: forcedotcom/run-code-analyzer@v2.14.0
+        with:
+          run-arguments: --config-file "code-analyzer.yml" --workspace "src-base/**" --view detail --output-file "sca-results.csv"
+          results-artifact-name: code-analyzer-results
+          github-token: ${{ github.token }}
+
+      # Check for Code Analyzer critical or high severity violations
+      - name: "Check for Code Analyzer critical or high severity violations"
+        if: |
+          steps.run-code-analyzer.outputs.exit-code > 0 ||
+          steps.run-code-analyzer.outputs.num-sev1-violations > 0 ||
+          steps.run-code-analyzer.outputs.num-sev2-violations > 0
+        run: |
+          echo One of more Code Analyzer critical or high severity violations found
+          exit 1
+
+      # LWC unit tests
+      - name: "Unit test Lightning Web Components"
+        run: npm run test:unit:coverage
+
+  scratch-org-test:
+    runs-on: trailheadapps-Ubuntu
+    needs: format-lint-lwc-tests
+    if: github.actor != 'dependabot[bot]'
+    steps:
+      # Checkout the source code
+      - name: "Checkout source code"
+        uses: actions/checkout@v7.0.0
+
+      # Set up Node.js
+      - name: "Set up Node.js"
+        uses: actions/setup-node@v7.0.0
+        with:
+          node-version: 22
+
+      # Install npm dependencies for agent setup scripts
+      - name: "Install npm dependencies"
+        run: HUSKY=0 npm ci
+
+      # Install Salesforce CLI
+      - name: "Install Salesforce CLI"
+        run: |
+          npm install @salesforce/cli --location=global
+          nodeInstallPath=$(npm config get prefix)
+          echo "$nodeInstallPath/bin" >> $GITHUB_PATH
+          sf --version
+
+      # Store secret for dev hub
+      - name: "Populate auth file with DEVHUB_SFDX_URL secret"
+        shell: bash
+        run: |
+          echo ${{ secrets.DEVHUB_SFDX_URL }} > ./DEVHUB_SFDX_URL.txt
+          secretFileSize=$(wc -c "./DEVHUB_SFDX_URL.txt" | awk '{print $1}')
+          if [ $secretFileSize == 1 ]; then
+              echo "Missing DEVHUB_SFDX_URL secret. Is this workflow running on a fork?";
+              exit 1;
+          fi
+
+      # Authenticate dev hub
+      - name: "Authenticate Dev Hub"
+        run: sf org login sfdx-url -f ./DEVHUB_SFDX_URL.txt -a devhub -d
+
+      # Create prerelease scratch org
+      - name: "Create prerelease scratch org"
+        if: ${{ env.IS_PRERELEASE }}
+        run: sf org create scratch -f config/project-scratch-def.json -a scratch-org -d -y 1 -w 10 --release=preview
+
+      # Create scratch org
+      - name: "Create scratch org"
+        if: ${{ !env.IS_PRERELEASE }}
+        run: sf org create scratch -f config/project-scratch-def.json -a scratch-org -d -y 1 -w 10
+
+      # Extract org info
+      - name: "Extract org info"
+        run: |
+          org_display_json=$(sf org display --json)
+          org_id=$(echo "$org_display_json" | jq -r '.result.id')
+          if [ -z "$org_id" ] || [ "$org_id" == "null" ]; then
+            echo "Failed to retrieve org ID" >&2
+            exit 1
+          fi
+          echo "PRONTO_ORG_ID=$org_id" >> $GITHUB_ENV
+          org_instance_url=$(echo "$org_display_json" | jq -r '.result.instanceUrl')
+          if [ -z "$org_instance_url" ] || [ "$org_instance_url" == "null" ]; then
+            echo "Failed to retrieve org domain" >&2
+            exit 1
+          fi
+          echo "PRONTO_ORG_DOMAIN=${org_instance_url%.my.salesforce.com}" >> $GITHUB_ENV
+
+      # Create agent user for service agent
+      - name: "Create agent user for service agent"
+        run: |
+          agent_user_json=$(sf org create agent-user --json)
+          agent_username=$(echo "$agent_user_json" | jq -r '.result.username')
+          if [ -z "$agent_username" ] || [ "$agent_username" == "null" ]; then
+            echo "Failed to retrieve service agent username" >&2
+            exit 1
+          fi
+          echo "PRONTO_AGENT_USERNAME=$agent_username" >> $GITHUB_ENV
+
+      # Deploy service agent queues source
+      - name: "Deploy service agent queues source"
+        run: sf project deploy start --source-dir src-queues --ignore-conflicts
+
+      # Extract service agent queue IDs
+      - name: "Extract service agent queue IDs"
+        run: |
+          routing_queue_id=$(sf data query --query "SELECT Id FROM Group WHERE Type = 'Queue' AND Name = 'Customer Service Messaging Queue'" --json | jq -r '.result.records[0].Id')
+          if [ -z "$routing_queue_id" ] || [ "$routing_queue_id" == "null" ]; then
+            echo "Failed to retrieve service agent routing queue ID" >&2
+            exit 1
+          fi
+          echo "PRONTO_AGENT_ROUTING_QUEUE_ID=$routing_queue_id" >> $GITHUB_ENV
+          escalation_queue_id=$(sf data query --query "SELECT Id FROM Group WHERE Type = 'Queue' AND Name = 'Customer Service Escalation Queue'" --json | jq -r '.result.records[0].Id')
+          if [ -z "$escalation_queue_id" ] || [ "$escalation_queue_id" == "null" ]; then
+            echo "Failed to retrieve service agent escalation queue ID" >&2
+            exit 1
+          fi
+          echo "PRONTO_ESCALATION_ROUTING_QUEUE_ID=$escalation_queue_id" >> $GITHUB_ENV
+
+      # Deploy base source
+      - name: "Deploy base source"
+        run: sf project deploy start -d src-base
+
+      # Publish and activate agent: Storefront_Explorer_Assistant
+      - name: "Publish and activate agent: Storefront_Explorer_Assistant"
+        run: |
+          sf agent publish authoring-bundle --api-name Storefront_Explorer_Assistant
+          sf agent activate --api-name Storefront_Explorer_Assistant
+
+      # Publish and activate agent: Customer_Order_Assistant
+      - name: "Publish and activate agent: Customer_Order_Assistant"
+        run: |
+          sf agent publish authoring-bundle --api-name Customer_Order_Assistant
+          sf agent activate --api-name Customer_Order_Assistant
+
+      # Publish and activate agent: Employee_Assistant
+      - name: "Publish and activate agent: Employee_Assistant"
+        run: |
+          sf agent publish authoring-bundle --api-name Employee_Assistant
+          sf agent activate --api-name Employee_Assistant
+
+      # Publish and activate agent: Customer_Service_Assistant
+      - name: "Publish and activate agent: Customer_Service_Assistant"
+        run: |
+          sf agent publish authoring-bundle --api-name Customer_Service_Assistant
+          sf agent activate --api-name Customer_Service_Assistant
+
+      # Deploy site source
+      - name: "Deploy site source"
+        run: sf project deploy start -d src-site
+
+      # Activate messaging channel
+      - name: "Activate messaging channel"
+        run: sf apex run -f apex-scripts/activate-messaging-channel.apex
+
+      # Assign user permission set
+      - name: "Assign user permission set"
+        run: sf org assign permset -n Merchant_Management_App
+
+      # Assign agent permission set
+      - name: "Assign agent permission set"
+        run: sf org assign permset -n Customer_Service_Assistant --on-behalf-of "${{ env.PRONTO_AGENT_USERNAME }}"
+
+      # Import sample data
+      - name: "Import sample data"
+        run: sf data tree import -p ./data/data-plan.json
+
+      # Generate sample data: adding storefront thumbnails
+      - name: "Generate sample data: adding storefront thumbnails"
+        run: sf apex run -f apex-scripts/set-storefront-thumbnails.apex
+
+      # Generate sample data: setting storefront operating hours
+      - name: "Generate sample data: setting storefront operating hours"
+        run: sf apex run -f apex-scripts/set-storefront-opening-hours.apex
+
+      # Sleep for XP Cloud deployment
+      - name: "Sleep for XP Cloud deployment"
+        run: sleep 30
+
+      # Publish XP Cloud site
+      - name: "Publish XP Cloud site"
+        run: sf community publish -n "Pronto Customer Site"
+
+      # Run Apex tests in scratch org
+      - name: "Run Apex tests"
+        run: sf apex test run -c -r human -d ./tests/apex -w 20
+
+      # Housekeeping
+      - name: "Delete scratch org"
+        if: always()
+        run: sf org delete scratch -p -o scratch-org

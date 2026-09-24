@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_Reviews__c</fullName>
+    <description>The total number of reviews received by the storefront.</description>
+    <label>Total Reviews</label>
+    <summaryForeignKey>Review__c.Storefront__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

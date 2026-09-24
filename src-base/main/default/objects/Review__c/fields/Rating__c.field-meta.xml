@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Rating__c</fullName>
+    <description
+  >The numerical rating provided by the customer, typically ranging from 1 (poor) to 5 (excellent).</description>
+    <externalId>false</externalId>
+    <inlineHelpText>1 (poor) to 5 (excellent)</inlineHelpText>
+    <label>Rating</label>
+    <precision>1</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

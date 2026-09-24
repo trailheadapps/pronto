@@ -1,0 +1,166 @@
+{
+  "type": "sfdc_cms__themeLayout",
+  "title": "Scoped Header and Footer",
+  "contentBody": {
+    "component": {
+      "attributes": {
+        "hideThemeFooter": false,
+        "showThemeFooterAtBottom": true,
+        "stickyThemeHeader": false
+      },
+      "children": [
+        {
+          "children": [
+            {
+              "attributes": {
+                "backgroundImageConfig": "",
+                "backgroundImageOverlay": "rgba(0,0,0,0)",
+                "componentSpacerSize": "0rem",
+                "dxpStyle": {
+                  "margin": {
+                    "bottom": "0px",
+                    "left": "0px",
+                    "right": "0px",
+                    "top": "0px"
+                  },
+                  "padding": {
+                    "bottom": "0px",
+                    "left": "0px",
+                    "right": "0px",
+                    "top": "0px"
+                  }
+                },
+                "layoutDirectionDesktop": "row",
+                "layoutDirectionMobile": "column",
+                "layoutDirectionTablet": "column",
+                "maxContentWidth": "",
+                "sectionColumnGutterWidth": "0rem",
+                "sectionConfig": "{\"UUID\":\"a2de95c2-76f0-4ed0-927a-59fdb391fd9b\",\"columns\":[{\"UUID\":\"397bcd53-fa79-4a64-995a-fabba2907a32\",\"columnName\":\"Column 1\",\"columnKey\":\"headerSection\",\"columnWidth\":\"12\",\"seedComponents\":null}]}",
+                "sectionMinHeight": "",
+                "sectionVerticalAlign": "flex-start"
+              },
+              "children": [
+                {
+                  "children": [
+                    {
+                      "attributes": {
+                        "dxpStyle": {},
+                        "imageInfos": "",
+                        "richTextValue": "<div class=\"customer-header\">\n    <!-- Logo Section -->\n    <div class=\"customer-header__logo\">\n        <img src=\"/sfsites/c/resource/prontosite/pronto-site/Pronto_Fast_Orange_Horizontal.png\" alt=\"Pronto Logo\">\n    </div>\n    <!-- Navigation and Button Section -->\n    <div class=\"customer-header__right\">\n        <div class=\"customer-header__nav\">\n            <a href=\"/faqs\" class=\"customer-header__nav-item\">FAQs</a>\n            <a href=\"/order-issues\" class=\"customer-header__nav-item\">Order Issues</a>\n            <a href=\"/contact-support\" class=\"customer-header__nav-item\">Contact Support</a>\n        </div>\n        <a href=\"/track-order\" class=\"customer-header__button\">Track My Order</a>\n    </div>\n</div>"
+                      },
+                      "definition": "community_builder:htmlEditor",
+                      "id": "66b3af31-0fd5-4914-ad7d-7d742cd4130a",
+                      "type": "component"
+                    }
+                  ],
+                  "id": "397bcd53-fa79-4a64-995a-fabba2907a32",
+                  "name": "headerSection",
+                  "title": "Theme Header",
+                  "type": "region"
+                }
+              ],
+              "definition": "community_layout:section",
+              "id": "a2de95c2-76f0-4ed0-927a-59fdb391fd9b",
+              "type": "component"
+            },
+            {
+              "attributes": {
+                "clientVersion": "WebV1",
+                "deploymentName": "Customer_Service_Agent",
+                "dxpStyle": {},
+                "hideChatButtonOnLoad": "Default",
+                "isExpSiteAuthMode": false,
+                "scrtUrl": "%%PRONTO_PLACEHOLDER_ORG_DOMAIN%%.my.salesforce-scrt.com",
+                "siteEndpoint": "%%PRONTO_PLACEHOLDER_ORG_DOMAIN%%.my.site.com/ESWCustomerServiceAgent"
+              },
+              "definition": "experience_messaging:embeddedMessaging",
+              "id": "9dea3067-805a-4ff8-9661-32311d03b84d",
+              "type": "component"
+            }
+          ],
+          "id": "d3d1418e-d399-4b10-b8ea-56395eeb33a9",
+          "name": "header",
+          "title": "Theme Header",
+          "type": "region"
+        },
+        {
+          "children": [
+            {
+              "attributes": {
+                "backgroundImageConfig": "",
+                "backgroundImageOverlay": "rgba(0,0,0,0)",
+                "componentSpacerSize": "",
+                "dxpStyle": {
+                  "margin": {
+                    "bottom": "0px",
+                    "left": "0px",
+                    "right": "0px",
+                    "top": "0px"
+                  },
+                  "padding": {
+                    "bottom": "0px",
+                    "left": "0px",
+                    "right": "0px",
+                    "top": "0px"
+                  }
+                },
+                "layoutDirectionDesktop": "row",
+                "layoutDirectionMobile": "column",
+                "layoutDirectionTablet": "column",
+                "maxContentWidth": "",
+                "sectionColumnGutterWidth": "",
+                "sectionConfig": "{\"UUID\":\"19dcb914-51e7-4c60-a68b-e90621e1ae23\",\"columns\":[{\"UUID\":\"cab4bf12-68af-4824-809d-18a2828cdab0\",\"columnName\":\"Column 1\",\"columnKey\":\"footerSection\",\"columnWidth\":\"12\",\"seedComponents\":null}]}",
+                "sectionMinHeight": "",
+                "sectionVerticalAlign": "flex-start"
+              },
+              "children": [
+                {
+                  "children": [
+                    {
+                      "attributes": {
+                        "dxpStyle": {
+                          "margin": {
+                            "bottom": "0px",
+                            "left": "0px",
+                            "right": "0px",
+                            "top": "0px"
+                          },
+                          "padding": {
+                            "bottom": "0px",
+                            "left": "0px",
+                            "right": "0px",
+                            "top": "0px"
+                          }
+                        },
+                        "imageInfos": "",
+                        "richTextValue": "<div class=\"slds-footer slds-p-around_medium\">\n    <div class=\"slds-grid slds-wrap slds-grid_align-spread\">\n        <!-- About Pronto Section -->\n        <div class=\"slds-col slds-size_1-of-1 slds-medium-size_1-of-4 slds-footer-section\">\n            <h4 class=\"slds-footer-title\">About Pronto</h4>\n            <ul class=\"slds-footer-links\">\n                <li><a href=\"#\">Our Story</a></li>\n                <li><a href=\"#\">Join Our Team</a></li>\n                <li><a href=\"#\">Insights & Updates</a></li>\n                <li><a href=\"#\">Media Center</a></li>\n                <li><a href=\"#\">Environmental Goals</a></li>\n            </ul>\n        </div>\n        <!-- Support Section -->\n        <div class=\"slds-col slds-size_1-of-1 slds-medium-size_1-of-4 slds-footer-section\">\n            <h4 class=\"slds-footer-title\">Support</h4>\n            <ul class=\"slds-footer-links\">\n                <li><a href=\"#\">Track My Order</a></li>\n                <li><a href=\"#\">Help & FAQs</a></li>\n                <li><a href=\"#\">Delivery Information</a></li>\n                <li><a href=\"#\">Contact Support</a></li>\n                <li><a href=\"#\">Accessibility</a></li>\n            </ul>\n        </div>\n        <!-- Partner With Us Section -->\n        <div class=\"slds-col slds-size_1-of-1 slds-medium-size_1-of-4 slds-footer-section\">\n            <h4 class=\"slds-footer-title\">Partner With Us</h4>\n            <ul class=\"slds-footer-links\">\n                <li><a href=\"#\">Restaurant Sign-Up</a></li>\n                <li><a href=\"#\">Driver Opportunities</a></li>\n                <li><a href=\"#\">Technology Partners</a></li>\n            </ul>\n        </div>\n        <!-- Connect With Us Section -->\n        <div class=\"slds-col slds-size_1-of-1 slds-medium-size_1-of-4 slds-footer-section\">\n            <h4 class=\"slds-footer-title\">Connect With Us</h4>\n            <ul class=\"slds-grid slds-grid_pull-padded slds-social-icons\">\n                <li class=\"slds-p-horizontal_small\">\n                    <a href=\"#\"><img src=\"/sfsites/c/resource/prontosite/pronto-site/facebook.png\" alt=\"Facebook\"></a>\n                </li>\n                <li class=\"slds-p-horizontal_small\">\n                    <a href=\"#\"><img src=\"/sfsites/c/resource/prontosite/pronto-site/instagram.png\" alt=\"Instagram\"></a>\n                </li>\n                <li class=\"slds-p-horizontal_small\">\n                    <a href=\"#\"><img src=\"/sfsites/c/resource/prontosite/pronto-site/whatsapp.png\" alt=\"Whatsapp\"></a>\n                </li>\n                <li class=\"slds-p-horizontal_small\">\n                    <a href=\"#\"><img src=\"/sfsites/c/resource/prontosite/pronto-site/reddit.png\" alt=\"Reddit\"></a>\n                </li>\n            </ul>\n        </div>\n    </div>\n\n    <!-- Footer Copy -->\n    <div class=\"slds-footer-copy slds-m-top_large\">\n        <p>&copy; 2025 Pronto Delivery Co. All Rights Reserved.</p>\n        <p>4567 Future Avenue, Innovation City, CA 94044 | 1-877-987-6543</p>\n    </div>\n</div>"
+                      },
+                      "definition": "community_builder:htmlEditor",
+                      "id": "8a9ff47e-fae4-4e3f-a1a9-e7b8594c5a8b",
+                      "type": "component"
+                    }
+                  ],
+                  "id": "cab4bf12-68af-4824-809d-18a2828cdab0",
+                  "name": "footerSection",
+                  "title": "Theme Footer",
+                  "type": "region"
+                }
+              ],
+              "definition": "community_layout:section",
+              "id": "19dcb914-51e7-4c60-a68b-e90621e1ae23",
+              "type": "component"
+            }
+          ],
+          "id": "b391d100-3e55-4a14-98f3-6ace56a9d63e",
+          "name": "footer",
+          "title": "Theme Footer",
+          "type": "region"
+        }
+      ],
+      "definition": "community_byo:scopedHeaderAndFooter",
+      "id": "4a15c4ca-62b5-477d-be47-b7e34088bef9",
+      "type": "component"
+    }
+  },
+  "urlName": "scoped-header-and-footer"
+}

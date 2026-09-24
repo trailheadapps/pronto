@@ -1,0 +1,11 @@
+<template>
+  <div class="slds-text-heading_small">Reviews</div>
+  <div class="slds-p-horizontal_small">
+    <template for:each={reviews} for:item="review">
+      <div key={review.id} class="slds-grid slds-gutters slds-m-vertical_x-small">
+        <div class="slds-col">{review.comments}</div>
+        <div class="slds-col slds-grow-none">{review.rating}</div>
+      </div>
+    </template>
+  </div>
+</template>

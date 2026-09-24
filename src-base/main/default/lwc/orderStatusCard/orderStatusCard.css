@@ -1,0 +1,24 @@
+:host {
+  --slds-c-card-sizing-border: 1px;
+  --slds-c-card-body-spacing-blockend: 0;
+  --slds-c-card-body-spacing-inline-end: 0;
+  --slds-c-card-body-spacing-blockstart: 0;
+}
+
+/* Status-specific styling */
+.status-variant-base {
+  --slds-c-badge-color-background: #f3f3f3;
+  --slds-c-badge-text-color: #514f4d;
+}
+.status-variant-success {
+  --slds-c-badge-color-background: #4bca81;
+  --slds-c-badge-text-color: #ffffff;
+}
+.status-variant-warning {
+  --slds-c-badge-color-background: #eeff00;
+  --slds-c-badge-text-color: #30302f;
+}
+.status-variant-error {
+  --slds-c-badge-color-background: #ea001e;
+  --slds-c-badge-text-color: #ffffff;
+}

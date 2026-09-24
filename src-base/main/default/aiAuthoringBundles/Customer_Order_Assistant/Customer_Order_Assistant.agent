@@ -1,0 +1,479 @@
+system:
+    instructions: "You are an AI assistant for Pronto, helping customer placing and managing their food orders (Order__c custom object). Do not offer to make reservations, issue receipts or discounts. Never expose record IDs to the user, use record names instead."
+
+    messages:
+        welcome: "Hi, I'm the Pronto customer order assistant. How can I help you?"
+        error: "Sorry, it looks like something has gone wrong."
+
+config:
+    agent_label: "Customer Order Assistant"
+    developer_name: "Customer_Order_Assistant"
+    agent_type: "AgentforceServiceAgent"
+    description: "Helps Pronto customers place and manage food orders."
+    enable_enhanced_event_logs: True
+
+access:
+    default_agent_user: "%%PRONTO_PLACEHOLDER_AGENT_USERNAME%%"
+
+variables:
+    RoutableId: linked string
+        source: @MessagingSession.Id
+        description: "This variable may also be referred to as MessagingSession Id"
+    EndUserLanguage: linked string
+        source: @MessagingSession.EndUserLanguage
+        description: "This variable may also be referred to as MessagingSession EndUserLanguage"
+    subagentGate: mutable string = ""
+        description: "Prevents the agent from navigating away from a subagent while capturing user input"
+        visibility: "External"
+    verifiedCustomerId: mutable string = ""
+        description: "The contact ID for the current user when they are a verified customer"
+        visibility: "External"
+    orderId: mutable string = ""
+        description: "The record ID of the draft order currently being created"
+        visibility: "External"
+    orders: mutable list[object]
+        description: "The customer's orders"
+    storefrontId: mutable string = ""
+        description: "The record ID of the storefront being used for placing an order or reviewing the menu"
+        visibility: "External"
+    storefronts: mutable list[object]
+        description: "The list of available storefronts"
+
+start_agent agent_router:
+    label: "Agent Router"
+    description: "Welcome the customer and ask them about their intent"
+
+    before_reasoning:
+        if @variables.subagentGate == "create_order":
+            transition to @subagent.create_order
+
+    reasoning:
+        instructions: ->
+            | Greet the user and ask them about their intent.
+            | Call {!@actions.transition_to_manage_orders} when the user inquires about their existing orders.
+            | Call {!@actions.transition_to_create_order} when the user wants to place a new order or start a new order.
+            | Call {!@actions.transition_to_storefront_explorer_assistant} when the user wants to browse storefronts, look up a storefront, or check a storefront's opening hours, transition to the browse storefront subagent.
+            | Call {!@actions.transition_to_escalate} when the user wants to talk to a human.
+            | Call {!@actions.end_conversation} when the user no longer needs help.
+
+        actions:
+            transition_to_manage_orders: @utils.transition to @subagent.manage_orders
+                description: "Call this when the user wants to manage their orders"
+            transition_to_create_order: @utils.transition to @subagent.create_order
+                description: "Call this when the user wants to place a new order"
+            transition_to_storefront_explorer_assistant: @utils.transition to @connected_subagent.Storefront_Explorer_Assistant
+                description: "Call this when the user wants to browse storefronts"
+            transition_to_escalate: @utils.transition to @subagent.escalate
+            end_conversation: @utils.end_session
+
+subagent manage_orders:
+    label: "Manage Orders"
+    description: "Manage orders"
+
+    reasoning:
+        instructions: ->
+            | Call {!@actions.getOrdersFromCustomer} to retrieve the customer's orders
+            | Call {!@actions.getOrderStatus} when the user inquires about a specific order. Identify the order the customer refers to (for example by its order number) and pass that order's record ID from the {!@actions.getOrdersFromCustomer} results as the orderId input. Do NOT ask the customer for a record ID.
+            | Call {!@actions.cancelOrder} when the user requests to cancel a specific order. Identify the order the customer refers to (for example by its order number) and pass that order's record ID from the {!@actions.getOrdersFromCustomer} results as the orderId input. Do NOT ask the customer for a record ID.
+            | Call {!@actions.transition_to_create_order} when the user wants to place a new order or start a new order.
+            | Call {!@actions.transition_to_storefront_explorer_assistant} when the user wants to browse storefronts, look up a storefront, or check a storefront's opening hours, transition to the browse storefront subagent.
+        actions:
+            getOrdersFromCustomer: @actions.getOrdersFromCustomer
+                with customerId=@variables.verifiedCustomerId
+                set @variables.orders=@outputs.orders
+            getOrderStatus: @actions.getOrderStatus
+                with customerId=@variables.verifiedCustomerId
+                with orderId=...
+            cancelOrder: @actions.cancelOrder
+                with customerId=@variables.verifiedCustomerId
+                with orderId=...
+            transition_to_create_order: @utils.transition to @subagent.create_order
+                description: "Call this when the user wants to place a new order"
+            transition_to_storefront_explorer_assistant: @utils.transition to @connected_subagent.Storefront_Explorer_Assistant
+                description: "Call this when the user wants to browse storefronts"
+
+    actions:
+        getOrderStatus:
+            description: "Gets the status and details of an order by its ID"
+            inputs:
+                customerId: string
+                    description: "The Salesforce record ID of the customer who placed the order."
+                    label: "Customer ID"
+                    is_required: True
+                orderId: string
+                    description: "The Salesforce record ID of the order to get status for."
+                    label: "Order ID"
+                    is_required: True
+            outputs:
+                orderStatus: object
+                    label: "Order Status"
+                    complex_data_type_name: "c__orderStatus"
+                    filter_from_agent: False
+                    is_displayable: True
+            target: "apex://GetOrderStatusAction"
+            label: "Get Order Status"
+            require_user_confirmation: False
+            include_in_progress_indicator: True
+            progress_indicator_message: "Retrieving order status..."
+            source: "Get_Order_Status"
+
+        getOrdersFromCustomer:
+            description: "Gets customer orders"
+            inputs:
+                customerId: string
+                    description: "The Salesforce record ID of the customer to retrieve orders from."
+                    label: "Customer ID"
+                    is_required: True
+                orderStatus: string
+                    description: "Optional filter for order status (e.g., Delivered, Pending, Canceled)."
+                    label: "Order Status"
+                    is_required: False
+            outputs:
+                isSuccess: boolean
+                    label: "Success"
+                message: string
+                    label: "Message"
+                orders: list[object]
+                    label: "Orders"
+                    complex_data_type_name: "lightning__recordInfoType"
+            target: "apex://GetOrdersFromCustomerAction"
+            label: "Get Orders From Customer"
+            require_user_confirmation: False
+            include_in_progress_indicator: True
+            progress_indicator_message: "Retrieving orders..."
+
+        cancelOrder:
+            description: "Cancels the current draft order"
+            inputs:
+                customerId: string
+                    description: "The Salesforce record ID of the customer who placed the order."
+                    label: "Customer ID"
+                    is_required: True
+                orderId: string
+                    description: "The Salesforce record ID of the draft order to cancel."
+                    label: "Order ID"
+                    is_required: True
+                cancelationReason: string
+                    description: "Optional reason the customer gave for canceling the order."
+                    label: "Cancelation Reason"
+                    is_required: False
+            outputs:
+                isSuccess: boolean
+                    label: "Success"
+                message: string
+                    label: "Message"
+                orderId: string
+                    description: "The Salesforce record ID of the canceled order."
+                    label: "Order ID"
+            target: "apex://CancelOrderAction"
+            label: "Cancel Order"
+            require_user_confirmation: False
+            include_in_progress_indicator: True
+            progress_indicator_message: "Canceling order..."
+
+subagent select_storefront:
+    label: "Select Storefront"
+    description: "Help the customer select a storefront"
+
+    reasoning:
+        instructions: ->
+            | Help the customer select a storefronts.
+            | Call {!@actions.getStorefronts} to list the available storefronts.
+            | Call {!@actions.getStorefrontFromName} when the user names a specific storefront they want details for.
+            | After each action, present the returned details directly in your text response using the exact values returned. Do NOT call an action again unless the user asks for new information.
+        actions:
+            getStorefronts: @actions.getStorefronts
+                set @variables.storefronts=@outputs.storefronts
+            getStorefrontFromName: @actions.getStorefrontFromName
+                with storefrontName=...
+                set @variables.storefrontId=@outputs.storefrontId
+
+    actions:
+        getStorefronts:
+            description: "Retrieves the first 10 storefronts"
+            inputs:
+                recordLimit: integer
+                    description: "Optional maximum number of storefronts to return. Defaults to 10."
+                    label: "Record Limit"
+                    is_required: False
+            outputs:
+                isSuccess: boolean
+                    label: "Is Success"
+                message: string
+                    label: "Message"
+                storefronts: list[object]
+                    label: "Storefronts"
+                    complex_data_type_name: "lightning__recordInfoType"
+            target: "apex://GetStorefrontsAction"
+            label: "Get Storefronts"
+            require_user_confirmation: False
+            include_in_progress_indicator: True
+            progress_indicator_message: "Retrieving storefronts..."
+
+        getStorefrontFromName:
+            description: "Retrieves a storefront record by its name"
+            inputs:
+                storefrontName: string
+                    description: "The name of the storefront to retrieve."
+                    label: "Storefront Name"
+                    is_required: True
+            outputs:
+                isSuccess: boolean
+                    label: "Is Success"
+                message: string
+                    label: "Message"
+                storefront: object
+                    label: "Storefront"
+                    complex_data_type_name: "lightning__recordInfoType"
+                storefrontId: string
+                    description: "The Salesforce record ID of the storefront"
+                    label: "Storefront Id"
+            target: "apex://GetStorefrontFromNameAction"
+            label: "Get Storefront From Name"
+            require_user_confirmation: False
+            include_in_progress_indicator: True
+            progress_indicator_message: "Retrieving storefront..."
+
+subagent create_order:
+    label: "Create Order"
+    description: "Place a new order: create a draft order for a storefront, add menu items to it, then confirm it"
+
+    before_reasoning:
+        set @variables.subagentGate="create_order"
+        if @variables.storefrontId == "":
+            transition to @subagent.select_storefront
+
+    reasoning:
+        instructions: ->
+            | Help the verified customer place a new order.
+            if @variables.orderId == "":
+                | Call {!@actions.createOrder} to start a draft order. Pass that storefront's record ID as the storefrontId input. Do NOT ask the customer for a record ID.
+                | After the draft order is created, tell the customer using the exact message returned by the action, then ask what items they would like to add.
+            else:
+                | A draft order already exists. Call {!@actions.addItemToOrder} to add each menu item the customer requests, passing the item name and quantity. After each item is added, confirm it using the exact message returned by the action and ask if they want to add anything else.
+                | When the customer is done adding items, call {!@actions.confirmOrder} to finalize the order. After confirming, report the exact message returned by the action.
+                | If the customer decides not to place the order or wants to cancel it, call {!@actions.cancelOrder} to cancel the draft order. If the customer gives a reason for canceling, pass it as the cancelationReason input; otherwise leave it empty. After canceling, report the exact message returned by the action.
+                | Do NOT call an action again for a request you have already fulfilled — rely on the results you already have.
+                | If the customer wants to review their existing orders, call {!@actions.getOrderStatus}
+        actions:
+            createOrder: @actions.createOrder
+                with customerId=@variables.verifiedCustomerId
+                with storefrontId=@variables.storefrontId
+                set @variables.orderId=@outputs.orderId
+                available when @variables.orderId == "" and @variables.subagentGate == "create_order"
+            addItemToOrder: @actions.addItemToOrder
+                with customerId=@variables.verifiedCustomerId
+                with orderId=@variables.orderId
+                with orderItemName=...
+                with quantity=...
+                available when @variables.orderId != ""
+            confirmOrder: @actions.confirmOrder
+                with customerId=@variables.verifiedCustomerId
+                with orderId=@variables.orderId
+                set @variables.orderId=""
+                set @variables.subagentGate=""
+                available when @variables.orderId != ""
+            cancelOrder: @actions.cancelOrder
+                with customerId=@variables.verifiedCustomerId
+                with orderId=@variables.orderId
+                with cancelationReason=...
+                set @variables.orderId=""
+                set @variables.subagentGate=""
+                run @actions.transition_to_manage_orders
+                available when @variables.orderId != ""
+            getMenuItems: @actions.getMenuItems
+                with storefrontId=@variables.storefrontId
+            getOrderStatus: @actions.getOrderStatus
+                with customerId=@variables.verifiedCustomerId
+                with orderId=@variables.orderId
+            transition_to_manage_orders: @utils.transition to @subagent.manage_orders
+                description: "Call this when the user wants to review or manage their existing orders"
+
+    actions:
+        createOrder:
+            description: "Creates a draft order for the verified customer at a given storefront"
+            inputs:
+                customerId: string
+                    description: "The Salesforce record ID of the customer (Contact) to create the order for."
+                    label: "Customer ID"
+                    is_required: True
+                storefrontId: string
+                    description: "The Salesforce record ID of the storefront to create the order for. Obtain this from a storefront lookup; do not ask the customer for a record ID."
+                    label: "Storefront ID"
+                    is_required: True
+            outputs:
+                isSuccess: boolean
+                    label: "Is Success"
+                orderId: string
+                    description: "The Salesforce record ID of the newly created draft order."
+                    label: "Order ID"
+                message: string
+                    label: "Message"
+            target: "apex://CreateOrderAction"
+            label: "Create Order"
+            require_user_confirmation: False
+            include_in_progress_indicator: True
+            progress_indicator_message: "Creating draft order..."
+
+        addItemToOrder:
+            description: "Adds a menu item with a quantity to the current draft order"
+            inputs:
+                customerId: string
+                    description: "The Salesforce record ID of the customer who placed the order."
+                    label: "Customer ID"
+                    is_required: True
+                orderId: string
+                    description: "The Salesforce record ID of the draft order to add the item to."
+                    label: "Order ID"
+                    is_required: True
+                orderItemName: string
+                    description: "The name of the menu item to add to the order."
+                    label: "Order Item Name"
+                    is_required: True
+                quantity: number
+                    description: "The quantity of the item to add to the order."
+                    label: "Quantity"
+                    is_required: True
+            outputs:
+                isSuccess: boolean
+                    label: "Success"
+                message: string
+                    label: "Message"
+                orderId: string
+                    description: "The Salesforce record ID of the draft order the item was added to."
+                    label: "Order ID"
+                orderItemId: string
+                    description: "The Salesforce record ID of the order item that was added."
+                    label: "Order Item ID"
+            target: "apex://AddItemToOrderAction"
+            label: "Add Item to Order"
+            require_user_confirmation: False
+            include_in_progress_indicator: True
+            progress_indicator_message: "Adding item to order..."
+
+        confirmOrder:
+            description: "Confirms the current draft order, finalizing it"
+            inputs:
+                customerId: string
+                    description: "The Salesforce record ID of the customer who placed the order."
+                    label: "Customer ID"
+                    is_required: True
+                orderId: string
+                    description: "The Salesforce record ID of the draft order to confirm."
+                    label: "Order ID"
+                    is_required: True
+            outputs:
+                success: boolean
+                    label: "Success"
+                message: string
+                    label: "Message"
+                orderId: string
+                    description: "The Salesforce record ID of the confirmed order."
+                    label: "Order ID"
+            target: "apex://ConfirmOrderAction"
+            label: "Confirm Order"
+            require_user_confirmation: False
+            include_in_progress_indicator: True
+            progress_indicator_message: "Confirming order..."
+
+        cancelOrder:
+            description: "Cancels the current draft order"
+            inputs:
+                customerId: string
+                    description: "The Salesforce record ID of the customer who placed the order."
+                    label: "Customer ID"
+                    is_required: True
+                orderId: string
+                    description: "The Salesforce record ID of the draft order to cancel."
+                    label: "Order ID"
+                    is_required: True
+                cancelationReason: string
+                    description: "Optional reason the customer gave for canceling the order."
+                    label: "Cancelation Reason"
+                    is_required: False
+            outputs:
+                isSuccess: boolean
+                    label: "Success"
+                message: string
+                    label: "Message"
+                orderId: string
+                    description: "The Salesforce record ID of the canceled order."
+                    label: "Order ID"
+            target: "apex://CancelOrderAction"
+            label: "Cancel Order"
+            require_user_confirmation: False
+            include_in_progress_indicator: True
+            progress_indicator_message: "Canceling order..."
+
+        getMenuItems:
+            description: "Retrieves the available menu items for a storefront by its Id"
+            inputs:
+                storefrontId: string
+                    description: "The Salesforce record ID of the storefront whose menu items are retrieved."
+                    label: "Storefront Id"
+                    is_required: True
+            outputs:
+                isSuccess: boolean
+                    label: "Is Success"
+                message: string
+                    label: "Message"
+                menuItems: list[object]
+                    label: "Menu Items"
+                    complex_data_type_name: "lightning__recordInfoType"
+            target: "apex://GetMenuItemsAction"
+            label: "Get Menu Items"
+            require_user_confirmation: False
+            include_in_progress_indicator: True
+            progress_indicator_message: "Retrieving menu items..."
+
+        getOrderStatus:
+            description: "Gets the status and details of an order by its ID"
+            inputs:
+                customerId: string
+                    description: "The Salesforce record ID of the customer who placed the order."
+                    label: "Customer ID"
+                    is_required: True
+                orderId: string
+                    description: "The Salesforce record ID of the order to get status for."
+                    label: "Order ID"
+                    is_required: True
+            outputs:
+                orderStatus: object
+                    label: "Order Status"
+                    complex_data_type_name: "c__orderStatus"
+                    filter_from_agent: False
+                    is_displayable: True
+            target: "apex://GetOrderStatusAction"
+            label: "Get Order Status"
+            require_user_confirmation: False
+            include_in_progress_indicator: True
+            progress_indicator_message: "Retrieving order status..."
+            source: "Get_Order_Status"
+
+subagent escalate:
+    label: "Escalate"
+    description: "Transfers the conversation to a live human agent."
+    reasoning:
+        instructions: ->
+            | Your ONLY job is to transfer the conversation to a live agent. You MUST immediately call {!@actions.escalate_to_human} when you receive control. Do not ask clarifying questions, do not confirm, do not say you are transferring — just invoke the {!@actions.escalate_to_human} action.
+            | If {!@actions.escalate_to_human} fails, tell the user: "I'm sorry, I wasn't able to connect you with a live agent right now. Is there anything else I can help you with?"
+        actions:
+            escalate_to_human: @utils.escalate
+                description: "Transfer the conversation to a live human agent immediately."
+
+connection messaging:
+    outbound_route_type: "OmniChannelFlow"
+    outbound_route_name: "flow://Customer_Service_Escalation_Routing_Flow"
+    escalation_message: "One moment, I'm transferring our conversation to get you more help."
+    adaptive_response_allowed: True
+
+
+connected_subagent Storefront_Explorer_Assistant:
+    label: "Storefront Explorer Assistant"
+    target: "agent://Storefront_Explorer_Assistant"
+    loading_text: "Collaborating with other agents"
+    description: "Helps Pronto customers browse storefronts and menus."
+    inputs:
+        EndUserLanguage: string = @variables.EndUserLanguage
+        RoutableId: string = @variables.RoutableId
+        storefrontId: string = @variables.storefrontId

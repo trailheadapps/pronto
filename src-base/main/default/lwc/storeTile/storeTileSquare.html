@@ -1,0 +1,14 @@
+<template>
+  <a onclick={handleStoreSelected} title={value.Name}>
+    <div class="store-image" style={backgroundImageStyle}>
+      <div class="lower-third slds-var-p-horizontal_x-small slds-var-p-vertical_xx-small slds-text-color_inverse">
+        <h1 class="truncate slds-text-heading_small"><strong>{value.Name} • </strong>{value.Address__City__s}</h1>
+        <c-review-stars
+          review-score={value.Average_Review_Score__c}
+          number-of-reviews={value.Total_Reviews__c}
+          display-mode="compact"
+        ></c-review-stars>
+      </div>
+    </div>
+  </a>
+</template>

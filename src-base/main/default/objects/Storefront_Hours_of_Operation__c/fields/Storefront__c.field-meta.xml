@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Storefront__c</fullName>
+    <description
+  >Each storefront can have multiple related records to manage daily hours, special schedules, or holiday exceptions.</description>
+    <label>Storefront</label>
+    <referenceTo>Storefront__c</referenceTo>
+    <relationshipLabel>Hours of Operation</relationshipLabel>
+    <relationshipName>Storefronts</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

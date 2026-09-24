@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ExternalServiceRegistration xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>This is auto-generated OpenAPI v3 spec for StorefrontRestResource.</description>
+    <label>StorefrontRestResource</label>
+    <operations>
+        <active>true</active>
+        <name>searchstorefronts</name>
+    </operations>
+    <registrationProvider />
+    <registrationProviderType>ApexRest</registrationProviderType>
+    <registrationProviderAsset>StorefrontRestResource</registrationProviderAsset>
+    <schema>openapi: 3.0.0
+info:
+  title: Pronto Storefront Search API
+  description: REST API for searching Storefront records.
+  version: &apos;1.0&apos;
+servers:
+  - url: /services/apexrest
+paths:
+  /storefronts/v1:
+    get:
+      operationId: searchStorefronts
+      description: Returns a paged and filtered list of storefronts matching the given search criteria.
+      parameters:
+        - name: searchKey
+          in: query
+          description: Free-text search term matched against storefront name and city.
+          required: false
+          schema:
+            type: string
+          example: pizza
+        - name: type
+          in: query
+          description: Storefront type filter.
+          required: false
+          schema:
+            type: string
+          example: Restaurant
+        - name: cuisine
+          in: query
+          description: Storefront cuisine filter.
+          required: false
+          schema:
+            type: string
+          example: Italian
+        - name: minReviewScore
+          in: query
+          description: Minimum average review score.
+          required: false
+          schema:
+            type: integer
+          example: 4
+        - name: pageSize
+          in: query
+          description: Number of storefronts per page. Defaults to 9 when omitted.
+          required: false
+          schema:
+            type: integer
+          example: 9
+        - name: pageNumber
+          in: query
+          description: Page number to retrieve. Defaults to 1 when omitted.
+          required: false
+          schema:
+            type: integer
+          example: 1
+      responses:
+        &apos;200&apos;:
+          description: Storefronts retrieved successfully.
+          content:
+            application/json:
+              schema:
+                $ref: &apos;#/components/schemas/ApiResponse&apos;
+              example:
+                success: true
+                message: Storefronts retrieved successfully.
+                data:
+                  pageSize: 9
+                  pageNumber: 1
+                  totalItemCount: 42
+                  records:
+                    - Id: a01XXXXXXXXXXXXXXX
+                      Name: Tony&apos;s Pizzeria
+                      Account__c: 001XXXXXXXXXXXXXXX
+                      Address__City__s: San Francisco
+                      Average_Review_Score__c: 4.5
+                      Description__c: Classic New York style pizza.
+                      Menu_Count__c: 3
+                      Phone__c: &apos;+1-415-555-0100&apos;
+                      Primary_Contact__c: 003XXXXXXXXXXXXXXX
+                      Status__c: Active
+                      Total_Reviews__c: 128
+                      Total_Score__c: 576
+                      Type__c: Restaurant
+                      Thumbnail__c: https://example.com/images/tonys.jpg
+        &apos;400&apos;:
+          description: Invalid numeric query parameter (minReviewScore, pageSize, or pageNumber).
+          content:
+            application/json:
+              schema:
+                $ref: &apos;#/components/schemas/ApiResponse&apos;
+              example:
+                success: false
+                message: Invalid numeric query parameter.
+                data: null
+        &apos;500&apos;:
+          description: Unexpected server error.
+          content:
+            application/json:
+              schema:
+                $ref: &apos;#/components/schemas/ApiResponse&apos;
+              example:
+                success: false
+                message: An unexpected error occurred.
+                data: null
+components:
+  schemas:
+    ApiResponse:
+      type: object
+      description: Standardized API response envelope for the storefront search endpoint.
+      properties:
+        success:
+          type: boolean
+        message:
+          type: string
+        data:
+          nullable: true
+          allOf:
+            - $ref: &apos;#/components/schemas/PagedResult&apos;
+      required:
+        - success
+        - message
+    PagedResult:
+      type: object
+      description: A page of storefront search results.
+      properties:
+        pageSize:
+          type: integer
+        pageNumber:
+          type: integer
+        totalItemCount:
+          type: integer
+        records:
+          type: array
+          items:
+            $ref: &apos;#/components/schemas/Storefront&apos;
+    Storefront:
+      type: object
+      description: Storefront__c record fields returned by the search query.
+      properties:
+        Id:
+          type: string
+        Name:
+          type: string
+        Account__c:
+          type: string
+          nullable: true
+        Address__City__s:
+          type: string
+          nullable: true
+        Average_Review_Score__c:
+          type: number
+          nullable: true
+        Description__c:
+          type: string
+          nullable: true
+        Menu_Count__c:
+          type: number
+          nullable: true
+        Phone__c:
+          type: string
+          nullable: true
+        Primary_Contact__c:
+          type: string
+          nullable: true
+        Status__c:
+          type: string
+          nullable: true
+        Total_Reviews__c:
+          type: number
+          nullable: true
+        Total_Score__c:
+          type: number
+          nullable: true
+        Type__c:
+          type: string
+          nullable: true
+        Thumbnail__c:
+          type: string
+          nullable: true
+</schema>
+    <schemaType>OpenApi3</schemaType>
+    <serviceBinding
+  >{&quot;host&quot;:&quot;&quot;,&quot;basePath&quot;:&quot;/services/apexrest&quot;,&quot;allowedSchemes&quot;:[],&quot;requestMediaTypes&quot;:[],&quot;responseMediaTypes&quot;:[],&quot;compatibleMediaTypes&quot;:{},&quot;integrationFlags&quot;:null,&quot;extensions&quot;:{}}</serviceBinding>
+    <status>Complete</status>
+    <systemVersion>9</systemVersion>
+</ExternalServiceRegistration>

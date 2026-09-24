@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Customer__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description
+  >Links the review to the customer who provided the feedback. This field ensures traceability of reviews to individual customers.</description>
+    <label>Customer</label>
+    <referenceTo>Contact</referenceTo>
+    <relationshipLabel>Reviews</relationshipLabel>
+    <relationshipName>Review</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

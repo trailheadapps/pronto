@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Storefront__c</fullName>
+    <description>Links the menu to the specific storefront it belongs to.</description>
+    <label>Storefront</label>
+    <referenceTo>Storefront__c</referenceTo>
+    <relationshipLabel>Menus</relationshipLabel>
+    <relationshipName>Menus</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

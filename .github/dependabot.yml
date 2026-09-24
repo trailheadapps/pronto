@@ -1,0 +1,12 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: "/"
+    schedule:
+      interval: monthly
+    open-pull-requests-limit: 10
+    ignore:
+      # Held: @salesforce/eslint-config-lwc / @lwc/eslint-plugin-lwc still pin eslint ^9.
+      # Re-enable when an eslint-10-compatible Salesforce config ships.
+      - dependency-name: "eslint"
+        update-types: ["version-update:semver-major"]

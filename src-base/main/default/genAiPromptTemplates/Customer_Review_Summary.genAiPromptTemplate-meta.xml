@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <activeVersionIdentifier>NWe5ey43TcfBa+4hPyPjwJOdYntsY9tBGVvrmmwVh/k=_15</activeVersionIdentifier>
+    <description>Summarizes customer reviews</description>
+    <developerName>Customer_Review_Summary</developerName>
+    <masterLabel>Customer Review Summary</masterLabel>
+    <overridable>false</overridable>
+    <relatedEntity>Storefront__c</relatedEntity>
+    <relatedField>Storefront__c.Review_Summary__c</relatedField>
+    <templateVersions>
+        <content>These are the customer reviews for this storefront:
+{!$RelatedList:Storefront__c.Reviews__r.Records}
+
+Summarize the reviews and output a report with the following rich text structure (keep the titles and don&apos;t include the ```):
+```
+&lt;p&gt;&lt;b&gt;[trend status]&lt;/b&gt;&lt;/p&gt;
+&lt;p&gt;[trend description]&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;😊 Positive Feedback:&lt;/b&gt; [feedback items]&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;😐 Mixed Feedback:&lt;/b&gt; [feedback items]&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;☹️ Negative Feedback:&lt;/b&gt; [feedback items]&lt;/p&gt;
+```
+
+For trend status:
+Indicate if there&apos;s an positive or negative trend over time based on the Order Dates.
+- If no trend is found, trend status is &quot;No trend found.&quot;
+- If trend is positive, trend status is &quot;🟢 Postitive trend&quot; 
+- If trend is negative, trend status is &quot;🔴 Negative trend&quot;
+
+For trend description:
+If trend is positive or negative use the trend description to suggest what may be the cause and indicate which period stands out.
+
+For feedback items:
+- Keep the responses short as a list of keywords.
+- Don&apos;t go in details over individual reviews.
+
+</content>
+        <inputs>
+            <apiName>RelatedEntity</apiName>
+            <definition>SOBJECT://Storefront__c</definition>
+            <referenceName>Input:Storefront__c</referenceName>
+            <required>true</required>
+        </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>invocable://getRelatedList</definition>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>parentRecordId</parameterName>
+                <valueExpression>{!$Input:Storefront__c.Id}</valueExpression>
+            </parameters>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>relatedListName</parameterName>
+                <valueExpression>Reviews__r</valueExpression>
+            </parameters>
+            <referenceName>RelatedList:Storefront__c.Reviews__r.Records</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>NWe5ey43TcfBa+4hPyPjwJOdYntsY9tBGVvrmmwVh/k=_15</versionIdentifier>
+    </templateVersions>
+    <type>einstein_gpt__fieldCompletion</type>
+    <visibility>Global</visibility>
+</GenAiPromptTemplate>

@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<McpServerDefinition xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Tools for Pronto employees</description>
+    <masterLabel>Pronto Employee Server</masterLabel>
+    <tools>
+        <apiDefinition>
+            <apiIdentifier>aa:apex-GetCustomerReviewsAction</apiIdentifier>
+            <apiSource>API_CATALOG</apiSource>
+            <operation>GetCustomerReviewsAction</operation>
+        </apiDefinition>
+        <descriptionOverride>Retrieves customer reviews for a specific storefront</descriptionOverride>
+        <destructive>false</destructive>
+        <idempotent>true</idempotent>
+        <openWorld>false</openWorld>
+        <readOnly>true</readOnly>
+        <returnDirect>false</returnDirect>
+        <toolName>getCustomerReviews</toolName>
+        <toolTitle>Get Customer Reviews</toolTitle>
+    </tools>
+    <tools>
+        <apiDefinition>
+            <apiIdentifier>aa:apex-GetOrderStatusAction</apiIdentifier>
+            <apiSource>API_CATALOG</apiSource>
+            <operation>GetOrderStatusAction</operation>
+        </apiDefinition>
+        <descriptionOverride>Gets the status and details of an order by its ID</descriptionOverride>
+        <destructive>false</destructive>
+        <idempotent>true</idempotent>
+        <openWorld>false</openWorld>
+        <readOnly>true</readOnly>
+        <returnDirect>false</returnDirect>
+        <toolName>getOrderStatus</toolName>
+        <toolTitle>Get Order Status</toolTitle>
+    </tools>
+    <tools>
+        <apiDefinition>
+            <apiIdentifier>aa:apex-CreateOrderAction</apiIdentifier>
+            <apiSource>API_CATALOG</apiSource>
+            <operation>CreateOrderAction</operation>
+        </apiDefinition>
+        <descriptionOverride>Creates a draft order</descriptionOverride>
+        <destructive>true</destructive>
+        <idempotent>false</idempotent>
+        <openWorld>false</openWorld>
+        <readOnly>false</readOnly>
+        <returnDirect>false</returnDirect>
+        <toolName>createOrder</toolName>
+        <toolTitle>Create Order</toolTitle>
+    </tools>
+    <tools>
+        <apiDefinition>
+            <apiIdentifier>aa:apex-ConfirmOrderAction</apiIdentifier>
+            <apiSource>API_CATALOG</apiSource>
+            <operation>ConfirmOrderAction</operation>
+        </apiDefinition>
+        <descriptionOverride>Confirms an order by setting its status to Confirmed</descriptionOverride>
+        <destructive>true</destructive>
+        <idempotent>false</idempotent>
+        <openWorld>false</openWorld>
+        <readOnly>false</readOnly>
+        <returnDirect>false</returnDirect>
+        <toolName>confirmOrder</toolName>
+        <toolTitle>Confirm Order</toolTitle>
+    </tools>
+    <tools>
+        <apiDefinition>
+            <apiIdentifier>aa:apex-GetOrdersFromCustomerAction</apiIdentifier>
+            <apiSource>API_CATALOG</apiSource>
+            <operation>GetOrdersFromCustomerAction</operation>
+        </apiDefinition>
+        <descriptionOverride>Get orders from a customer</descriptionOverride>
+        <destructive>false</destructive>
+        <idempotent>true</idempotent>
+        <openWorld>false</openWorld>
+        <readOnly>true</readOnly>
+        <returnDirect>false</returnDirect>
+        <toolName>getOrdersFromCustomer</toolName>
+        <toolTitle>Get Orders from Customer</toolTitle>
+    </tools>
+    <tools>
+        <apiDefinition>
+            <apiIdentifier>aa:apex-CancelOrderAction</apiIdentifier>
+            <apiSource>API_CATALOG</apiSource>
+            <operation>CancelOrderAction</operation>
+        </apiDefinition>
+        <descriptionOverride>Cancels an order if it is in Draft or Confirmed status</descriptionOverride>
+        <destructive>true</destructive>
+        <idempotent>false</idempotent>
+        <openWorld>false</openWorld>
+        <readOnly>false</readOnly>
+        <returnDirect>false</returnDirect>
+        <toolName>cancelOrder</toolName>
+        <toolTitle>Cancel Order</toolTitle>
+    </tools>
+    <tools>
+        <apiDefinition>
+            <apiIdentifier>aa:apex-AddItemToOrderAction</apiIdentifier>
+            <apiSource>API_CATALOG</apiSource>
+            <operation>AddItemToOrderAction</operation>
+        </apiDefinition>
+        <descriptionOverride>Adds a menu item to an existing draft order with specified quantity</descriptionOverride>
+        <destructive>true</destructive>
+        <idempotent>false</idempotent>
+        <openWorld>false</openWorld>
+        <readOnly>false</readOnly>
+        <returnDirect>false</returnDirect>
+        <toolName>addItemToOrder</toolName>
+        <toolTitle>Add Item to Order</toolTitle>
+    </tools>
+    <tools>
+        <apiDefinition>
+            <apiIdentifier>ar:StorefrontRestResource</apiIdentifier>
+            <apiSource>API_CATALOG</apiSource>
+            <operation>searchStorefronts</operation>
+        </apiDefinition>
+        <descriptionOverride
+    >Returns a paged and filtered list of storefronts matching the given search criteria (name, type, cuisine, reviews...).</descriptionOverride>
+        <destructive>false</destructive>
+        <idempotent>true</idempotent>
+        <openWorld>false</openWorld>
+        <readOnly>true</readOnly>
+        <returnDirect>false</returnDirect>
+        <toolName>searchStorefronts</toolName>
+        <toolTitle>Search Storefronts</toolTitle>
+    </tools>
+    <tools>
+        <apiDefinition>
+            <apiIdentifier>ag:Storefront_Explorer_Assistant</apiIdentifier>
+            <apiSource>API_CATALOG</apiSource>
+            <operation>invoke</operation>
+        </apiDefinition>
+        <descriptionOverride>Uses an agent to browse storefronts, menus and operating hours.</descriptionOverride>
+        <destructive>false</destructive>
+        <idempotent>true</idempotent>
+        <openWorld>false</openWorld>
+        <readOnly>true</readOnly>
+        <returnDirect>false</returnDirect>
+        <toolName>exploreStorefrontsWithAgent</toolName>
+        <toolTitle>Explore Storefronts with Agent</toolTitle>
+    </tools>
+</McpServerDefinition>

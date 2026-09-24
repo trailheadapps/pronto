@@ -1,0 +1,19 @@
+name: New issue greeting
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  comment:
+    runs-on: trailheadapps-Ubuntu
+    steps:
+      - uses: actions/github-script@v9.0.0
+        with:
+          script: |
+            await github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: 'Thank you for posting this issue. 🙇🏼‍♂️<br/>We will come back to you shortly.'
+            })
