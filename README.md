@@ -1,4 +1,4 @@
-[![CI](https://github.com/salesforce-developers-emu/pronto/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/salesforce-developers-emu/pronto/actions/workflows/ci.yml)
+[![CI](https://github.com/trailheadapps/pronto/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/trailheadapps/pronto/actions/workflows/ci.yml)
 
 # Pronto Sample App
 
