@@ -78,8 +78,8 @@ start_agent agent_router:
             transition_to_create_order: @utils.transition to @subagent.create_order
                 description: "Call this when the user wants to place a new order"
                 available when @variables.isVerifiedCustomer == True
-            transition_to_browse_storefronts: @utils.transition to @subagent.browse_storefronts
-                description: "Call this when the user wants to browse storefronts"
+            transition_to_browse_storefronts: @utils.transition to @connected_subagent.storefront_explorer_assistant
+                description: "Call this when the user wants to browse storefronts, look up a storefront, or check a storefront's opening hours, transition to the browse storefront subagent"
             transition_to_identify_customer: @utils.transition to @subagent.identify_customer
                 description: "Call this to identify a customer"
                 available when @variables.isVerifiedCustomer == False
@@ -650,3 +650,12 @@ connection messaging:
     outbound_route_name: "flow://Customer_Service_Escalation_Routing_Flow"
     escalation_message: "One moment, I'm transferring our conversation to get you more help."
     adaptive_response_allowed: True
+
+connected_subagent storefront_explorer_assistant:
+    label: "Storefront Explorer Assistant"
+    target: "agent://Storefront_Explorer_Assistant"
+    loading_text: "Collaborating with other agents"
+    description: "Helps Pronto customers browse storefronts and menus."
+    inputs:
+        EndUserLanguage: string = @variables.EndUserLanguage
+        RoutableId: string = @variables.RoutableId
