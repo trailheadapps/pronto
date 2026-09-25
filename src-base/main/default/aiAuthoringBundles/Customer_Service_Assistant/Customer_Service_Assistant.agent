@@ -13,7 +13,7 @@ config:
     enable_enhanced_event_logs: True
 
 access:
-    default_agent_user: "agent.user.a4436c4a4fdc@example.com"
+    default_agent_user: "%%PRONTO_PLACEHOLDER_AGENT_USERNAME%%"
 
 variables:
     RoutableId: linked string
