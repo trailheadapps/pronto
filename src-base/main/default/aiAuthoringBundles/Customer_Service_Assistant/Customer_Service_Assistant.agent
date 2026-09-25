@@ -13,7 +13,7 @@ config:
     enable_enhanced_event_logs: True
 
 access:
-    default_agent_user: "%%PRONTO_PLACEHOLDER_AGENT_USERNAME%%"
+    default_agent_user: "agent.user.a4436c4a4fdc@example.com"
 
 variables:
     RoutableId: linked string
@@ -160,8 +160,8 @@ subagent manage_orders:
                 with orderId=...
             transition_to_create_order: @utils.transition to @subagent.create_order
                 description: "Call this when the user wants to place a new order"
-            transition_to_browse_storefronts: @utils.transition to @subagent.browse_storefronts
-                description: "Call this when the user wants to browse storefronts, find a Storefront From Name, or check a storefront's operating hours"
+            transition_to_browse_storefronts: @utils.transition to @connected_subagent.storefront_explorer_assistant
+                description: "Call this when the user wants to browse storefronts, look up a storefront, or check a storefront's opening hours"
 
     actions:
         getOrderStatus:
@@ -242,118 +242,6 @@ subagent manage_orders:
             include_in_progress_indicator: True
             progress_indicator_message: "Canceling order..."
 
-subagent browse_storefronts:
-    label: "Browse Storefronts"
-    description: "Browse storefronts, look one up by name, and check its operating hours"
-
-    reasoning:
-        instructions: ->
-            | Help the customer explore Pronto storefronts.
-            | Call {!@actions.getStorefronts} to list the available storefronts.
-            | Call {!@actions.getStorefrontFromName} when the user names a specific storefront they want details for.
-            | Call {!@actions.getStorefrontHours} to retrieve a storefront's operating hours. Use the storefront Id returned by {!@actions.getStorefrontFromName} or {!@actions.getStorefronts}.
-            | Call {!@actions.getMenuItems} to retrieve a storefront's available menu items when the user asks about the menu, dishes, or what they can order. Use the storefront Id returned by {!@actions.getStorefrontFromName} or {!@actions.getStorefronts}.
-            | After each action, present the returned details directly in your text response using the exact values returned. Do NOT call an action again unless the user asks for new information.
-        actions:
-            getStorefronts: @actions.getStorefronts
-                set @variables.storefronts=@outputs.storefronts
-            getStorefrontFromName: @actions.getStorefrontFromName
-                with storefrontName=...
-                set @variables.storefrontId=@outputs.storefrontId
-            getStorefrontHours: @actions.getStorefrontHours
-                with storefrontId=...
-            getMenuItems: @actions.getMenuItems
-                with storefrontId=...
-            transition_to_manage_orders: @utils.transition to @subagent.manage_orders
-                description: "Call this when the user is done with storefronts and wants to manage their orders"
-
-    actions:
-        getStorefronts:
-            description: "Retrieves the first 10 storefronts"
-            inputs:
-                recordLimit: integer
-                    description: "Optional maximum number of storefronts to return. Defaults to 10."
-                    label: "Record Limit"
-                    is_required: False
-            outputs:
-                isSuccess: boolean
-                    label: "Is Success"
-                message: string
-                    label: "Message"
-                storefronts: list[object]
-                    label: "Storefronts"
-                    complex_data_type_name: "lightning__recordInfoType"
-            target: "apex://GetStorefrontsAction"
-            label: "Get Storefronts"
-            require_user_confirmation: False
-            include_in_progress_indicator: True
-            progress_indicator_message: "Retrieving storefronts..."
-
-        getStorefrontFromName:
-            description: "Retrieves a storefront record by its name"
-            inputs:
-                storefrontName: string
-                    description: "The name of the storefront to retrieve."
-                    label: "Storefront Name"
-                    is_required: True
-            outputs:
-                isSuccess: boolean
-                    label: "Is Success"
-                message: string
-                    label: "Message"
-                storefront: object
-                    label: "Storefront"
-                    complex_data_type_name: "lightning__recordInfoType"
-                storefrontId: string
-                    description: "The Salesforce record ID of the storefront"
-                    label: "Storefront Id"
-            target: "apex://GetStorefrontFromNameAction"
-            label: "Get Storefront From Name"
-            require_user_confirmation: False
-            include_in_progress_indicator: True
-            progress_indicator_message: "Retrieving storefront..."
-
-        getStorefrontHours:
-            description: "Retrieves the operating hours for a storefront by its Id"
-            inputs:
-                storefrontId: string
-                    description: "The Salesforce record ID of the storefront whose operating hours are retrieved."
-                    label: "Storefront Id"
-                    is_required: True
-            outputs:
-                isSuccess: boolean
-                    label: "Is Success"
-                message: string
-                    label: "Message"
-                hours: list[object]
-                    label: "Hours of Operation"
-                    complex_data_type_name: "lightning__recordInfoType"
-            target: "apex://GetStorefrontHoursAction"
-            label: "Get Storefront Hours"
-            require_user_confirmation: False
-            include_in_progress_indicator: True
-            progress_indicator_message: "Retrieving operating hours..."
-
-        getMenuItems:
-            description: "Retrieves the available menu items for a storefront by its Id"
-            inputs:
-                storefrontId: string
-                    description: "The Salesforce record ID of the storefront whose menu items are retrieved."
-                    label: "Storefront Id"
-                    is_required: True
-            outputs:
-                isSuccess: boolean
-                    label: "Is Success"
-                message: string
-                    label: "Message"
-                menuItems: list[object]
-                    label: "Menu Items"
-                    complex_data_type_name: "lightning__recordInfoType"
-            target: "apex://GetMenuItemsAction"
-            label: "Get Menu Items"
-            require_user_confirmation: False
-            include_in_progress_indicator: True
-            progress_indicator_message: "Retrieving menu items..."
 
 subagent select_storefront:
     label: "Select Storefront"
