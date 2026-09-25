@@ -55,6 +55,7 @@ subagent browse_storefronts:
             | Call {!@actions.getStorefrontFromName} when the user names a specific storefront they want details for.
             | Call {!@actions.getStorefrontHours} to retrieve a storefront's operating hours. Use the storefront Id returned by {!@actions.getStorefrontFromName} or {!@actions.getStorefronts}.
             | Call {!@actions.getMenuItems} to retrieve a storefront's available menu items when the user asks about the menu, dishes, or what they can order. Use the storefront Id returned by {!@actions.getStorefrontFromName} or {!@actions.getStorefronts}.
+            | Call {!@actions.getCustomerReviews} to retrieve customer reviews for a storefront when asked about reviews, ratings, or customer feedback. Use the storefront Id returned by {!@actions.getStorefrontFromName} or {!@actions.getStorefronts}.
             | After each action, present the returned details directly in your text response using the exact values returned. Do NOT call an action again unless the user asks for new information.
         actions:
             getStorefronts: @actions.getStorefronts
@@ -65,6 +66,8 @@ subagent browse_storefronts:
             getStorefrontHours: @actions.getStorefrontHours
                 with storefrontId=...
             getMenuItems: @actions.getMenuItems
+                with storefrontId=...
+            getCustomerReviews: @actions.getCustomerReviews
                 with storefrontId=...
 
     actions:
@@ -155,3 +158,23 @@ subagent browse_storefronts:
             include_in_progress_indicator: True
             progress_indicator_message: "Retrieving menu items..."
 
+        getCustomerReviews:
+            description: "Retrieves customer reviews for a storefront by its Id"
+            inputs:
+                storefrontId: string
+                    description: "The Salesforce record ID of the storefront whose customer reviews are retrieved."
+                    label: "Storefront Id"
+                    is_required: True
+            outputs:
+                isSuccess: boolean
+                    label: "Is Success"
+                message: string
+                    label: "Message"
+                reviews: list[object]
+                    label: "Reviews"
+                    complex_data_type_name: "lightning__recordInfoType"
+            target: "apex://GetCustomerReviewsAction"
+            label: "Get Customer Reviews"
+            require_user_confirmation: False
+            include_in_progress_indicator: True
+            progress_indicator_message: "Retrieving customer reviews..."

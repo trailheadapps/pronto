@@ -63,7 +63,7 @@ function removeSiteUserTags(content) {
 
 // File-type routing: picks the sub-cleanup(s) to run for a given file
 const ROUTES = [
-  { test: (filePath) => /\.agent\.xml$/.test(filePath), cleaners: [cleanHardcodedUsernames] },
+  { test: (filePath) => /\.agent$/.test(filePath), cleaners: [cleanHardcodedUsernames] },
   { test: (filePath) => /\.flow-meta\.xml$/.test(filePath), cleaners: [cleanHardcodedIds] },
   { test: (filePath) => /\.page$/.test(filePath), cleaners: [cleanHardcodedIds, cleanHardcodedOrgDomainUrls] },
   {
