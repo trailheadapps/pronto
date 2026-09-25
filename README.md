@@ -1,5 +1,7 @@
 [![CI](https://github.com/trailheadapps/pronto/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/trailheadapps/pronto/actions/workflows/ci.yml)
 
+![Pronto illustration image](src-base/main/default/staticresources/pronto_org_images/pronto-org-images/pronto-business-account-hero.png)
+
 # Pronto Sample App
 
 ## About
