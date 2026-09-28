@@ -11,7 +11,7 @@
       <!-- Order status and badge -->
       <header class="slds-media slds-media_center slds-has-flexi-truncate">
         <div class="slds-media__figure">
-          <lightning-icon icon-name={statusIconName} size="medium" variant={statusVariant}> </lightning-icon>
+          <lightning-icon icon-name={statusIconName} size="small" variant={statusVariant}> </lightning-icon>
         </div>
         <div class="slds-media__body">
           <lightning-badge label={statusLabel} class={statusBadgeClass}></lightning-badge>
@@ -47,16 +47,18 @@
           <div class="slds-form-element">
             <label class="slds-form-element__label">Order Time</label>
             <div class="slds-form-element__control">
+              <span class="slds-form-element__static">{formattedOrderDate}</span>
               <span class="slds-form-element__static">{formattedOrderTime}</span>
             </div>
           </div>
         </div>
 
         <!-- Delivery Time -->
-        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
+        <div lwc:if={hasDeliveryTime} class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
           <div class="slds-form-element">
             <label class="slds-form-element__label">Expected Delivery</label>
             <div class="slds-form-element__control">
+              <span class="slds-form-element__static">{formattedDeliveryDate}</span>
               <span class="slds-form-element__static">{formattedDeliveryTime}</span>
             </div>
           </div>

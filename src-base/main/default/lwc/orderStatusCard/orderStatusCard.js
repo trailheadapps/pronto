@@ -67,18 +67,36 @@ export default class OrderStatusCard extends NavigationMixin(LightningElement) {
     }).format(this.value.totalAmount);
   }
 
-  get formattedOrderTime() {
-    if (!this.value?.orderTime) {
-      return "N/A";
+  get formattedOrderDate() {
+    if (this.value?.orderTime) {
+      return new Date(this.value.orderTime).toLocaleDateString();
     }
-    return new Date(this.value.orderTime).toLocaleString();
+    return "";
+  }
+
+  get formattedOrderTime() {
+    if (this.value?.orderTime) {
+      return new Date(this.value.orderTime).toLocaleTimeString();
+    }
+    return "";
+  }
+
+  get hasDeliveryTime() {
+    return this.value?.deliveryTime != null;
+  }
+
+  get formattedDeliveryDate() {
+    if (this.hasDeliveryTime) {
+      return new Date(this.value.deliveryTime).toLocaleDateString();
+    }
+    return "";
   }
 
   get formattedDeliveryTime() {
-    if (!this.value?.deliveryTime) {
-      return "N/A";
+    if (this.hasDeliveryTime) {
+      return new Date(this.value.deliveryTime).toLocaleTimeString();
     }
-    return new Date(this.value.deliveryTime).toLocaleString();
+    return "";
   }
 
   get deliveryTime() {
