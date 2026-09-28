@@ -1,0 +1,19 @@
+{
+  "renderer": {
+    "componentOverrides": {
+      "$": {
+        "definition": "@widget/c/orderStatusCard",
+        "attributes": {
+          "id": "{!$attrs.outputValues.orderStatus.id}",
+          "name": "{!$attrs.outputValues.orderStatus.name}",
+          "status": "{!$attrs.outputValues.orderStatus.status}",
+          "storefrontName": "{!$attrs.outputValues.orderStatus.storefrontName}",
+          "totalAmount": "{!$attrs.outputValues.orderStatus.totalAmount}",
+          "orderTime": "{!$attrs.outputValues.orderStatus.orderTime}",
+          "deliveryTime": "{!$attrs.outputValues.orderStatus.deliveryTime}",
+          "orderRecordLink": "{!$attrs.outputValues.orderStatus.orderRecordLink}"
+        }
+      }
+    }
+  }
+}

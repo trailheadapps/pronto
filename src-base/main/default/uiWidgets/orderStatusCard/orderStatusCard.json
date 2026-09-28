@@ -1,0 +1,149 @@
+{
+  "type": "lightning__agentforceWidget",
+  "contentBody": {
+    "widgetBody": {
+      "definition": "tile/widget",
+      "children": [
+        {
+          "definition": "tile/column",
+          "attributes": { "gap": "md" },
+          "children": [
+            {
+              "definition": "tile/row",
+              "attributes": { "gap": "md", "justify": "between", "align": "center" },
+              "children": [
+                {
+                  "definition": "tile/text",
+                  "attributes": { "text": "Order {!$attrs.name}", "variant": "h2" }
+                },
+                {
+                  "definition": "tile/row",
+                  "attributes": { "gap": "sm", "align": "center" },
+                  "children": [
+                    {
+                      "definition": "tile/icon",
+                      "attributes": {
+                        "name": "{!IF($attrs.status = 'Draft', 'edit', IF($attrs.status = 'Confirmed', 'check-circle', IF($attrs.status = 'Processed', 'settings', IF($attrs.status = 'Out for Delivery', 'package', IF($attrs.status = 'Delivered', 'check-circle', IF($attrs.status = 'Canceled', 'x-circle', 'help-circle'))))))}",
+                        "size": "sm",
+                        "color": "{!IF(OR($attrs.status = 'Confirmed', $attrs.status = 'Processed', $attrs.status = 'Delivered'), 'success', IF($attrs.status = 'Out for Delivery', 'warning', IF($attrs.status = 'Canceled', 'error', 'muted')))}",
+                        "alt": "Order status"
+                      }
+                    },
+                    {
+                      "definition": "tile/badge",
+                      "attributes": {
+                        "label": "{!$attrs.status}",
+                        "variant": "{!IF(OR($attrs.status = 'Confirmed', $attrs.status = 'Processed', $attrs.status = 'Delivered'), 'success', IF($attrs.status = 'Out for Delivery', 'warning', IF($attrs.status = 'Canceled', 'error', 'secondary')))}"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "definition": "tile/separator",
+              "attributes": { "orientation": "horizontal" }
+            },
+            {
+              "definition": "tile/column",
+              "attributes": { "gap": "sm" },
+              "children": [
+                {
+                  "definition": "tile/row",
+                  "attributes": { "gap": "md", "justify": "between", "align": "center" },
+                  "children": [
+                    {
+                      "definition": "tile/text",
+                      "attributes": { "text": "Storefront", "variant": "body", "weight": "semibold", "color": "muted" }
+                    },
+                    {
+                      "definition": "tile/text",
+                      "attributes": { "text": "{!$attrs.storefrontName}", "variant": "body" }
+                    }
+                  ]
+                },
+                {
+                  "definition": "tile/row",
+                  "attributes": { "gap": "md", "justify": "between", "align": "center" },
+                  "children": [
+                    {
+                      "definition": "tile/text",
+                      "attributes": {
+                        "text": "Total Amount",
+                        "variant": "body",
+                        "weight": "semibold",
+                        "color": "muted"
+                      }
+                    },
+                    {
+                      "definition": "tile/text",
+                      "attributes": {
+                        "text": "${!$attrs.totalAmount}",
+                        "variant": "body",
+                        "weight": "semibold",
+                        "color": "success"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "definition": "tile/row",
+                  "attributes": { "gap": "md", "justify": "between", "align": "center" },
+                  "children": [
+                    {
+                      "definition": "tile/text",
+                      "attributes": { "text": "Order Time", "variant": "body", "weight": "semibold", "color": "muted" }
+                    },
+                    {
+                      "definition": "tile/text",
+                      "attributes": { "text": "{!$attrs.orderTime}", "variant": "body" }
+                    }
+                  ]
+                },
+                {
+                  "definition": "tile/row",
+                  "meta": { "if": "{!$attrs.deliveryTime <> ''}" },
+                  "attributes": { "gap": "md", "justify": "between", "align": "center" },
+                  "children": [
+                    {
+                      "definition": "tile/text",
+                      "attributes": {
+                        "text": "Expected Delivery",
+                        "variant": "body",
+                        "weight": "semibold",
+                        "color": "muted"
+                      }
+                    },
+                    {
+                      "definition": "tile/text",
+                      "attributes": { "text": "{!$attrs.deliveryTime}", "variant": "body" }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "definition": "tile/button",
+              "attributes": {
+                "label": "View Order",
+                "variant": "primary",
+                "iconName": "open-in-new",
+                "actions": {
+                  "click": [
+                    {
+                      "definition": "action/openLink",
+                      "attributes": {
+                        "url": "{!$attrs.orderRecordLink}",
+                        "target": "_blank"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

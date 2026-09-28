@@ -24,18 +24,19 @@ public virtual with sharing class ReviewService {
         Name,
         Comments__c,
         Rating__c,
-        Customer__c,
+        Customer__r.Name,
         Customer_Email__c,
         Order_Date__c,
         Positive_or_Negative__c,
         Status__c,
         Category__c,
         Restaurant_Response__c,
-        Storefront__c
+        Storefront__r.Name
       FROM Review__c
       WHERE Storefront__c = :storefrontId
       WITH USER_MODE
       ORDER BY Order_Date__c DESC NULLS LAST, CreatedDate DESC
+      LIMIT 10
     ];
   }
 

@@ -35,6 +35,11 @@ global with sharing class GetOrderStatusAction {
       orderStatus.orderTime = order.Order_Time__c;
       orderStatus.deliveryTime = order.Delivery_Time__c;
       orderStatus.items = orderService.getOrderItems(order.Id);
+      orderStatus.orderRecordLink =
+        URL.getOrgDomainUrl().toExternalForm() +
+        '/lightning/r/Order__c/' +
+        order.Id +
+        '/view';
 
       Output output = new Output();
       output.orderStatus = orderStatus;
@@ -67,14 +72,25 @@ global with sharing class GetOrderStatusAction {
    * Status and details of an order
    */
   global class OrderStatus {
+    @InvocableVariable
     public String id;
+    @InvocableVariable
     public String name;
+    @InvocableVariable
     public String status;
+    @InvocableVariable
     public String customerName;
+    @InvocableVariable
     public String storefrontName;
+    @InvocableVariable
     public Decimal totalAmount;
+    @InvocableVariable
     public Datetime orderTime;
+    @InvocableVariable
     public Datetime deliveryTime;
+    @InvocableVariable
     public List<Order_Item__c> items;
+    @InvocableVariable
+    public String orderRecordLink;
   }
 }

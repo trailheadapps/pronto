@@ -1,0 +1,15 @@
+{
+  "title": "Order Status Card Response",
+  "description": "Response fields from the GetOrderStatusAction invocable action (Output) backing the getOrderStatus MCP tool.",
+  "type": "object",
+  "lightning:type": "lightning__objectType",
+  "lightning:tags": ["mcp"],
+  "unevaluatedProperties": false,
+  "properties": {
+    "orderStatus": {
+      "title": "Order Status",
+      "description": "Status and details of the order, from GetOrderStatusAction.OrderStatus.",
+      "lightning:type": "@apexClassType/c__GetOrderStatusAction$OrderStatus"
+    }
+  }
+}

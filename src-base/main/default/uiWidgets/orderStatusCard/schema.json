@@ -1,0 +1,53 @@
+{
+  "title": "Order Status Card",
+  "description": "Displays an order's status, storefront, total, order time, and expected delivery, with a link to the order record.",
+  "type": "object",
+  "properties": {
+    "attributes": {
+      "lightning:type": "lightning__objectType",
+      "properties": {
+        "id": {
+          "title": "Order ID",
+          "description": "Order__c record id.",
+          "lightning:type": "lightning__textType"
+        },
+        "name": {
+          "title": "Order Name",
+          "description": "Order name or number shown in the card heading.",
+          "lightning:type": "lightning__textType"
+        },
+        "status": {
+          "title": "Status",
+          "description": "Order status label (e.g. Draft, Confirmed, Processed, Out for Delivery, Delivered, Canceled).",
+          "lightning:type": "lightning__textType"
+        },
+        "storefrontName": {
+          "title": "Storefront",
+          "description": "Name of the storefront that received the order.",
+          "lightning:type": "lightning__textType"
+        },
+        "totalAmount": {
+          "title": "Total Amount",
+          "description": "Order total in the order's currency.",
+          "lightning:type": "lightning__numberType"
+        },
+        "orderTime": {
+          "title": "Order Time",
+          "description": "When the order was placed.",
+          "lightning:type": "lightning__textType"
+        },
+        "deliveryTime": {
+          "title": "Expected Delivery",
+          "description": "Expected delivery time; blank when not yet scheduled.",
+          "lightning:type": "lightning__textType"
+        },
+        "orderRecordLink": {
+          "title": "Order Record Link",
+          "description": "Absolute URL to the order record's detail page, used by the View Order button.",
+          "lightning:type": "lightning__urlType",
+          "lightning:allowedUrlSchemes": ["https"]
+        }
+      }
+    }
+  }
+}

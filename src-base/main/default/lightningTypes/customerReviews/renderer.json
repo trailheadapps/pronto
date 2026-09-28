@@ -1,0 +1,12 @@
+{
+  "renderer": {
+    "componentOverrides": {
+      "$": {
+        "definition": "@widget/c/customerReviews",
+        "attributes": {
+          "reviews": "{!$attrs.outputValues.reviews}"
+        }
+      }
+    }
+  }
+}

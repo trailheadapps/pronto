@@ -1,0 +1,20 @@
+{
+  "title": "Customer Reviews Widget",
+  "description": "Displays a list of customer reviews with rating, comments, customer name, and order date.",
+  "type": "object",
+  "properties": {
+    "attributes": {
+      "lightning:type": "lightning__objectType",
+      "properties": {
+        "reviews": {
+          "title": "Reviews",
+          "description": "List of customer reviews.",
+          "lightning:type": "lightning__listType",
+          "items": {
+            "lightning:type": "@apexClassType/c__GetCustomerReviewsAction$ReviewWrapper"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "type": "lightning__agentforceWidget",
+  "contentBody": {
+    "widgetBody": {
+      "definition": "tile/widget",
+      "children": [
+        {
+          "definition": "tile/column",
+          "attributes": { "gap": "lg" },
+          "children": [
+            {
+              "definition": "tile/text",
+              "attributes": { "text": "Customer Reviews", "variant": "h2" }
+            },
+            {
+              "definition": "tile/column",
+              "attributes": { "gap": "md" },
+              "meta": { "forEach": "{!$attrs.reviews}", "forItem": "$review" },
+              "children": [
+                {
+                  "definition": "tile/row",
+                  "attributes": { "gap": "md", "justify": "between", "align": "center" },
+                  "children": [
+                    {
+                      "definition": "tile/text",
+                      "attributes": { "text": "{!$review.customerName}", "variant": "h4", "weight": "semibold" }
+                    },
+                    {
+                      "definition": "tile/text",
+                      "attributes": { "text": "{!$review.orderDate}", "variant": "caption", "color": "muted" }
+                    }
+                  ]
+                },
+                {
+                  "definition": "tile/row",
+                  "attributes": { "gap": "sm", "align": "center" },
+                  "children": [
+                    {
+                      "definition": "tile/icon",
+                      "attributes": { "name": "star", "size": "sm", "color": "warning", "alt": "Rating" }
+                    },
+                    {
+                      "definition": "tile/text",
+                      "attributes": { "text": "{!$review.rating}/5", "variant": "body", "weight": "semibold" }
+                    }
+                  ]
+                },
+                {
+                  "definition": "tile/text",
+                  "attributes": { "text": "{!$review.comments}", "variant": "body", "color": "muted" }
+                },
+                {
+                  "definition": "tile/separator",
+                  "attributes": { "orientation": "horizontal" }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
