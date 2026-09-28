@@ -172,7 +172,7 @@ subagent browse_storefronts:
                     label: "Message"
                 reviews: list[object]
                     label: "Reviews"
-                    complex_data_type_name: "lightning__recordInfoType"
+                    complex_data_type_name: "@apexClassType/c__GetCustomerReviewsAction$ReviewWrapper"
             target: "apex://GetCustomerReviewsAction"
             label: "Get Customer Reviews"
             require_user_confirmation: False

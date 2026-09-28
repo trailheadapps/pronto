@@ -23,10 +23,14 @@ global with sharing class GetCustomerReviewsAction {
       try {
         // Retrieve reviews via the service layer
         List<Review__c> reviews = reviewService.getReviewsForStorefront(request.storefrontId);
+        List<ReviewWrapper> reviewWrappers = new List<ReviewWrapper>();
+        for (Review__c reviewRecord : reviews) {
+          reviewWrappers.add(new ReviewWrapper(reviewRecord));
+        }
 
         // Format the response
         response.isSuccess = true;
-        response.reviews = reviews;
+        response.reviews = reviewWrappers;
         response.message = 'Successfully retrieved ' + reviews.size() + ' reviews';
       } catch (Exception e) {
         response.isSuccess = false;
@@ -63,6 +67,26 @@ global with sharing class GetCustomerReviewsAction {
     public String message;
 
     @InvocableVariable(label='Reviews' description='List of customer reviews')
-    public List<Review__c> reviews;
+    public List<ReviewWrapper> reviews;
+  }
+
+  global class ReviewWrapper {
+    public ReviewWrapper() {
+    }
+    public ReviewWrapper(Review__c reviewRecord) {
+      this.customerName = reviewRecord.Customer__r?.Name;
+      this.rating = reviewRecord.Rating__c;
+      this.orderDate = reviewRecord.Order_Date__c;
+      this.comments = reviewRecord.Comments__c;
+    }
+
+    @InvocableVariable
+    public String customerName;
+    @InvocableVariable
+    public Decimal rating;
+    @InvocableVariable
+    public Date orderDate;
+    @InvocableVariable
+    public String comments;
   }
 }

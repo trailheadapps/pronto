@@ -1,0 +1,20 @@
+{
+  "title": "Order Status Card",
+  "description": "Invocable-action result envelope for the getOrderStatus MCP tool.",
+  "lightning:type": "lightning__objectType",
+  "lightning:tags": ["mcp"],
+  "properties": {
+    "actionName": {
+      "title": "actionName",
+      "lightning:type": "lightning__textType"
+    },
+    "isSuccess": {
+      "title": "isSuccess",
+      "lightning:type": "lightning__booleanType"
+    },
+    "outputValues": {
+      "title": "outputValues",
+      "lightning:type": "c__orderStatusCardResponse"
+    }
+  }
+}

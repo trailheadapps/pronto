@@ -1,0 +1,22 @@
+{
+  "title": "Customer Reviews",
+  "description": "Invocable-action result envelope for the getCustomerReviews MCP tool.",
+  "type": "object",
+  "lightning:type": "lightning__objectType",
+  "lightning:tags": ["mcp"],
+  "unevaluatedProperties": false,
+  "properties": {
+    "actionName": {
+      "title": "actionName",
+      "lightning:type": "lightning__textType"
+    },
+    "isSuccess": {
+      "title": "isSuccess",
+      "lightning:type": "lightning__booleanType"
+    },
+    "outputValues": {
+      "title": "outputValues",
+      "lightning:type": "c__customerReviewsResponse"
+    }
+  }
+}

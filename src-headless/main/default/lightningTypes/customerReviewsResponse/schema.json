@@ -1,0 +1,23 @@
+{
+  "title": "Customer Reviews Response",
+  "description": "Response fields from the GetCustomerReviewsAction invocable action (Output).",
+  "type": "object",
+  "lightning:type": "lightning__objectType",
+  "lightning:tags": ["mcp"],
+  "unevaluatedProperties": false,
+  "properties": {
+    "isSuccess": {
+      "title": "isSuccess",
+      "lightning:type": "lightning__booleanType"
+    },
+    "message": {
+      "title": "message",
+      "lightning:type": "lightning__textType"
+    },
+    "reviews": {
+      "title": "reviews",
+      "description": "List of customer reviews.",
+      "lightning:type": "@apexClassType/c__GetCustomerReviewsAction$ReviewWrapper"
+    }
+  }
+}

@@ -5,7 +5,13 @@
       "default": true
     },
     {
+      "path": "src-queues"
+    },
+    {
       "path": "src-site"
+    },
+    {
+      "path": "src-headless"
     }
   ],
   "name": "pronto",

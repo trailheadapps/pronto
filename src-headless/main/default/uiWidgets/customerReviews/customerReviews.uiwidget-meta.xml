@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<UiWidgetBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <masterLabel>Customer Reviews Widget</masterLabel>
+    <description>Displays a list of customer reviews with rating, comments, customer name, and order date.</description>
+    <widgetType>JSON</widgetType>
+</UiWidgetBundle>

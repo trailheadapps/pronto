@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<UiWidgetBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <masterLabel>Order Status Card</masterLabel>
+    <description
+  >Shows an order's status, storefront, total, order time, and expected delivery, with a link to the order record.</description>
+    <widgetType>JSON</widgetType>
+</UiWidgetBundle>

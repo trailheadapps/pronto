@@ -29,9 +29,9 @@ if "%INSTALL_CHOICE%"=="1" (
 )
 
 if "%INSTALL_TYPE%"=="scratch" (
-    set "TOTAL_STEPS=23"
+    set "TOTAL_STEPS=24"
 ) else (
-    set "TOTAL_STEPS=22"
+    set "TOTAL_STEPS=23"
 )
 
 if "%INSTALL_TYPE%"=="prod" (
@@ -217,6 +217,12 @@ echo.
 call :next_step "Deploying site source..."
 sf project deploy start --source-dir src-site --ignore-conflicts
 call :check_status "Deploying site source"
+if errorlevel 1 exit /b 1
+echo.
+
+call :next_step "Deploying headless source..."
+sf project deploy start --source-dir src-headless --ignore-conflicts
+call :check_status "Deploying headless source"
 if errorlevel 1 exit /b 1
 echo.
 

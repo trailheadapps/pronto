@@ -8,6 +8,7 @@
             <apiSource>API_CATALOG</apiSource>
             <operation>GetCustomerReviewsAction</operation>
         </apiDefinition>
+        <uiResource>customerReviews</uiResource>
         <descriptionOverride>Retrieves customer reviews for a specific storefront</descriptionOverride>
         <destructive>false</destructive>
         <idempotent>true</idempotent>
@@ -23,6 +24,7 @@
             <apiSource>API_CATALOG</apiSource>
             <operation>GetOrderStatusAction</operation>
         </apiDefinition>
+        <uiResource>orderStatusCard</uiResource>
         <descriptionOverride>Gets the status and details of an order by its ID</descriptionOverride>
         <destructive>false</destructive>
         <idempotent>true</idempotent>
@@ -76,6 +78,21 @@
         <returnDirect>false</returnDirect>
         <toolName>getOrdersFromCustomer</toolName>
         <toolTitle>Get Orders from Customer</toolTitle>
+    </tools>
+    <tools>
+        <apiDefinition>
+            <apiIdentifier>aa:apex-GetOrderFromNameAction</apiIdentifier>
+            <apiSource>API_CATALOG</apiSource>
+            <operation>GetOrderFromNameAction</operation>
+        </apiDefinition>
+        <descriptionOverride>Get an order from its name (order number)</descriptionOverride>
+        <destructive>false</destructive>
+        <idempotent>true</idempotent>
+        <openWorld>false</openWorld>
+        <readOnly>true</readOnly>
+        <returnDirect>false</returnDirect>
+        <toolName>getOrderFromName</toolName>
+        <toolTitle>Get Order from Name</toolTitle>
     </tools>
     <tools>
         <apiDefinition>
@@ -138,4 +155,16 @@
         <toolName>exploreStorefrontsWithAgent</toolName>
         <toolTitle>Explore Storefronts with Agent</toolTitle>
     </tools>
+    <resources>
+        <resourceName>orderStatusCard</resourceName>
+        <resourceUri>ui://widget/lightningType/c__orderStatusCard</resourceUri>
+        <resourceTitle>Order Status Card</resourceTitle>
+        <description>Represents an order status card.</description>
+    </resources>
+    <resources>
+        <resourceName>customerReviews</resourceName>
+        <resourceUri>ui://widget/lightningType/c__customerReviews</resourceUri>
+        <resourceTitle>Customer Reviews</resourceTitle>
+        <description>Represents a list of customer reviews.</description>
+    </resources>
 </McpServerDefinition>
