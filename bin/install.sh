@@ -59,9 +59,9 @@ case "$INSTALL_CHOICE" in
 esac
 
 if [ "$INSTALL_TYPE" == "scratch" ]; then
-  TOTAL_STEPS=23
+  TOTAL_STEPS=24
 else
-  TOTAL_STEPS=22
+  TOTAL_STEPS=23
 fi
 STEP=0
 
@@ -213,6 +213,11 @@ echo ""
 next_step "Deploying site source..."
 sf project deploy start --source-dir src-site --ignore-conflicts
 check_status "Deploying site source"
+echo ""
+
+next_step "Deploying headless source..."
+sf project deploy start --source-dir src-headless --ignore-conflicts
+check_status "Deploying headless source"
 echo ""
 
 next_step "Activating messaging channel..."

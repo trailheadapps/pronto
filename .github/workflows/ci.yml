@@ -221,6 +221,10 @@ jobs:
       - name: "Deploy site source"
         run: sf project deploy start -d src-site
 
+      # Deploy headless source
+      - name: "Deploy headless source"
+        run: sf project deploy start -d src-headless
+
       # Activate messaging channel
       - name: "Activate messaging channel"
         run: sf apex run -f apex-scripts/activate-messaging-channel.apex
