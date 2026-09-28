@@ -39,5 +39,8 @@ ehthumbs.db
 [Dd]esktop.ini
 $RECYCLE.BIN/
 
+# Ignored Salesforce metadata
+bots/
+
 # Local environment variables
 .env
