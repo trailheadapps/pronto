@@ -16,7 +16,9 @@ The sample app ships with the following:
 - Agentforce Agents with their actions:
   - Customer Service Assistant agent (browse storefronts, manage orders...)
   - Employee Assistant agent (browse storefronts, view orders, view reviews...)
-- Custom hosted MCP server with tools for order management and storefront browsing
+- Custom hosted MCP server with
+  - tools for order management and storefront browsing
+  - Headless Experience Layer (HXL) widgets for rendering a rich UI
 
 ## Requirements
 
