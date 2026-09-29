@@ -9,8 +9,8 @@
           "status": "{!$attrs.outputValues.orderStatus.status}",
           "storefrontName": "{!$attrs.outputValues.orderStatus.storefrontName}",
           "totalAmount": "{!$attrs.outputValues.orderStatus.totalAmount}",
-          "orderTime": "{!$attrs.outputValues.orderStatus.orderTime}",
-          "deliveryTime": "{!$attrs.outputValues.orderStatus.deliveryTime}",
+          "orderTimeLabel": "{!$attrs.outputValues.orderStatus.orderTimeLabel}",
+          "deliveryTimeLabel": "{!$attrs.outputValues.orderStatus.deliveryTimeLabel}",
           "orderRecordLink": "{!$attrs.outputValues.orderStatus.orderRecordLink}",
           "items": "{!$attrs.outputValues.orderStatus.items}"
         }

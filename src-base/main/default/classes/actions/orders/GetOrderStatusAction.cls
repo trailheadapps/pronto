@@ -34,6 +34,8 @@ global with sharing class GetOrderStatusAction {
       orderStatus.totalAmount = order.Total_Amount__c;
       orderStatus.orderTime = order.Order_Time__c;
       orderStatus.deliveryTime = order.Delivery_Time__c;
+      orderStatus.orderTimeLabel = order.Order_Time__c?.format('MMM d, yyyy, h:mm a');
+      orderStatus.deliveryTimeLabel = order.Delivery_Time__c?.format('MMM d, yyyy, h:mm a');
       orderStatus.items = toOrderItems(orderService.getOrderItems(order.Id));
       orderStatus.orderRecordLink =
         URL.getOrgDomainUrl().toExternalForm() +
@@ -106,6 +108,10 @@ global with sharing class GetOrderStatusAction {
     public Datetime orderTime;
     @InvocableVariable
     public Datetime deliveryTime;
+    @InvocableVariable
+    public String orderTimeLabel;
+    @InvocableVariable
+    public String deliveryTimeLabel;
     @InvocableVariable
     public List<OrderItem> items;
     @InvocableVariable

@@ -154,7 +154,7 @@
                     {
                       "definition": "tile/text",
                       "attributes": {
-                        "text": "{!$attrs.orderTime}",
+                        "text": "{!$attrs.orderTimeLabel}",
                         "variant": "body"
                       }
                     }
@@ -163,7 +163,7 @@
                 {
                   "definition": "tile/row",
                   "meta": {
-                    "if": "{!$attrs.deliveryTime <> ''}"
+                    "if": "{!$attrs.deliveryTimeLabel <> ''}"
                   },
                   "attributes": {
                     "gap": "md",
@@ -183,7 +183,7 @@
                     {
                       "definition": "tile/text",
                       "attributes": {
-                        "text": "{!$attrs.deliveryTime}",
+                        "text": "{!$attrs.deliveryTimeLabel}",
                         "variant": "body"
                       }
                     }
@@ -198,8 +198,7 @@
                   "definition": "tile/accordionitem",
                   "attributes": {
                     "title": "Order Items",
-                    "iconName": "list",
-                    "weight": "bold"
+                    "iconName": "list"
                   },
                   "children": [
                     {
