@@ -46,6 +46,14 @@
           "description": "Absolute URL to the order record's detail page, used by the View Order button.",
           "lightning:type": "lightning__urlType",
           "lightning:allowedUrlSchemes": ["https"]
+        },
+        "items": {
+          "title": "Order Items",
+          "description": "Menu items on the order, each with a name, quantity, and line total.",
+          "lightning:type": "lightning__listType",
+          "items": {
+            "lightning:type": "@apexClassType/c__GetOrderStatusAction$OrderItem"
+          }
         }
       }
     }

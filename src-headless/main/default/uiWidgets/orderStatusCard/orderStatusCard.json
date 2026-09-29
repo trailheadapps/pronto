@@ -6,19 +6,47 @@
       "children": [
         {
           "definition": "tile/column",
-          "attributes": { "gap": "md" },
+          "attributes": {
+            "gap": "md"
+          },
           "children": [
             {
               "definition": "tile/row",
-              "attributes": { "gap": "md", "justify": "between", "align": "center" },
+              "attributes": {
+                "gap": "md",
+                "justify": "between",
+                "align": "center"
+              },
               "children": [
                 {
-                  "definition": "tile/text",
-                  "attributes": { "text": "Order {!$attrs.name}", "variant": "h2" }
+                  "definition": "tile/row",
+                  "attributes": {
+                    "gap": "sm",
+                    "align": "center"
+                  },
+                  "children": [
+                    {
+                      "definition": "tile/icon",
+                      "attributes": {
+                        "name": "shopping-cart",
+                        "alt": ""
+                      }
+                    },
+                    {
+                      "definition": "tile/text",
+                      "attributes": {
+                        "text": "Order {!$attrs.name}",
+                        "variant": "h2"
+                      }
+                    }
+                  ]
                 },
                 {
                   "definition": "tile/row",
-                  "attributes": { "gap": "sm", "align": "center" },
+                  "attributes": {
+                    "gap": "sm",
+                    "align": "center"
+                  },
                   "children": [
                     {
                       "definition": "tile/icon",
@@ -42,29 +70,49 @@
             },
             {
               "definition": "tile/separator",
-              "attributes": { "orientation": "horizontal" }
+              "attributes": {
+                "orientation": "horizontal"
+              }
             },
             {
               "definition": "tile/column",
-              "attributes": { "gap": "sm" },
+              "attributes": {
+                "gap": "sm"
+              },
               "children": [
                 {
                   "definition": "tile/row",
-                  "attributes": { "gap": "md", "justify": "between", "align": "center" },
+                  "attributes": {
+                    "gap": "md",
+                    "justify": "between",
+                    "align": "center"
+                  },
                   "children": [
                     {
                       "definition": "tile/text",
-                      "attributes": { "text": "Storefront", "variant": "body", "weight": "semibold", "color": "muted" }
+                      "attributes": {
+                        "text": "Storefront",
+                        "variant": "body",
+                        "weight": "semibold",
+                        "color": "muted"
+                      }
                     },
                     {
                       "definition": "tile/text",
-                      "attributes": { "text": "{!$attrs.storefrontName}", "variant": "body" }
+                      "attributes": {
+                        "text": "{!$attrs.storefrontName}",
+                        "variant": "body"
+                      }
                     }
                   ]
                 },
                 {
                   "definition": "tile/row",
-                  "attributes": { "gap": "md", "justify": "between", "align": "center" },
+                  "attributes": {
+                    "gap": "md",
+                    "justify": "between",
+                    "align": "center"
+                  },
                   "children": [
                     {
                       "definition": "tile/text",
@@ -88,22 +136,40 @@
                 },
                 {
                   "definition": "tile/row",
-                  "attributes": { "gap": "md", "justify": "between", "align": "center" },
+                  "attributes": {
+                    "gap": "md",
+                    "justify": "between",
+                    "align": "center"
+                  },
                   "children": [
                     {
                       "definition": "tile/text",
-                      "attributes": { "text": "Order Time", "variant": "body", "weight": "semibold", "color": "muted" }
+                      "attributes": {
+                        "text": "Order Time",
+                        "variant": "body",
+                        "weight": "semibold",
+                        "color": "muted"
+                      }
                     },
                     {
                       "definition": "tile/text",
-                      "attributes": { "text": "{!$attrs.orderTime}", "variant": "body" }
+                      "attributes": {
+                        "text": "{!$attrs.orderTime}",
+                        "variant": "body"
+                      }
                     }
                   ]
                 },
                 {
                   "definition": "tile/row",
-                  "meta": { "if": "{!$attrs.deliveryTime <> ''}" },
-                  "attributes": { "gap": "md", "justify": "between", "align": "center" },
+                  "meta": {
+                    "if": "{!$attrs.deliveryTime <> ''}"
+                  },
+                  "attributes": {
+                    "gap": "md",
+                    "justify": "between",
+                    "align": "center"
+                  },
                   "children": [
                     {
                       "definition": "tile/text",
@@ -116,7 +182,63 @@
                     },
                     {
                       "definition": "tile/text",
-                      "attributes": { "text": "{!$attrs.deliveryTime}", "variant": "body" }
+                      "attributes": {
+                        "text": "{!$attrs.deliveryTime}",
+                        "variant": "body"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "definition": "tile/accordion",
+              "children": [
+                {
+                  "definition": "tile/accordionitem",
+                  "attributes": {
+                    "title": "Order Items",
+                    "iconName": "list",
+                    "weight": "bold"
+                  },
+                  "children": [
+                    {
+                      "definition": "tile/column",
+                      "attributes": {
+                        "gap": "sm"
+                      },
+                      "children": [
+                        {
+                          "definition": "tile/row",
+                          "meta": {
+                            "forEach": "{!$attrs.items}",
+                            "forItem": "$item"
+                          },
+                          "attributes": {
+                            "gap": "md",
+                            "justify": "between",
+                            "align": "center"
+                          },
+                          "children": [
+                            {
+                              "definition": "tile/text",
+                              "attributes": {
+                                "text": "{!$item.quantity} x {!$item.itemName}",
+                                "variant": "body"
+                              }
+                            },
+                            {
+                              "definition": "tile/text",
+                              "attributes": {
+                                "text": "${!$item.totalAmount}",
+                                "variant": "body",
+                                "weight": "semibold",
+                                "color": "success"
+                              }
+                            }
+                          ]
+                        }
+                      ]
                     }
                   ]
                 }
