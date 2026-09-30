@@ -255,12 +255,12 @@ jobs:
       - name: "Import sample data"
         run: sf data tree import -p ./data/data-plan.json
 
-      # Generate sample data: adding storefront thumbnails
-      - name: "Generate sample data: adding storefront thumbnails"
+      # Generate sample data: add storefront thumbnails
+      - name: "Generate sample data: add storefront thumbnails"
         run: sf apex run -f apex-scripts/set-storefront-thumbnails.apex
 
-      # Generate sample data: setting storefront operating hours
-      - name: "Generate sample data: setting storefront operating hours"
+      # Generate sample data: set storefront operating hours
+      - name: "Generate sample data: set storefront operating hours"
         run: sf apex run -f apex-scripts/set-storefront-opening-hours.apex
 
       # Sleep for XP Cloud deployment

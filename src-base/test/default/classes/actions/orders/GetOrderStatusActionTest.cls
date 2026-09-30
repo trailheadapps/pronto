@@ -61,6 +61,9 @@ private class GetOrderStatusActionTest {
       URL.getOrgDomainUrl().toExternalForm() + '/lightning/r/Order__c/' + mockOrder.Id + '/view',
       outputs[0].orderStatus.orderRecordLink
     );
+    System.assertEquals(1, outputs[0].orderStatus.items.size());
+    System.assertEquals(mockItems[0].Id, outputs[0].orderStatus.items[0].id);
+    System.assertEquals(2, outputs[0].orderStatus.items[0].quantity);
   }
 
   @IsTest

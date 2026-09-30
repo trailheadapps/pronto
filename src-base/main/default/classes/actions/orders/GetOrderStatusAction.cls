@@ -34,7 +34,9 @@ global with sharing class GetOrderStatusAction {
       orderStatus.totalAmount = order.Total_Amount__c;
       orderStatus.orderTime = order.Order_Time__c;
       orderStatus.deliveryTime = order.Delivery_Time__c;
-      orderStatus.items = orderService.getOrderItems(order.Id);
+      orderStatus.orderTimeLabel = order.Order_Time__c?.format('MMM d, yyyy, h:mm a');
+      orderStatus.deliveryTimeLabel = order.Delivery_Time__c?.format('MMM d, yyyy, h:mm a');
+      orderStatus.items = toOrderItems(orderService.getOrderItems(order.Id));
       orderStatus.orderRecordLink =
         URL.getOrgDomainUrl().toExternalForm() +
         '/lightning/r/Order__c/' +
@@ -47,6 +49,24 @@ global with sharing class GetOrderStatusAction {
     }
 
     return outputs;
+  }
+
+  /**
+   * Maps order line item records to their invocable-safe representation.
+   * @param items Order_Item__c records to map
+   * @return List of OrderItem wrappers, in the same order as the input
+   */
+  private static List<OrderItem> toOrderItems(List<Order_Item__c> items) {
+    List<OrderItem> orderItems = new List<OrderItem>();
+    for (Order_Item__c item : items) {
+      OrderItem orderItem = new OrderItem();
+      orderItem.id = item.Id;
+      orderItem.itemName = item.Item_Name__c;
+      orderItem.quantity = item.Quantity__c;
+      orderItem.totalAmount = item.Total_Amount__c;
+      orderItems.add(orderItem);
+    }
+    return orderItems;
   }
 
   /**
@@ -89,8 +109,26 @@ global with sharing class GetOrderStatusAction {
     @InvocableVariable
     public Datetime deliveryTime;
     @InvocableVariable
-    public List<Order_Item__c> items;
+    public String orderTimeLabel;
+    @InvocableVariable
+    public String deliveryTimeLabel;
+    @InvocableVariable
+    public List<OrderItem> items;
     @InvocableVariable
     public String orderRecordLink;
+  }
+
+  /**
+   * A single line item on an order
+   */
+  global class OrderItem {
+    @InvocableVariable
+    public String id;
+    @InvocableVariable
+    public String itemName;
+    @InvocableVariable
+    public Decimal quantity;
+    @InvocableVariable
+    public Decimal totalAmount;
   }
 }

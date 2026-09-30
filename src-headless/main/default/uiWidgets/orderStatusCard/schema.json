@@ -31,14 +31,14 @@
           "description": "Order total in the order's currency.",
           "lightning:type": "lightning__numberType"
         },
-        "orderTime": {
+        "orderTimeLabel": {
           "title": "Order Time",
-          "description": "When the order was placed.",
+          "description": "Formatted label for when the order was placed.",
           "lightning:type": "lightning__textType"
         },
-        "deliveryTime": {
+        "deliveryTimeLabel": {
           "title": "Expected Delivery",
-          "description": "Expected delivery time; blank when not yet scheduled.",
+          "description": "Formatted label for the expected delivery time; blank when not yet scheduled.",
           "lightning:type": "lightning__textType"
         },
         "orderRecordLink": {
@@ -46,6 +46,14 @@
           "description": "Absolute URL to the order record's detail page, used by the View Order button.",
           "lightning:type": "lightning__urlType",
           "lightning:allowedUrlSchemes": ["https"]
+        },
+        "items": {
+          "title": "Order Items",
+          "description": "Menu items on the order, each with a name, quantity, and line total.",
+          "lightning:type": "lightning__listType",
+          "items": {
+            "lightning:type": "@apexClassType/c__GetOrderStatusAction$OrderItem"
+          }
         }
       }
     }
