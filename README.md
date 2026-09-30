@@ -44,6 +44,7 @@ If installing the app on a Sandbox, a Developer Edition org or a Trailhead Playg
 1. Go to **Setup > Agentforce Studio > Agentforce Agents** and enable **Agentforce**
 1. Go to **Setup > Messaging Settings** and enable **Messaging**
 1. Go to **Setup > Einstein Platform > Einstein Bots** and enable **Bots**
+1. Go to **Setup > Feature Settings > Headless Experience Layer Settings** and enable **Headless Experience Layer (Beta)**
 
 ## Setup Instructions
 
