@@ -126,6 +126,36 @@
     </tools>
     <tools>
         <apiDefinition>
+            <apiIdentifier>aa:apex-GetStorefrontHoursAction</apiIdentifier>
+            <apiSource>API_CATALOG</apiSource>
+            <operation>GetStorefrontHoursAction</operation>
+        </apiDefinition>
+        <descriptionOverride>Retrieves the operating hours for a storefront by its Id</descriptionOverride>
+        <destructive>false</destructive>
+        <idempotent>true</idempotent>
+        <openWorld>false</openWorld>
+        <readOnly>true</readOnly>
+        <returnDirect>false</returnDirect>
+        <toolName>getStorefrontHours</toolName>
+        <toolTitle>Get Storefront Hours</toolTitle>
+    </tools>
+    <tools>
+        <apiDefinition>
+            <apiIdentifier>aa:apex-GetMenuItemsAction</apiIdentifier>
+            <apiSource>API_CATALOG</apiSource>
+            <operation>GetMenuItemsAction</operation>
+        </apiDefinition>
+        <descriptionOverride>Retrieves the available menu items for a storefront by its Id</descriptionOverride>
+        <destructive>false</destructive>
+        <idempotent>true</idempotent>
+        <openWorld>false</openWorld>
+        <readOnly>true</readOnly>
+        <returnDirect>false</returnDirect>
+        <toolName>getMenuItems</toolName>
+        <toolTitle>Get Menu Items</toolTitle>
+    </tools>
+    <tools>
+        <apiDefinition>
             <apiIdentifier>ar:StorefrontRestResource</apiIdentifier>
             <apiSource>API_CATALOG</apiSource>
             <operation>searchStorefronts</operation>
