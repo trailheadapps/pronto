@@ -6,12 +6,22 @@
     "attributes": {
       "lightning:type": "lightning__objectType",
       "properties": {
-        "reviews": {
+        "reviewCount": {
+          "title": "Review Count",
+          "description": "Total number of customer reviews.",
+          "lightning:type": "lightning__numberType"
+        },
+        "averageRating": {
+          "title": "Average Rating",
+          "description": "Average rating across all customer reviews.",
+          "lightning:type": "lightning__numberType"
+        },
+        "items": {
           "title": "Reviews",
           "description": "List of customer reviews.",
           "lightning:type": "lightning__listType",
           "items": {
-            "lightning:type": "@apexClassType/c__GetCustomerReviewsAction$ReviewWrapper"
+            "lightning:type": "@apexClassType/c__GetCustomerReviewsAction$ReviewItemWrapper"
           }
         }
       }

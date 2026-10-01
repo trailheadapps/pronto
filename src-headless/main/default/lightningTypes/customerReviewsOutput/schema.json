@@ -1,0 +1,5 @@
+{
+  "title": "Customer Reviews Output",
+  "description": "Customer reviews and rating summary returned by GetCustomerReviewsAction, rendered as a widget",
+  "lightning:type": "@apexClassType/c__GetCustomerReviewsAction$ReviewWrapper"
+}

@@ -170,11 +170,14 @@ subagent browse_storefronts:
                     label: "Is Success"
                 message: string
                     label: "Message"
-                reviews: list[object]
+                reviews: object
                     label: "Reviews"
-                    complex_data_type_name: "@apexClassType/c__GetCustomerReviewsAction$ReviewWrapper"
+                    complex_data_type_name: "c__customerReviewsOutput"
+                    filter_from_agent: False
+                    is_displayable: True
             target: "apex://GetCustomerReviewsAction"
             label: "Get Customer Reviews"
             require_user_confirmation: False
             include_in_progress_indicator: True
             progress_indicator_message: "Retrieving customer reviews..."
+            source: "Get_Customer_Reviews"

@@ -9,13 +9,27 @@
           "attributes": { "gap": "lg" },
           "children": [
             {
-              "definition": "tile/text",
-              "attributes": { "text": "Customer Reviews", "variant": "h2" }
+              "definition": "tile/row",
+              "attributes": { "gap": "md", "justify": "between", "align": "center" },
+              "children": [
+                {
+                  "definition": "tile/text",
+                  "attributes": { "text": "Customer Reviews", "variant": "h2" }
+                },
+                {
+                  "definition": "tile/text",
+                  "attributes": {
+                    "text": "Average: {!$attrs.averageRating}/5 ({!$attrs.reviewCount} reviews)",
+                    "variant": "body",
+                    "color": "muted"
+                  }
+                }
+              ]
             },
             {
               "definition": "tile/column",
               "attributes": { "gap": "md" },
-              "meta": { "forEach": "{!$attrs.reviews}", "forItem": "$review" },
+              "meta": { "forEach": "{!$attrs.items}", "forItem": "$review" },
               "children": [
                 {
                   "definition": "tile/row",

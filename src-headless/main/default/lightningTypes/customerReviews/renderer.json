@@ -4,7 +4,9 @@
       "$": {
         "definition": "@widget/c/customerReviews",
         "attributes": {
-          "reviews": "{!$attrs.outputValues.reviews}"
+          "reviewCount": "{!$attrs.outputValues.reviews.reviewCount}",
+          "averageRating": "{!$attrs.outputValues.reviews.averageRating}",
+          "items": "{!$attrs.outputValues.reviews.items}"
         }
       }
     }
