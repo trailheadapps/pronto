@@ -37,7 +37,7 @@ start_agent agent_router:
         actions:
             transition_to_view_orders: @utils.transition to @subagent.view_customer_orders
                 description: "Call this when the user wants to view customer details and orders."
-            transition_to_browse_storefronts: @utils.transition to @connected_subagent.storefront_explorer_assistant
+            transition_to_browse_storefronts: @utils.transition to @subagent.browse_storefronts
                 description: "Call this when the user wants to browse storefronts, look up a storefront, check operating hours, or view menu items."
             transition_to_manage_customer_reviews: @utils.transition to @subagent.manage_customer_reviews
                 description: "Call this when the user wants to view or respond to customer reviews for a storefront."
@@ -72,7 +72,7 @@ subagent view_customer_orders:
                 with customerId=@variables.customerId
                 with orderName=...
                 set @variables.orderId=@outputs.orderId
-            transition_to_browse_storefronts: @utils.transition to @connected_subagent.storefront_explorer_assistant
+            transition_to_browse_storefronts: @utils.transition to @subagent.browse_storefronts
                 description: "Call this when the user wants to browse storefronts, look up a storefront, check operating hours, or view menu items."
 
     actions:
@@ -205,47 +205,49 @@ subagent manage_customer_reviews:
     reasoning:
         instructions: ->
             | Help the user view and respond to customer reviews for a storefront.
-            | Call {!@actions.getStorefrontFromName} when the user provides a storefront name.
-            | Call {!@actions.getCustomerReviews} to retrieve customer reviews for a storefront. Use the storefront Id returned by {!@actions.getStorefrontFromName}. Do NOT ask the user for a record ID.
+            | Call {!@actions.IdentifyRecordByName} when the user provides a storefront name. It always searches scoped to the Storefront__c object and returns searchResults, a list of matches ordered by relevance. Use the Id of the first entry as the storefront Id. If searchResults is empty, tell the user no storefront was found with that name. If more than one entry looks like a plausible match, show their names and ask the user to confirm which one before continuing.
+            | Call {!@actions.getCustomerReviews} to retrieve customer reviews for a storefront. Use the storefront Id resolved by {!@actions.IdentifyRecordByName}. Do NOT ask the user for a record ID.
             | Call {!@actions.replyToCustomerReview} when the user wants to reply to a specific review. Identify the review the user refers to from the results already retrieved by {!@actions.getCustomerReviews} and pass that review's record ID. Do NOT ask the user for a record ID.
             | Call {!@actions.transition_to_browse_storefronts} when the user wants to browse storefronts, look up a storefront, check operating hours, or view menu items.
             | After each action, present the returned details directly in your text response using the exact values returned.
         actions:
-            getStorefrontFromName: @actions.getStorefrontFromName
-                with storefrontName=...
-                set @variables.storefrontId=@outputs.storefrontId
+            IdentifyRecordByName: @actions.IdentifyRecordByName
+                with recordName=...
+                with objectApiName="Storefront__c"
             getCustomerReviews: @actions.getCustomerReviews
-                with storefrontId=@variables.storefrontId
+                with storefrontId=...
             replyToCustomerReview: @actions.replyToCustomerReview
                 with reviewId=...
                 with responseText=...
-            transition_to_browse_storefronts: @utils.transition to @connected_subagent.storefront_explorer_assistant
+            transition_to_browse_storefronts: @utils.transition to @subagent.browse_storefronts
                 description: "Call this when the user wants to browse storefronts, look up a storefront, check operating hours, or view menu items."
 
     actions:
-        getStorefrontFromName:
-            description: "Retrieves a storefront record by its name"
-            inputs:
-                storefrontName: string
-                    description: "The name of the storefront to retrieve."
-                    label: "Storefront Name"
-                    is_required: True
-            outputs:
-                isSuccess: boolean
-                    label: "Is Success"
-                message: string
-                    label: "Message"
-                storefront: object
-                    label: "Storefront"
-                    complex_data_type_name: "lightning__recordInfoType"
-                storefrontId: string
-                    description: "The Salesforce record ID of the storefront"
-                    label: "Storefront Id"
-            target: "apex://GetStorefrontFromNameAction"
-            label: "Get Storefront From Name"
+        IdentifyRecordByName:
+            description: "Searches for Salesforce CRM records by name and returns a list of matching Salesforce CRM record IDs."
+            label: "Identify Record by Name"
             require_user_confirmation: False
             include_in_progress_indicator: True
-            progress_indicator_message: "Retrieving storefront..."
+            source: "EmployeeCopilot__IdentifyRecordByName"
+            target: "standardInvocableAction://identifyRecordByName"
+            inputs:
+                recordName: string
+                    description: "The name or title of the storefront extracted from user input."
+                    label: "recordName"
+                    is_required: True
+                    is_user_input: True
+                objectApiName: string
+                    description: "The API name of the Salesforce object to search. Always Storefront__c for this lookup."
+                    label: "objectApiName"
+                    is_required: False
+                    is_user_input: False
+            outputs:
+                searchResults: list[object]
+                    description: "A list of the matching Storefront__c records in descending order of relevance."
+                    label: "searchResults"
+                    is_displayable: False
+                    filter_from_agent: False
+                    complex_data_type_name: "lightning__recordInfoType"
 
         getCustomerReviews:
             description: "Retrieves customer reviews for a storefront by its Id"
@@ -295,14 +297,144 @@ subagent manage_customer_reviews:
             include_in_progress_indicator: True
             progress_indicator_message: "Posting reply..."
 
-connected_subagent storefront_explorer_assistant:
-    label: "Storefront Explorer Assistant"
-    target: "agent://Storefront_Explorer_Assistant"
-    loading_text: |
-        Collaborating with other agents
-    description: |
-        Helps Pronto customers browse storefronts and menus.
-    inputs:
-        storefrontId: string = @variables.storefrontId
-        EndUserLanguage: string = ""
-        RoutableId: string = ""
+subagent browse_storefronts:
+    label: "Browse Storefronts"
+    description: "Browse storefronts, look one up by name, and check its operating hours"
+
+    reasoning:
+        instructions: ->
+            | Help the user explore Pronto storefronts.
+            | Call {!@actions.getStorefronts} to list the available storefronts.
+            | Call {!@actions.getStorefrontFromName} when the user names a specific storefront they want details for.
+            | Call {!@actions.getStorefrontHours} to retrieve a storefront's operating hours. Use the storefront Id returned by {!@actions.getStorefrontFromName} or {!@actions.getStorefronts}.
+            | Call {!@actions.getMenuItems} to retrieve a storefront's available menu items when the user asks about the menu, dishes, or what they can order. Use the storefront Id returned by {!@actions.getStorefrontFromName} or {!@actions.getStorefronts}.
+            | Call {!@actions.getCustomerReviews} to retrieve customer reviews for a storefront when asked about reviews, ratings, or customer feedback. Use the storefront Id returned by {!@actions.getStorefrontFromName} or {!@actions.getStorefronts}.
+            | Call {!@actions.transition_to_view_orders} when the user wants to view customer details and orders.
+            | Call {!@actions.transition_to_manage_customer_reviews} when the user wants to view or respond to customer reviews for a storefront.
+            | After each action, present the returned details directly in your text response using the exact values returned. Do NOT call an action again unless the user asks for new information.
+        actions:
+            getStorefronts: @actions.getStorefronts
+            getStorefrontFromName: @actions.getStorefrontFromName
+                with storefrontName=...
+                set @variables.storefrontId=@outputs.storefrontId
+            getStorefrontHours: @actions.getStorefrontHours
+                with storefrontId=...
+            getMenuItems: @actions.getMenuItems
+                with storefrontId=...
+            getCustomerReviews: @actions.getCustomerReviews
+                with storefrontId=...
+            transition_to_view_orders: @utils.transition to @subagent.view_customer_orders
+                description: "Call this when the user wants to view customer details and orders."
+            transition_to_manage_customer_reviews: @utils.transition to @subagent.manage_customer_reviews
+                description: "Call this when the user wants to view or respond to customer reviews for a storefront."
+
+    actions:
+        getStorefronts:
+            description: "Retrieves the first 10 storefronts"
+            inputs:
+                recordLimit: integer
+                    description: "Optional maximum number of storefronts to return. Defaults to 10."
+                    label: "Record Limit"
+                    is_required: False
+            outputs:
+                isSuccess: boolean
+                    label: "Is Success"
+                message: string
+                    label: "Message"
+                storefronts: list[object]
+                    label: "Storefronts"
+                    complex_data_type_name: "lightning__recordInfoType"
+            target: "apex://GetStorefrontsAction"
+            label: "Get Storefronts"
+            require_user_confirmation: False
+            include_in_progress_indicator: True
+            progress_indicator_message: "Retrieving storefronts..."
+
+        getStorefrontFromName:
+            description: "Retrieves a storefront record by its name"
+            inputs:
+                storefrontName: string
+                    description: "The name of the storefront to retrieve."
+                    label: "Storefront Name"
+                    is_required: True
+            outputs:
+                isSuccess: boolean
+                    label: "Is Success"
+                message: string
+                    label: "Message"
+                storefront: object
+                    label: "Storefront"
+                    complex_data_type_name: "lightning__recordInfoType"
+                storefrontId: string
+                    description: "The Salesforce record ID of the storefront"
+                    label: "Storefront Id"
+            target: "apex://GetStorefrontFromNameAction"
+            label: "Get Storefront From Name"
+            require_user_confirmation: False
+            include_in_progress_indicator: True
+            progress_indicator_message: "Retrieving storefront..."
+
+        getStorefrontHours:
+            description: "Retrieves the operating hours for a storefront by its Id"
+            inputs:
+                storefrontId: string
+                    description: "The Salesforce record ID of the storefront whose operating hours are retrieved."
+                    label: "Storefront Id"
+                    is_required: True
+            outputs:
+                isSuccess: boolean
+                    label: "Is Success"
+                message: string
+                    label: "Message"
+                hours: list[object]
+                    label: "Hours of Operation"
+                    complex_data_type_name: "lightning__recordInfoType"
+            target: "apex://GetStorefrontHoursAction"
+            label: "Get Storefront Hours"
+            require_user_confirmation: False
+            include_in_progress_indicator: True
+            progress_indicator_message: "Retrieving operating hours..."
+
+        getMenuItems:
+            description: "Retrieves the available menu items for a storefront by its Id"
+            inputs:
+                storefrontId: string
+                    description: "The Salesforce record ID of the storefront whose menu items are retrieved."
+                    label: "Storefront Id"
+                    is_required: True
+            outputs:
+                isSuccess: boolean
+                    label: "Is Success"
+                message: string
+                    label: "Message"
+                menuItems: list[object]
+                    label: "Menu Items"
+                    complex_data_type_name: "lightning__recordInfoType"
+            target: "apex://GetMenuItemsAction"
+            label: "Get Menu Items"
+            require_user_confirmation: False
+            include_in_progress_indicator: True
+            progress_indicator_message: "Retrieving menu items..."
+
+        getCustomerReviews:
+            description: "Retrieves customer reviews for a storefront by its Id"
+            inputs:
+                storefrontId: string
+                    description: "The Salesforce record ID of the storefront whose customer reviews are retrieved."
+                    label: "Storefront Id"
+                    is_required: True
+            outputs:
+                isSuccess: boolean
+                    label: "Is Success"
+                message: string
+                    label: "Message"
+                reviews: object
+                    label: "Reviews"
+                    complex_data_type_name: "c__customerReviewsOutput"
+                    filter_from_agent: False
+                    is_displayable: True
+            target: "apex://GetCustomerReviewsAction"
+            label: "Get Customer Reviews"
+            require_user_confirmation: False
+            include_in_progress_indicator: True
+            progress_indicator_message: "Retrieving customer reviews..."
