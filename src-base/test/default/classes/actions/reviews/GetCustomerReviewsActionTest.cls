@@ -31,7 +31,8 @@ private class GetCustomerReviewsActionTest {
     System.assertEquals(1, results.size());
     GetCustomerReviewsAction.Output result = results[0];
     System.assertEquals(true, result.isSuccess);
-    System.assertEquals(3, result.reviews.size());
+    System.assertEquals(3, result.reviews.reviewCount);
+    System.assertEquals(3, result.reviews.items.size());
   }
 
   @IsTest

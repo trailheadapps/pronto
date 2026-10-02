@@ -23,14 +23,10 @@ global with sharing class GetCustomerReviewsAction {
       try {
         // Retrieve reviews via the service layer
         List<Review__c> reviews = reviewService.getReviewsForStorefront(request.storefrontId);
-        List<ReviewWrapper> reviewWrappers = new List<ReviewWrapper>();
-        for (Review__c reviewRecord : reviews) {
-          reviewWrappers.add(new ReviewWrapper(reviewRecord));
-        }
 
         // Format the response
         response.isSuccess = true;
-        response.reviews = reviewWrappers;
+        response.reviews = new ReviewWrapper(reviews);
         response.message = 'Successfully retrieved ' + reviews.size() + ' reviews';
       } catch (Exception e) {
         response.isSuccess = false;
@@ -66,14 +62,36 @@ global with sharing class GetCustomerReviewsAction {
     @InvocableVariable(label='Message' description='Success or error message')
     public String message;
 
-    @InvocableVariable(label='Reviews' description='List of customer reviews')
-    public List<ReviewWrapper> reviews;
+    @InvocableVariable(label='Reviews' description='Customer reviews and related metadata')
+    public ReviewWrapper reviews;
   }
 
   global class ReviewWrapper {
     public ReviewWrapper() {
     }
-    public ReviewWrapper(Review__c reviewRecord) {
+    public ReviewWrapper(List<Review__c> reviewRecords) {
+      this.items = new List<ReviewItemWrapper>();
+      Decimal ratingTotal = 0;
+      for (Review__c reviewRecord : reviewRecords) {
+        this.items.add(new ReviewItemWrapper(reviewRecord));
+        ratingTotal += reviewRecord.Rating__c == null ? 0 : reviewRecord.Rating__c;
+      }
+      this.reviewCount = reviewRecords.size();
+      this.averageRating = this.reviewCount == 0 ? 0 : ratingTotal / this.reviewCount;
+    }
+
+    @InvocableVariable
+    public Integer reviewCount;
+    @InvocableVariable
+    public Decimal averageRating;
+    @InvocableVariable
+    public List<ReviewItemWrapper> items;
+  }
+
+  global class ReviewItemWrapper {
+    public ReviewItemWrapper() {
+    }
+    public ReviewItemWrapper(Review__c reviewRecord) {
       this.customerName = reviewRecord.Customer__r?.Name;
       this.rating = reviewRecord.Rating__c;
       this.orderDate = reviewRecord.Order_Date__c;

@@ -100,6 +100,90 @@ private class ReviewServiceTest {
   }
 
   @IsTest
+  static void shouldReplyToReview_WhenReviewExists() {
+    // Given
+    ReviewService service = new ReviewService();
+    Review__c review = [
+      SELECT Id
+      FROM Review__c
+      WHERE Storefront__r.Name = :TestDataFactory.STOREFRONT_NAME_PREFIX + '0'
+      LIMIT 1
+    ];
+
+    // When
+    Test.startTest();
+    Review__c result = service.replyToReview(review.Id, 'Thank you for your feedback!');
+    Test.stopTest();
+
+    // Then
+    Assert.areEqual(review.Id, result.Id, 'Should return the updated review');
+    Review__c updatedReview = [SELECT Restaurant_Response__c FROM Review__c WHERE Id = :review.Id];
+    Assert.areEqual(
+      'Thank you for your feedback!',
+      updatedReview.Restaurant_Response__c,
+      'Should persist the restaurant response'
+    );
+  }
+
+  @IsTest
+  static void shouldThrowException_WhenReplyToReviewIdIsNull() {
+    // Given
+    ReviewService service = new ReviewService();
+
+    // When / Then
+    Test.startTest();
+    try {
+      service.replyToReview(null, 'Thank you for your feedback!');
+      Assert.fail('Should have thrown ReviewException');
+    } catch (ReviewService.ReviewException e) {
+      Assert.isTrue(e.getMessage().contains('must be provided'), 'Exception should indicate ID is required');
+    }
+    Test.stopTest();
+  }
+
+  @IsTest
+  static void shouldThrowException_WhenReplyToReviewResponseTextIsBlank() {
+    // Given
+    ReviewService service = new ReviewService();
+    Review__c review = [
+      SELECT Id
+      FROM Review__c
+      WHERE Storefront__r.Name = :TestDataFactory.STOREFRONT_NAME_PREFIX + '0'
+      LIMIT 1
+    ];
+
+    // When / Then
+    Test.startTest();
+    try {
+      service.replyToReview(review.Id, '');
+      Assert.fail('Should have thrown ReviewException');
+    } catch (ReviewService.ReviewException e) {
+      Assert.isTrue(
+        e.getMessage().contains('response text must be provided'),
+        'Exception should indicate text is required'
+      );
+    }
+    Test.stopTest();
+  }
+
+  @IsTest
+  static void shouldThrowException_WhenReplyToReviewIdDoesNotExist() {
+    // Given
+    ReviewService service = new ReviewService();
+    Id fakeReviewId = TestDataFactory.getFakeId(Review__c.SObjectType);
+
+    // When / Then
+    Test.startTest();
+    try {
+      service.replyToReview(fakeReviewId, 'Thank you for your feedback!');
+      Assert.fail('Should have thrown ReviewException');
+    } catch (ReviewService.ReviewException e) {
+      Assert.isTrue(e.getMessage().contains('No review found'), 'Exception should indicate review was not found');
+    }
+    Test.stopTest();
+  }
+
+  @IsTest
   static void shouldStartRefreshJob_WhenForceRefreshIsTrue() {
     // Given
     ReviewService service = new ReviewService();

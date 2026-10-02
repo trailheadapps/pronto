@@ -1,0 +1,14 @@
+{
+  "renderer": {
+    "componentOverrides": {
+      "$": {
+        "definition": "@widget/c/customerReviews",
+        "attributes": {
+          "reviewCount": "{!$attrs.outputValues.reviews.reviewCount}",
+          "averageRating": "{!$attrs.outputValues.reviews.averageRating}",
+          "items": "{!$attrs.outputValues.reviews.items}"
+        }
+      }
+    }
+  }
+}

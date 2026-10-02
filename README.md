@@ -18,7 +18,7 @@ The sample app ships with the following:
   - Employee Assistant agent (browse storefronts, view orders, view reviews...)
 - Custom hosted MCP server with
   - tools for order management and storefront browsing
-  - Headless Experience Layer (HXL) widgets for rendering a rich UI
+  - Headless Experience Layer (HXL) widgets for rendering a rich UI in third party agents (order status) and Agentforce actions (customer reviews)
 
 ## Requirements
 

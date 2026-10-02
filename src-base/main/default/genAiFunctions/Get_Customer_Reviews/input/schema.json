@@ -1,0 +1,14 @@
+{
+  "required": ["storefrontId"],
+  "unevaluatedProperties": false,
+  "properties": {
+    "storefrontId": {
+      "title": "Storefront ID",
+      "description": "The ID of the storefront to retrieve reviews for",
+      "lightning:type": "lightning__textType",
+      "lightning:isPII": false,
+      "copilotAction:isUserInput": false
+    }
+  },
+  "lightning:type": "lightning__objectType"
+}

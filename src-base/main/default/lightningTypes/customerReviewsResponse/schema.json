@@ -16,7 +16,7 @@
     },
     "reviews": {
       "title": "reviews",
-      "description": "List of customer reviews.",
+      "description": "Customer reviews and related metadata.",
       "lightning:type": "@apexClassType/c__GetCustomerReviewsAction$ReviewWrapper"
     }
   }

@@ -32,12 +32,15 @@ start_agent agent_router:
             | Greet the user and ask them how you can help.
             | Call {!@actions.transition_to_view_orders} when the user wants to view customer details and orders.
             | Call {!@actions.transition_to_browse_storefronts} when the user wants to browse storefronts, look up a storefront, check operating hours, or view menu items.
+            | Call {!@actions.transition_to_manage_customer_reviews} when the user wants to view or respond to customer reviews for a storefront.
 
         actions:
             transition_to_view_orders: @utils.transition to @subagent.view_customer_orders
                 description: "Call this when the user wants to view customer details and orders."
             transition_to_browse_storefronts: @utils.transition to @connected_subagent.storefront_explorer_assistant
                 description: "Call this when the user wants to browse storefronts, look up a storefront, check operating hours, or view menu items."
+            transition_to_manage_customer_reviews: @utils.transition to @subagent.manage_customer_reviews
+                description: "Call this when the user wants to view or respond to customer reviews for a storefront."
 
 subagent view_customer_orders:
     label: "View Customer Orders"
@@ -194,6 +197,104 @@ subagent view_customer_orders:
             require_user_confirmation: False
             include_in_progress_indicator: True
             progress_indicator_message: "Retrieving order..."
+
+subagent manage_customer_reviews:
+    label: "Manage Customer Reviews"
+    description: "View and respond to customer reviews for a storefront"
+
+    reasoning:
+        instructions: ->
+            | Help the user view and respond to customer reviews for a storefront.
+            | Call {!@actions.getStorefrontFromName} when the user provides a storefront name.
+            | Call {!@actions.getCustomerReviews} to retrieve customer reviews for a storefront. Use the storefront Id returned by {!@actions.getStorefrontFromName}. Do NOT ask the user for a record ID.
+            | Call {!@actions.replyToCustomerReview} when the user wants to reply to a specific review. Identify the review the user refers to from the results already retrieved by {!@actions.getCustomerReviews} and pass that review's record ID. Do NOT ask the user for a record ID.
+            | Call {!@actions.transition_to_browse_storefronts} when the user wants to browse storefronts, look up a storefront, check operating hours, or view menu items.
+            | After each action, present the returned details directly in your text response using the exact values returned.
+        actions:
+            getStorefrontFromName: @actions.getStorefrontFromName
+                with storefrontName=...
+                set @variables.storefrontId=@outputs.storefrontId
+            getCustomerReviews: @actions.getCustomerReviews
+                with storefrontId=@variables.storefrontId
+            replyToCustomerReview: @actions.replyToCustomerReview
+                with reviewId=...
+                with responseText=...
+            transition_to_browse_storefronts: @utils.transition to @connected_subagent.storefront_explorer_assistant
+                description: "Call this when the user wants to browse storefronts, look up a storefront, check operating hours, or view menu items."
+
+    actions:
+        getStorefrontFromName:
+            description: "Retrieves a storefront record by its name"
+            inputs:
+                storefrontName: string
+                    description: "The name of the storefront to retrieve."
+                    label: "Storefront Name"
+                    is_required: True
+            outputs:
+                isSuccess: boolean
+                    label: "Is Success"
+                message: string
+                    label: "Message"
+                storefront: object
+                    label: "Storefront"
+                    complex_data_type_name: "lightning__recordInfoType"
+                storefrontId: string
+                    description: "The Salesforce record ID of the storefront"
+                    label: "Storefront Id"
+            target: "apex://GetStorefrontFromNameAction"
+            label: "Get Storefront From Name"
+            require_user_confirmation: False
+            include_in_progress_indicator: True
+            progress_indicator_message: "Retrieving storefront..."
+
+        getCustomerReviews:
+            description: "Retrieves customer reviews for a storefront by its Id"
+            inputs:
+                storefrontId: string
+                    description: "The Salesforce record ID of the storefront whose customer reviews are retrieved."
+                    label: "Storefront Id"
+                    is_required: True
+            outputs:
+                isSuccess: boolean
+                    label: "Is Success"
+                message: string
+                    label: "Message"
+                reviews: object
+                    label: "Reviews"
+                    complex_data_type_name: "c__customerReviewsOutput"
+                    filter_from_agent: False
+                    is_displayable: True
+            target: "apex://GetCustomerReviewsAction"
+            label: "Get Customer Reviews"
+            require_user_confirmation: False
+            include_in_progress_indicator: True
+            progress_indicator_message: "Retrieving customer reviews..."
+            source: "Get_Customer_Reviews"
+
+        replyToCustomerReview:
+            description: "Posts the restaurant's reply to a specific customer review"
+            inputs:
+                reviewId: string
+                    description: "The Salesforce record ID of the review to reply to."
+                    label: "Review ID"
+                    is_required: True
+                responseText: string
+                    description: "The reply text from the restaurant to post on the review."
+                    label: "Response Text"
+                    is_required: True
+            outputs:
+                isSuccess: boolean
+                    label: "Success"
+                message: string
+                    label: "Message"
+                reviewId: string
+                    description: "The Salesforce record ID of the review that was replied to."
+                    label: "Review ID"
+            target: "apex://ReplyToCustomerReviewAction"
+            label: "Reply To Customer Review"
+            require_user_confirmation: True
+            include_in_progress_indicator: True
+            progress_indicator_message: "Posting reply..."
 
 connected_subagent storefront_explorer_assistant:
     label: "Storefront Explorer Assistant"
