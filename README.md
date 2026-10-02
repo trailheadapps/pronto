@@ -76,3 +76,64 @@ If installing the app on a Sandbox, a Developer Edition org or a Trailhead Playg
 
    1. Click **Customer_Service_Agent**.
    1. Click **Publish**.
+
+## Pronto Data Model
+
+The Pronto app relies on the following objects (non-relationship fields are hidden from this diagram):
+
+```mermaid
+erDiagram
+    CONTACT ||--o{ STOREFRONT__C : "is primary contact for"
+    CONTACT ||--o{ ORDER__C : "places"
+    CONTACT ||--o{ REVIEW__C : "writes"
+    STOREFRONT__C ||--o{ MENU__C : "offers"
+    STOREFRONT__C ||--o{ ORDER__C : "receives"
+    STOREFRONT__C ||--o{ REVIEW__C : "receives"
+    STOREFRONT__C ||--o{ STOREFRONT_HOURS_OF_OPERATION__C : "has"
+    MENU__C ||--o{ MENU_ITEM__C : "contains"
+    ORDER__C ||--o{ ORDER_ITEM__C : "contains"
+    MENU_ITEM__C ||--o{ ORDER_ITEM__C : "ordered as"
+
+    CONTACT {
+        id Id PK
+    }
+
+    STOREFRONT__C {
+        id Id PK
+        lookup Account__c FK
+        lookup Primary_Contact__c FK
+    }
+
+    MENU__C {
+        id Id PK
+        masterdetail Storefront__c FK
+    }
+
+    MENU_ITEM__C {
+        id Id PK
+        lookup Menu__c FK
+    }
+
+    ORDER__C {
+        id Id PK
+        lookup Customer__c FK
+        masterdetail Storefront__c FK
+    }
+
+    ORDER_ITEM__C {
+        id Id PK
+        masterdetail Order__c FK
+        lookup Menu_Item__c FK
+    }
+
+    REVIEW__C {
+        id Id PK
+        masterdetail Storefront__c FK
+        lookup Customer__c FK
+    }
+
+    STOREFRONT_HOURS_OF_OPERATION__C {
+        id Id PK
+        masterdetail Storefront__c FK
+    }
+```
