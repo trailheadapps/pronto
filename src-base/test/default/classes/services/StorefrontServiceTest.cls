@@ -28,6 +28,38 @@ private class StorefrontServiceTest {
   }
 
   @IsTest
+  static void shouldGetStorefrontFromName_WhenApostropheStyleDiffers() {
+    // Given
+    StorefrontService service = new StorefrontService();
+    String curlyApostrophe = String.fromCharArray(new List<Integer>{ 8217 });
+    insert new Storefront__c(Name = 'Artisan' + curlyApostrophe + 's Edge Uptown');
+
+    // When
+    Test.startTest();
+    Storefront__c result = service.getStorefrontFromName('Artisan\'s Edge Uptown');
+    Test.stopTest();
+
+    // Then
+    Assert.areEqual('Artisan' + curlyApostrophe + 's Edge Uptown', result.Name, 'Should match across apostrophe styles');
+  }
+
+  @IsTest
+  static void shouldGetStorefrontFromName_WhenNameHasWrappingQuotesAndPunctuation() {
+    // Given
+    StorefrontService service = new StorefrontService();
+    insert new Storefront__c(Name = 'Trailside Deli');
+    String quotedName = String.fromCharArray(new List<Integer>{ 8220 }) + 'Trailside Deli,' + String.fromCharArray(new List<Integer>{ 8221 });
+
+    // When
+    Test.startTest();
+    Storefront__c result = service.getStorefrontFromName(quotedName);
+    Test.stopTest();
+
+    // Then
+    Assert.areEqual('Trailside Deli', result.Name, 'Should ignore wrapping quotes and trailing punctuation');
+  }
+
+  @IsTest
   static void shouldGetStorefrontFromName_WhenExactMatchAmongMultiple() {
     // Given
     StorefrontService service = new StorefrontService();
