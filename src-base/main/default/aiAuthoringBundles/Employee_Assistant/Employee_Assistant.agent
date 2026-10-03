@@ -311,7 +311,7 @@ subagent browse_storefronts:
             | Call {!@actions.getCustomerReviews} to retrieve customer reviews for a storefront when asked about reviews, ratings, or customer feedback. Use the storefront Id returned by {!@actions.getStorefrontFromName} or {!@actions.getStorefronts}.
             | Call {!@actions.transition_to_view_orders} when the user wants to view customer details and orders.
             | Call {!@actions.transition_to_manage_customer_reviews} when the user wants to view or respond to customer reviews for a storefront.
-            | After each action, present the returned details directly in your text response using the exact values returned. Do NOT call an action again unless the user asks for new information.
+            | After calling an action, call __show_tool_results__ if its output supports being displayed as a widget. Otherwise, present the returned details directly in your text response using the exact values returned.
         actions:
             getStorefronts: @actions.getStorefronts
             getStorefrontFromName: @actions.getStorefrontFromName
@@ -327,7 +327,6 @@ subagent browse_storefronts:
                 description: "Call this when the user wants to view customer details and orders."
             transition_to_manage_customer_reviews: @utils.transition to @subagent.manage_customer_reviews
                 description: "Call this when the user wants to view or respond to customer reviews for a storefront."
-
     actions:
         getStorefronts:
             description: "Retrieves the first 10 storefronts"
