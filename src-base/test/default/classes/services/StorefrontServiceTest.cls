@@ -40,7 +40,11 @@ private class StorefrontServiceTest {
     Test.stopTest();
 
     // Then
-    Assert.areEqual('Artisan' + curlyApostrophe + 's Edge Uptown', result.Name, 'Should match across apostrophe styles');
+    Assert.areEqual(
+      'Artisan' + curlyApostrophe + 's Edge Uptown',
+      result.Name,
+      'Should match across apostrophe styles'
+    );
   }
 
   @IsTest
@@ -48,7 +52,10 @@ private class StorefrontServiceTest {
     // Given
     StorefrontService service = new StorefrontService();
     insert new Storefront__c(Name = 'Trailside Deli');
-    String quotedName = String.fromCharArray(new List<Integer>{ 8220 }) + 'Trailside Deli,' + String.fromCharArray(new List<Integer>{ 8221 });
+    String quotedName =
+      String.fromCharArray(new List<Integer>{ 8220 }) +
+      'Trailside Deli,' +
+      String.fromCharArray(new List<Integer>{ 8221 });
 
     // When
     Test.startTest();
