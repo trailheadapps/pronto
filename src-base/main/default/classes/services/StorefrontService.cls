@@ -13,12 +13,13 @@ public virtual with sharing class StorefrontService {
    * @return The matching `Storefront__c` record.
    */
   public virtual Storefront__c getStorefrontFromName(String storefrontName) {
-    if (String.isBlank(storefrontName)) {
+    String cleanedName = cleanStorefrontName(storefrontName);
+    if (String.isBlank(cleanedName)) {
       throw new StorefrontException('A storefront name must be provided.');
     }
 
-    // Query for storefronts matching the provided name
-    String likeName = '%' + storefrontName + '%';
+    // Any apostrophe style (' or a typographic one) matches any other via the single-character wildcard
+    String likeName = '%' + straightenQuotes(cleanedName).replace('\'', '_') + '%';
     List<Storefront__c> storefronts = [
       SELECT
         Id,
@@ -26,6 +27,9 @@ public virtual with sharing class StorefrontService {
         Description__c,
         Cuisine__c,
         Address__c,
+        Address__Street__s,
+        Address__City__s,
+        Address__StateCode__s,
         Phone__c,
         Thumbnail__c,
         Status__c,
@@ -39,7 +43,7 @@ public virtual with sharing class StorefrontService {
     ];
 
     if (storefronts.isEmpty()) {
-      throw new StorefrontException('No storefront found with name: ' + storefrontName);
+      throw new StorefrontException('No storefront found with name: ' + cleanedName);
     }
 
     // Single match: return it directly
@@ -50,7 +54,7 @@ public virtual with sharing class StorefrontService {
     // Multiple matches: resolve to the exact name match or surface the options
     Set<String> storefrontNames = new Set<String>();
     for (Storefront__c storefront : storefronts) {
-      if (storefront.Name == storefrontName) {
+      if (straightenQuotes(storefront.Name).equalsIgnoreCase(straightenQuotes(cleanedName))) {
         return storefront;
       }
       storefrontNames.add(storefront.Name);
@@ -60,6 +64,27 @@ public virtual with sharing class StorefrontService {
     throw new StorefrontException(
       'Multiple storefronts found. Possible matches: ' + String.join(storefrontNames, ', ')
     );
+  }
+
+  /**
+   * Trims whitespace and strips wrapping quotes or trailing punctuation that
+   * callers (including LLM agents) often include around a name, such as
+   * "Trailside Deli," or 'Trailside Deli'.
+   */
+  private static String cleanStorefrontName(String storefrontName) {
+    if (storefrontName == null) {
+      return null;
+    }
+    String edgeChars = '[\\s"\'`\\u2018\\u2019\\u201C\\u201D.,;:!?]+';
+    return storefrontName.replaceAll('^' + edgeChars + '|' + edgeChars + '$', '');
+  }
+
+  /**
+   * Converts typographic apostrophes and quotes to a straight apostrophe so
+   * names like Artisan's and Artisan\u2019s compare as equal.
+   */
+  private static String straightenQuotes(String value) {
+    return value.replaceAll('[`\\u2018\\u2019\\u201B\\u00B4]', '\'');
   }
 
   /**
