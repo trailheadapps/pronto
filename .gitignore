@@ -39,8 +39,9 @@ ehthumbs.db
 [Dd]esktop.ini
 $RECYCLE.BIN/
 
-# Ignored Salesforce metadata
+# Ignore metadata related to deployed agents
 bots/
+aiAgentDefinitionVersions/
 
 # Local environment variables
 .env

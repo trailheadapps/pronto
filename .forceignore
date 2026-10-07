@@ -139,3 +139,9 @@ package.xml
 **/pages/UnderConstruction.page-meta.xml
 **/staticresources/SiteSamples
 **/staticresources/SiteSamples.resource-meta.xml
+
+# HXL temporarily disabled due to product bug
+**/uiWidgets/**
+**/lightningTypes/customerReviews/**
+**/lightningTypes/customerReviewsOutput/**
+**/lightningTypes/orderStatusCard/**
