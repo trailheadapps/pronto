@@ -6,6 +6,8 @@
     <columns>Cuisine__c</columns>
     <columns>Status__c</columns>
     <columns>Type__c</columns>
+    <columns>Average_Review_Score__c</columns>
+    <columns>Total_Reviews__c</columns>
     <filterScope>Everything</filterScope>
     <label>All</label>
 </ListView>
