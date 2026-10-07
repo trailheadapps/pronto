@@ -180,4 +180,3 @@ subagent browse_storefronts:
             require_user_confirmation: False
             include_in_progress_indicator: True
             progress_indicator_message: "Retrieving customer reviews..."
-            source: "Get_Customer_Reviews"
