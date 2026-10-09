@@ -20,10 +20,6 @@ The sample app ships with the following:
   - tools for order management and storefront browsing
   - Headless Experience Layer (HXL) widgets for rendering a rich UI in third party agents (order status) and Agentforce actions (customer reviews)
 
-> [!NOTE]
-> HXL widgets are temporarily excluded from the default app deployment due to a product bug that affects the provisioning of HXL in new orgs.
-> The widgets can be deployed manually in an org by removing the HXL-related lines from the project's `.forceignore` file.
-
 ## Requirements
 
 The Pronto app is set up via an installation script that requires the following:
