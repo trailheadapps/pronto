@@ -106,7 +106,7 @@
         <offset>0</offset>
         <versionString>2.0.0</versionString>
     </actionCalls>
-    <apiVersion>67.0</apiVersion>
+    <apiVersion>68.0</apiVersion>
     <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
     <description>Flow for escalating Customer Service conversations</description>
     <environments>Default</environments>
