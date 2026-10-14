@@ -20,11 +20,6 @@
   "sourceApiVersion": "68.0",
   "replacements": [
     {
-      "glob": "**/aiAuthoringBundles/**/*.agent",
-      "stringToReplace": "%%PRONTO_PLACEHOLDER_AGENT_USERNAME%%",
-      "replaceWithEnv": "PRONTO_AGENT_USERNAME"
-    },
-    {
       "filename": "src-base/main/default/flows/Customer_Service_Agent_Routing_Flow.flow-meta.xml",
       "stringToReplace": "%%PRONTO_PLACEHOLDER_QUEUE_ID%%",
       "replaceWithEnv": "PRONTO_AGENT_ROUTING_QUEUE_ID"
