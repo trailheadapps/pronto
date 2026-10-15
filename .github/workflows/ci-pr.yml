@@ -85,7 +85,7 @@ jobs:
         id: run-code-analyzer
         uses: forcedotcom/run-code-analyzer@v2.14.0
         with:
-          run-arguments: --config-file "code-analyzer.yml" --workspace "src-base/**" --view detail --output-file "sca-results.csv"
+          run-arguments: --config-file "code-analyzer.yml" --target "src-base/**" --view detail --output-file "sca-results.csv"
           results-artifact-name: code-analyzer-results
           github-token: ${{ github.token }}
 
