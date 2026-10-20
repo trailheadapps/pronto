@@ -195,7 +195,7 @@
               "definition": "tile/accordion",
               "children": [
                 {
-                  "definition": "tile/accordionitem",
+                  "definition": "tile/accordionItem",
                   "attributes": {
                     "title": "Order Items",
                     "iconName": "list"
