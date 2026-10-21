@@ -29,7 +29,7 @@ if "%INSTALL_CHOICE%"=="1" (
 )
 
 if "%INSTALL_TYPE%"=="scratch" (
-    set "TOTAL_STEPS=24"
+    set "TOTAL_STEPS=25"
 ) else (
     set "TOTAL_STEPS=23"
 )
@@ -85,6 +85,10 @@ if "%INSTALL_TYPE%"=="scratch" (
     sf org create scratch --definition-file config/project-scratch-def.json --alias %ORG_ALIAS% --set-default --duration-days 30 --wait 10
     call :check_status "Creating scratch org"
     if errorlevel 1 exit /b 1
+    echo.
+
+    call :next_step "Sleeping for 5 minutes while waiting for HXL provisioning..."
+    timeout /t 300 /nobreak >nul
     echo.
 )
 
