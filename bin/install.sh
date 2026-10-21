@@ -59,7 +59,7 @@ case "$INSTALL_CHOICE" in
 esac
 
 if [ "$INSTALL_TYPE" == "scratch" ]; then
-  TOTAL_STEPS=24
+  TOTAL_STEPS=25
 else
   TOTAL_STEPS=23
 fi
@@ -112,6 +112,10 @@ if [ "$INSTALL_TYPE" == "scratch" ]; then
   next_step "Creating scratch org..."
   sf org create scratch --definition-file config/project-scratch-def.json --alias $ORG_ALIAS --set-default --duration-days 30 --wait 10
   check_status "Creating scratch org"
+  echo ""
+
+  next_step "Sleeping for 5 minutes while waiting for HXL provisioning..."
+  sleep 300
   echo ""
 fi
 

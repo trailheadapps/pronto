@@ -155,6 +155,10 @@ jobs:
         if: ${{ !env.IS_PRERELEASE }}
         run: sf org create scratch -f config/project-scratch-def.json -a scratch-org -d -y 1 -w 10
 
+      # Wait for HXL provisioning
+      - name: "Sleep for 5 minutes while waiting for HXL provisioning"
+        run: sleep 300
+
       # Extract org info
       - name: "Extract org info"
         run: |
@@ -263,8 +267,8 @@ jobs:
       - name: "Generate sample data: set storefront operating hours"
         run: sf apex run -f apex-scripts/set-storefront-opening-hours.apex
 
-      # Sleep for XP Cloud deployment
-      - name: "Sleep for XP Cloud deployment"
+      # Wait for XP Cloud deployment
+      - name: "Sleep 30s while waiting for XP Cloud deployment"
         run: sleep 30
 
       # Publish XP Cloud site

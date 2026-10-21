@@ -141,6 +141,10 @@ jobs:
       - name: "Create scratch org"
         run: sf org create scratch -f config/project-scratch-def.json -a scratch-org -d -y 1 -w 10
 
+      # Wait for HXL provisioning
+      - name: "Sleep for 5 minutes while waiting for HXL provisioning"
+        run: sleep 300
+
       # Extract org info
       - name: "Extract org info"
         run: |
