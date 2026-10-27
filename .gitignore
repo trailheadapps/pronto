@@ -41,6 +41,7 @@ $RECYCLE.BIN/
 
 # Ignore metadata related to deployed agents
 bots/
+aiAgent/
 aiAgentDefinitionVersions/
 
 # Local environment variables
