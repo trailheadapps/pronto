@@ -200,25 +200,25 @@ jobs:
       # Publish and activate agent: Storefront_Explorer_Assistant
       - name: "Publish and activate agent: Storefront_Explorer_Assistant"
         run: |
-          sf agent publish authoring-bundle --api-name Storefront_Explorer_Assistant
+          sf agent publish authoring-bundle --skip-retrieve --api-name Storefront_Explorer_Assistant
           sf agent activate --api-name Storefront_Explorer_Assistant
 
       # Publish and activate agent: Customer_Order_Assistant
       - name: "Publish and activate agent: Customer_Order_Assistant"
         run: |
-          sf agent publish authoring-bundle --api-name Customer_Order_Assistant
+          sf agent publish authoring-bundle --skip-retrieve --api-name Customer_Order_Assistant
           sf agent activate --api-name Customer_Order_Assistant
 
       # Publish and activate agent: Employee_Assistant
       - name: "Publish and activate agent: Employee_Assistant"
         run: |
-          sf agent publish authoring-bundle --api-name Employee_Assistant
+          sf agent publish authoring-bundle --skip-retrieve --api-name Employee_Assistant
           sf agent activate --api-name Employee_Assistant
 
       # Publish and activate agent: Customer_Service_Assistant
       - name: "Publish and activate agent: Customer_Service_Assistant"
         run: |
-          sf agent publish authoring-bundle --api-name Customer_Service_Assistant
+          sf agent publish authoring-bundle --skip-retrieve --api-name Customer_Service_Assistant
           sf agent activate --api-name Customer_Service_Assistant
 
       # Deploy site source

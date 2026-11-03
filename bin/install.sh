@@ -59,9 +59,9 @@ case "$INSTALL_CHOICE" in
 esac
 
 if [ "$INSTALL_TYPE" == "scratch" ]; then
-  TOTAL_STEPS=25
+  TOTAL_STEPS=27
 else
-  TOTAL_STEPS=23
+  TOTAL_STEPS=25
 fi
 STEP=0
 
@@ -174,7 +174,7 @@ next_step "Publishing and activating agent: Storefront_Explorer_Assistant..."
 if agent_exists "Storefront_Explorer_Assistant"; then
   echo "Agent Storefront_Explorer_Assistant already exists, skipping."
 else
-  sf agent publish authoring-bundle --api-name Storefront_Explorer_Assistant
+  sf agent publish authoring-bundle --skip-retrieve --api-name Storefront_Explorer_Assistant
   check_status "Publishing Storefront_Explorer_Assistant agent"
   sf agent activate --api-name Storefront_Explorer_Assistant
   check_status "Activating Storefront_Explorer_Assistant agent"
@@ -185,7 +185,7 @@ next_step "Publishing and activating agent: Customer_Order_Assistant..."
 if agent_exists "Customer_Order_Assistant"; then
   echo "Agent Customer_Order_Assistant already exists, skipping."
 else
-  sf agent publish authoring-bundle --api-name Customer_Order_Assistant
+  sf agent publish authoring-bundle --skip-retrieve --api-name Customer_Order_Assistant
   check_status "Publishing Customer_Order_Assistant agent"
   sf agent activate --api-name Customer_Order_Assistant
   check_status "Activating Customer_Order_Assistant agent"
@@ -196,7 +196,7 @@ next_step "Publishing and activating agent: Employee_Assistant..."
 if agent_exists "Employee_Assistant"; then
   echo "Agent Employee_Assistant already exists, skipping."
 else
-  sf agent publish authoring-bundle --api-name Employee_Assistant
+  sf agent publish authoring-bundle --skip-retrieve --api-name Employee_Assistant
   check_status "Publishing Employee_Assistant agent"
   sf agent activate --api-name Employee_Assistant
   check_status "Activating Employee_Assistant agent"
@@ -207,7 +207,7 @@ next_step "Publishing and activating agent: Customer_Service_Assistant..."
 if agent_exists "Customer_Service_Assistant"; then
   echo "Agent Customer_Service_Assistant already exists, skipping."
 else
-  sf agent publish authoring-bundle --api-name Customer_Service_Assistant
+  sf agent publish authoring-bundle --skip-retrieve --api-name Customer_Service_Assistant
   check_status "Publishing Customer_Service_Assistant agent"
   sf agent activate --api-name Customer_Service_Assistant
   check_status "Activating Customer_Service_Assistant agent"

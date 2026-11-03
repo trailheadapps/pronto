@@ -34,7 +34,14 @@ else
 fi
 echo ""
 
-echo "[1/6] Cleaning previous org-specific metadata..."
+PUBLISH_AGENTS=false
+read -r -p "Publish new agent versions? (y/N) " PUBLISH_ANSWER
+if [[ "$PUBLISH_ANSWER" =~ ^[Yy]([Ee][Ss])?$ ]]; then
+  PUBLISH_AGENTS=true
+fi
+echo ""
+
+echo "[1/8] Cleaning previous org-specific metadata..."
 node bin/clean-hardcoded-values.js \
   "src-base/main/default/aiAuthoringBundles/**/*.agent" \
   "src-base/main/default/flows/*.flow-meta.xml" \
@@ -46,7 +53,14 @@ node bin/clean-hardcoded-values.js \
 check_status "Cleaning previous org-specific metadata"
 echo ""
 
-echo "[2/6] Extracting org info..."
+echo "[2/8] Deactivating agents (errors ignored, agents may not be active)..."
+for AGENT_NAME in Customer_Service_Assistant Employee_Assistant Customer_Order_Assistant Storefront_Explorer_Assistant; do
+  echo "Deactivating agent: $AGENT_NAME"
+  sf agent deactivate --api-name "$AGENT_NAME" "${SF_TARGET_ORG_ARGS[@]}" || echo "Could not deactivate $AGENT_NAME, continuing."
+done
+echo ""
+
+echo "[3/8] Extracting org info..."
 PRONTO_ORG_DISPLAY_JSON=$(sf org display --json)
 check_status "Extracting org info"
 export PRONTO_ORG_ID=$(echo "$PRONTO_ORG_DISPLAY_JSON" | jq -r '.result.id')
@@ -58,14 +72,14 @@ export PRONTO_ORG_DOMAIN="${PRONTO_ORG_INSTANCE_URL%.my.salesforce.com}"
 echo "Org Domain:                $PRONTO_ORG_DOMAIN"
 echo ""
 
-echo "[3/6] Retrieving service agent user..."
+echo "[4/8] Retrieving service agent user..."
 SOQL_RESULTS=$(sf data query --query "SELECT Username FROM User WHERE Profile.Name = 'Einstein Agent User' AND IsActive = true" --json "${SF_TARGET_ORG_ARGS[@]}")
 export PRONTO_AGENT_USERNAME=$(echo "$SOQL_RESULTS" | jq -r '.result.records[0].Username')
 check_var "service agent username" "$PRONTO_AGENT_USERNAME"
 echo "Service agent username:    $PRONTO_AGENT_USERNAME"
 echo ""
 
-echo "[4/6] Extracting service agent queues..."
+echo "[5/8] Extracting service agent queues..."
 export PRONTO_AGENT_ROUTING_QUEUE_ID=$(sf data query --query "SELECT Id FROM Group WHERE Type = 'Queue' AND Name = 'Customer Service Messaging Queue'" --json "${SF_TARGET_ORG_ARGS[@]}" | grep -o '"Id": "[^"]*' | cut -d'"' -f4)  && \
 check_var "service agent routing queue ID" "$PRONTO_AGENT_ROUTING_QUEUE_ID"
 echo "Service agent routing queue ID:        $PRONTO_AGENT_ROUTING_QUEUE_ID"
@@ -74,14 +88,32 @@ check_var "service agent escalation queue ID" "$PRONTO_ESCALATION_ROUTING_QUEUE_
 echo "Service agent escalation queue ID:     $PRONTO_ESCALATION_ROUTING_QUEUE_ID" && \
 echo ""
 
-echo "[5/6] Pushing base source..."
+echo "[6/8] Pushing base source..."
 sf project deploy start -d src-base "${SF_TARGET_ORG_ARGS[@]}" -c
 check_status "Pushing base source"
 echo ""
 
-echo "[6/6] Pushing site source..."
+echo "[7/8] Pushing site source..."
 sf project deploy start -d src-site "${SF_TARGET_ORG_ARGS[@]}" -c
 check_status "Pushing site source"
+echo ""
+
+echo "[8/8] Publishing and activating agents..."
+for AGENT_NAME in Storefront_Explorer_Assistant Customer_Order_Assistant Employee_Assistant Customer_Service_Assistant; do
+  if [ "$PUBLISH_AGENTS" = true ]; then
+    echo "Publishing agent: $AGENT_NAME"
+    sf agent publish authoring-bundle --skip-retrieve --api-name "$AGENT_NAME" "${SF_TARGET_ORG_ARGS[@]}"
+    check_status "Publishing $AGENT_NAME agent"
+  fi
+  echo "Retrieving latest version of agent: $AGENT_NAME"
+  VERSION_RESULTS=$(sf data query --query "SELECT VersionNumber FROM BotVersion WHERE BotDefinition.DeveloperName = '$AGENT_NAME' ORDER BY VersionNumber DESC LIMIT 1" --json "${SF_TARGET_ORG_ARGS[@]}")
+  check_status "Retrieving latest version of $AGENT_NAME agent"
+  AGENT_VERSION=$(echo "$VERSION_RESULTS" | jq -r '.result.records[0].VersionNumber')
+  check_var "latest version of $AGENT_NAME agent" "$AGENT_VERSION"
+  echo "Activating agent: $AGENT_NAME (version $AGENT_VERSION)"
+  sf agent activate --api-name "$AGENT_NAME" --version "$AGENT_VERSION" "${SF_TARGET_ORG_ARGS[@]}"
+  check_status "Activating $AGENT_NAME agent"
+done
 echo ""
 
 echo "Redeploy complete."

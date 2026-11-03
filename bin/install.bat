@@ -29,9 +29,9 @@ if "%INSTALL_CHOICE%"=="1" (
 )
 
 if "%INSTALL_TYPE%"=="scratch" (
-    set "TOTAL_STEPS=25"
+    set "TOTAL_STEPS=27"
 ) else (
-    set "TOTAL_STEPS=23"
+    set "TOTAL_STEPS=25"
 )
 
 if "%INSTALL_TYPE%"=="prod" (
@@ -167,7 +167,7 @@ call :agent_exists "Storefront_Explorer_Assistant"
 if !ERRORLEVEL!==0 (
     echo Agent Storefront_Explorer_Assistant already exists, skipping.
 ) else (
-    sf agent publish authoring-bundle --api-name Storefront_Explorer_Assistant
+    sf agent publish authoring-bundle --skip-retrieve --api-name Storefront_Explorer_Assistant
     call :check_status "Publishing Storefront_Explorer_Assistant agent"
     if errorlevel 1 exit /b 1
     sf agent activate --api-name Storefront_Explorer_Assistant
@@ -181,7 +181,7 @@ call :agent_exists "Customer_Order_Assistant"
 if !ERRORLEVEL!==0 (
     echo Agent Customer_Order_Assistant already exists, skipping.
 ) else (
-    sf agent publish authoring-bundle --api-name Customer_Order_Assistant
+    sf agent publish authoring-bundle --skip-retrieve --api-name Customer_Order_Assistant
     call :check_status "Publishing Customer_Order_Assistant agent"
     if errorlevel 1 exit /b 1
     sf agent activate --api-name Customer_Order_Assistant
@@ -195,7 +195,7 @@ call :agent_exists "Employee_Assistant"
 if !ERRORLEVEL!==0 (
     echo Agent Employee_Assistant already exists, skipping.
 ) else (
-    sf agent publish authoring-bundle --api-name Employee_Assistant
+    sf agent publish authoring-bundle --skip-retrieve --api-name Employee_Assistant
     call :check_status "Publishing Employee_Assistant agent"
     if errorlevel 1 exit /b 1
     sf agent activate --api-name Employee_Assistant
@@ -209,7 +209,7 @@ call :agent_exists "Customer_Service_Assistant"
 if !ERRORLEVEL!==0 (
     echo Agent Customer_Service_Assistant already exists, skipping.
 ) else (
-    sf agent publish authoring-bundle --api-name Customer_Service_Assistant
+    sf agent publish authoring-bundle --skip-retrieve --api-name Customer_Service_Assistant
     call :check_status "Publishing Customer_Service_Assistant agent"
     if errorlevel 1 exit /b 1
     sf agent activate --api-name Customer_Service_Assistant
