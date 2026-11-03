@@ -59,9 +59,9 @@ case "$INSTALL_CHOICE" in
 esac
 
 if [ "$INSTALL_TYPE" == "scratch" ]; then
-  TOTAL_STEPS=25
+  TOTAL_STEPS=27
 else
-  TOTAL_STEPS=23
+  TOTAL_STEPS=25
 fi
 STEP=0
 
@@ -106,6 +106,11 @@ node bin/clean-hardcoded-values.js \
   "src-site/main/default/digitalExperiences/site/Pronto_Customer_Site1/sfdc_cms__view/home/content.json" \
   "src-site/main/default/sites/*.site-meta.xml"
 check_status "Cleaning previous org-specific metadata"
+echo ""
+
+next_step "Deleting potential duplicate Apex classes due to agent activation..."
+find src-base/main/default/classes -maxdepth 1 -type f \( -name "*.cls" -o -name "*.cls-meta.xml" \) -delete
+check_status "Deleting potential duplicate Apex classes due to agent activation"
 echo ""
 
 if [ "$INSTALL_TYPE" == "scratch" ]; then
@@ -261,6 +266,11 @@ echo ""
 next_step "Publishing Experience Cloud site..."
 sf community publish --name "Pronto Customer Site"
 check_status "Publishing Experience Cloud site"
+echo ""
+
+next_step "Deleting potential duplicate Apex classes due to agent activation..."
+find src-base/main/default/classes -maxdepth 1 -type f \( -name "*.cls" -o -name "*.cls-meta.xml" \) -delete
+check_status "Deleting potential duplicate Apex classes due to agent activation"
 echo ""
 
 next_step "Opening org so that you can publish the Embedded Service Deployment..."

@@ -29,9 +29,9 @@ if "%INSTALL_CHOICE%"=="1" (
 )
 
 if "%INSTALL_TYPE%"=="scratch" (
-    set "TOTAL_STEPS=25"
+    set "TOTAL_STEPS=27"
 ) else (
-    set "TOTAL_STEPS=23"
+    set "TOTAL_STEPS=25"
 )
 
 if "%INSTALL_TYPE%"=="prod" (
@@ -78,6 +78,10 @@ node bin\clean-hardcoded-values.js ^
   "src-site/main/default/sites/*.site-meta.xml"
 call :check_status "Cleaning previous org-specific metadata"
 if errorlevel 1 exit /b 1
+echo.
+
+call :next_step "Deleting potential duplicate Apex classes due to agent activation..."
+del /q "src-base\main\default\classes\*.cls" "src-base\main\default\classes\*.cls-meta.xml" 2>nul
 echo.
 
 if "%INSTALL_TYPE%"=="scratch" (
@@ -274,6 +278,10 @@ call :next_step "Publishing Experience Cloud site..."
 sf community publish --name "Pronto Customer Site"
 call :check_status "Publishing Experience Cloud site"
 if errorlevel 1 exit /b 1
+echo.
+
+call :next_step "Deleting potential duplicate Apex classes due to agent activation..."
+del /q "src-base\main\default\classes\*.cls" "src-base\main\default\classes\*.cls-meta.xml" 2>nul
 echo.
 
 call :next_step "Opening org so that you can publish the Embedded Service Deployment..."
