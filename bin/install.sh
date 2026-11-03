@@ -108,11 +108,6 @@ node bin/clean-hardcoded-values.js \
 check_status "Cleaning previous org-specific metadata"
 echo ""
 
-next_step "Deleting potential duplicate Apex classes due to agent activation..."
-find src-base/main/default/classes -maxdepth 1 -type f \( -name "*.cls" -o -name "*.cls-meta.xml" \) -delete
-check_status "Deleting potential duplicate Apex classes due to agent activation"
-echo ""
-
 if [ "$INSTALL_TYPE" == "scratch" ]; then
   next_step "Creating scratch org..."
   sf org create scratch --definition-file config/project-scratch-def.json --alias $ORG_ALIAS --set-default --duration-days 30 --wait 10
@@ -179,7 +174,7 @@ next_step "Publishing and activating agent: Storefront_Explorer_Assistant..."
 if agent_exists "Storefront_Explorer_Assistant"; then
   echo "Agent Storefront_Explorer_Assistant already exists, skipping."
 else
-  sf agent publish authoring-bundle --api-name Storefront_Explorer_Assistant
+  sf agent publish authoring-bundle --skip-retrieve --api-name Storefront_Explorer_Assistant
   check_status "Publishing Storefront_Explorer_Assistant agent"
   sf agent activate --api-name Storefront_Explorer_Assistant
   check_status "Activating Storefront_Explorer_Assistant agent"
@@ -190,7 +185,7 @@ next_step "Publishing and activating agent: Customer_Order_Assistant..."
 if agent_exists "Customer_Order_Assistant"; then
   echo "Agent Customer_Order_Assistant already exists, skipping."
 else
-  sf agent publish authoring-bundle --api-name Customer_Order_Assistant
+  sf agent publish authoring-bundle --skip-retrieve --api-name Customer_Order_Assistant
   check_status "Publishing Customer_Order_Assistant agent"
   sf agent activate --api-name Customer_Order_Assistant
   check_status "Activating Customer_Order_Assistant agent"
@@ -201,7 +196,7 @@ next_step "Publishing and activating agent: Employee_Assistant..."
 if agent_exists "Employee_Assistant"; then
   echo "Agent Employee_Assistant already exists, skipping."
 else
-  sf agent publish authoring-bundle --api-name Employee_Assistant
+  sf agent publish authoring-bundle --skip-retrieve --api-name Employee_Assistant
   check_status "Publishing Employee_Assistant agent"
   sf agent activate --api-name Employee_Assistant
   check_status "Activating Employee_Assistant agent"
@@ -212,7 +207,7 @@ next_step "Publishing and activating agent: Customer_Service_Assistant..."
 if agent_exists "Customer_Service_Assistant"; then
   echo "Agent Customer_Service_Assistant already exists, skipping."
 else
-  sf agent publish authoring-bundle --api-name Customer_Service_Assistant
+  sf agent publish authoring-bundle --skip-retrieve --api-name Customer_Service_Assistant
   check_status "Publishing Customer_Service_Assistant agent"
   sf agent activate --api-name Customer_Service_Assistant
   check_status "Activating Customer_Service_Assistant agent"
@@ -266,11 +261,6 @@ echo ""
 next_step "Publishing Experience Cloud site..."
 sf community publish --name "Pronto Customer Site"
 check_status "Publishing Experience Cloud site"
-echo ""
-
-next_step "Deleting potential duplicate Apex classes due to agent activation..."
-find src-base/main/default/classes -maxdepth 1 -type f \( -name "*.cls" -o -name "*.cls-meta.xml" \) -delete
-check_status "Deleting potential duplicate Apex classes due to agent activation"
 echo ""
 
 next_step "Opening org so that you can publish the Embedded Service Deployment..."

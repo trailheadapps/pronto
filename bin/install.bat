@@ -80,10 +80,6 @@ call :check_status "Cleaning previous org-specific metadata"
 if errorlevel 1 exit /b 1
 echo.
 
-call :next_step "Deleting potential duplicate Apex classes due to agent activation..."
-del /q "src-base\main\default\classes\*.cls" "src-base\main\default\classes\*.cls-meta.xml" 2>nul
-echo.
-
 if "%INSTALL_TYPE%"=="scratch" (
     call :next_step "Creating scratch org..."
     sf org create scratch --definition-file config/project-scratch-def.json --alias %ORG_ALIAS% --set-default --duration-days 30 --wait 10
@@ -171,7 +167,7 @@ call :agent_exists "Storefront_Explorer_Assistant"
 if !ERRORLEVEL!==0 (
     echo Agent Storefront_Explorer_Assistant already exists, skipping.
 ) else (
-    sf agent publish authoring-bundle --api-name Storefront_Explorer_Assistant
+    sf agent publish authoring-bundle --skip-retrieve --api-name Storefront_Explorer_Assistant
     call :check_status "Publishing Storefront_Explorer_Assistant agent"
     if errorlevel 1 exit /b 1
     sf agent activate --api-name Storefront_Explorer_Assistant
@@ -185,7 +181,7 @@ call :agent_exists "Customer_Order_Assistant"
 if !ERRORLEVEL!==0 (
     echo Agent Customer_Order_Assistant already exists, skipping.
 ) else (
-    sf agent publish authoring-bundle --api-name Customer_Order_Assistant
+    sf agent publish authoring-bundle --skip-retrieve --api-name Customer_Order_Assistant
     call :check_status "Publishing Customer_Order_Assistant agent"
     if errorlevel 1 exit /b 1
     sf agent activate --api-name Customer_Order_Assistant
@@ -199,7 +195,7 @@ call :agent_exists "Employee_Assistant"
 if !ERRORLEVEL!==0 (
     echo Agent Employee_Assistant already exists, skipping.
 ) else (
-    sf agent publish authoring-bundle --api-name Employee_Assistant
+    sf agent publish authoring-bundle --skip-retrieve --api-name Employee_Assistant
     call :check_status "Publishing Employee_Assistant agent"
     if errorlevel 1 exit /b 1
     sf agent activate --api-name Employee_Assistant
@@ -213,7 +209,7 @@ call :agent_exists "Customer_Service_Assistant"
 if !ERRORLEVEL!==0 (
     echo Agent Customer_Service_Assistant already exists, skipping.
 ) else (
-    sf agent publish authoring-bundle --api-name Customer_Service_Assistant
+    sf agent publish authoring-bundle --skip-retrieve --api-name Customer_Service_Assistant
     call :check_status "Publishing Customer_Service_Assistant agent"
     if errorlevel 1 exit /b 1
     sf agent activate --api-name Customer_Service_Assistant
@@ -278,10 +274,6 @@ call :next_step "Publishing Experience Cloud site..."
 sf community publish --name "Pronto Customer Site"
 call :check_status "Publishing Experience Cloud site"
 if errorlevel 1 exit /b 1
-echo.
-
-call :next_step "Deleting potential duplicate Apex classes due to agent activation..."
-del /q "src-base\main\default\classes\*.cls" "src-base\main\default\classes\*.cls-meta.xml" 2>nul
 echo.
 
 call :next_step "Opening org so that you can publish the Embedded Service Deployment..."
