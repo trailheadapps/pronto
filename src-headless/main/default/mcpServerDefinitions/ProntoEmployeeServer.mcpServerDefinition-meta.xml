@@ -9,7 +9,8 @@
             <operation>GetCustomerReviewsAction</operation>
         </apiDefinition>
         <uiResource>customerReviews</uiResource>
-        <descriptionOverride>Retrieves customer reviews for a specific storefront</descriptionOverride>
+        <descriptionOverride
+    >Retrieves customer reviews for a specific storefront. Send exactly one object in inputs: the result renders as a widget only for a single request. For several storefronts, call the tool once for each.</descriptionOverride>
         <destructive>false</destructive>
         <idempotent>true</idempotent>
         <openWorld>false</openWorld>
@@ -25,7 +26,8 @@
             <operation>GetOrderStatusAction</operation>
         </apiDefinition>
         <uiResource>orderStatusCard</uiResource>
-        <descriptionOverride>Gets the status and details of an order by its ID</descriptionOverride>
+        <descriptionOverride
+    >Gets the status and details of an order by its ID. Send exactly one object in inputs: the result renders as a widget only for a single request. For several orders, call the tool once for each.</descriptionOverride>
         <destructive>false</destructive>
         <idempotent>true</idempotent>
         <openWorld>false</openWorld>
