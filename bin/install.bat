@@ -29,9 +29,9 @@ if "%INSTALL_CHOICE%"=="1" (
 )
 
 if "%INSTALL_TYPE%"=="scratch" (
-    set "TOTAL_STEPS=27"
+    set "TOTAL_STEPS=26"
 ) else (
-    set "TOTAL_STEPS=25"
+    set "TOTAL_STEPS=24"
 )
 
 if "%INSTALL_TYPE%"=="prod" (
@@ -230,6 +230,49 @@ call :check_status "Deploying headless source"
 if errorlevel 1 exit /b 1
 echo.
 
+call :next_step "Activating MCP server: ProntoEmployeeServer..."
+rem A custom MCP server is activated by its McpServerAccess record, its metadata has no active flag
+sf data query --use-tooling-api --query "SELECT Id FROM McpServerDefinition WHERE DeveloperName = 'ProntoEmployeeServer'" --json > "%TMPJSON%"
+call :check_status "Querying for MCP server ID"
+if errorlevel 1 exit /b 1
+call :json_get "%TMPJSON%" "$j.result.records[0].Id" PRONTO_MCP_SERVER_ID
+call :check_var "MCP server ID" "%PRONTO_MCP_SERVER_ID%"
+if errorlevel 1 exit /b 1
+sf data query --use-tooling-api --query "SELECT Id, Active FROM McpServerAccess WHERE McpServerId = '%PRONTO_MCP_SERVER_ID%'" --json > "%TMPJSON%"
+call :check_status "Querying for MCP server access"
+if errorlevel 1 exit /b 1
+call :json_get "%TMPJSON%" "$j.result.records[0].Id" PRONTO_MCP_ACCESS_ID
+call :json_get "%TMPJSON%" "$j.result.records[0].Active" PRONTO_MCP_ACCESS_ACTIVE
+if not defined PRONTO_MCP_ACCESS_ID goto :mcp_access_create
+if "%PRONTO_MCP_ACCESS_ID%"=="null" goto :mcp_access_create
+if /i "%PRONTO_MCP_ACCESS_ACTIVE%"=="true" (
+    echo MCP server already active, skipping.
+    goto :mcp_access_done
+)
+sf data update record --use-tooling-api --sobject McpServerAccess --record-id "%PRONTO_MCP_ACCESS_ID%" --values "Active=true"
+call :check_status "Activating MCP server"
+if errorlevel 1 exit /b 1
+goto :mcp_access_done
+:mcp_access_create
+sf data create record --use-tooling-api --sobject McpServerAccess --values "DeveloperName=ProntoEmployeeServer MasterLabel='Pronto Employee Server' Active=true McpServerId=%PRONTO_MCP_SERVER_ID%"
+call :check_status "Activating MCP server"
+if errorlevel 1 exit /b 1
+:mcp_access_done
+rem Sandboxes and scratch orgs need the sandbox variant of the server URL
+sf data query --query "SELECT IsSandbox FROM Organization" --json > "%TMPJSON%"
+call :check_status "Querying for org type"
+if errorlevel 1 exit /b 1
+call :json_get "%TMPJSON%" "$j.result.records[0].IsSandbox" PRONTO_ORG_IS_SANDBOX
+call :check_var "org type" "%PRONTO_ORG_IS_SANDBOX%"
+if errorlevel 1 exit /b 1
+if /i "%PRONTO_ORG_IS_SANDBOX%"=="true" (
+    set "PRONTO_MCP_SERVER_URL=https://api.salesforce.com/platform/mcp/v1/sandbox/custom/ProntoEmployeeServer"
+) else (
+    set "PRONTO_MCP_SERVER_URL=https://api.salesforce.com/platform/mcp/v1/custom/ProntoEmployeeServer"
+)
+echo MCP server URL:            %PRONTO_MCP_SERVER_URL%
+echo.
+
 call :next_step "Activating messaging channel..."
 sf apex run --file apex-scripts\activate-messaging-channel.apex
 call :check_status "Activating messaging channel"
@@ -281,6 +324,9 @@ sf org open --path lightning/setup/EmbeddedServiceDeployments/home
 echo.
 
 echo Installation completed.
+echo.
+echo Pronto Employee MCP server URL: %PRONTO_MCP_SERVER_URL%
+echo To call it from an agent, see "Call the Pronto Employee MCP Server From an Agent" in the README.
 echo.
 
 del /q "%TMPJSON%" >nul 2>&1

@@ -59,9 +59,9 @@ case "$INSTALL_CHOICE" in
 esac
 
 if [ "$INSTALL_TYPE" == "scratch" ]; then
-  TOTAL_STEPS=27
+  TOTAL_STEPS=26
 else
-  TOTAL_STEPS=25
+  TOTAL_STEPS=24
 fi
 STEP=0
 
@@ -224,6 +224,33 @@ sf project deploy start --source-dir src-headless --ignore-conflicts
 check_status "Deploying headless source"
 echo ""
 
+next_step "Activating MCP server: ProntoEmployeeServer..."
+# A custom MCP server is activated by its McpServerAccess record, its metadata has no active flag
+PRONTO_MCP_SERVER_ID=$(sf data query --use-tooling-api --query "SELECT Id FROM McpServerDefinition WHERE DeveloperName = 'ProntoEmployeeServer'" --json | jq -r '.result.records[0].Id')
+check_var "MCP server ID" "$PRONTO_MCP_SERVER_ID"
+PRONTO_MCP_ACCESS_JSON=$(sf data query --use-tooling-api --query "SELECT Id, Active FROM McpServerAccess WHERE McpServerId = '$PRONTO_MCP_SERVER_ID'" --json)
+check_status "Querying for MCP server access"
+PRONTO_MCP_ACCESS_ID=$(echo "$PRONTO_MCP_ACCESS_JSON" | jq -r '.result.records[0].Id')
+if [ -z "$PRONTO_MCP_ACCESS_ID" ] || [ "$PRONTO_MCP_ACCESS_ID" == "null" ]; then
+  sf data create record --use-tooling-api --sobject McpServerAccess --values "DeveloperName=ProntoEmployeeServer MasterLabel='Pronto Employee Server' Active=true McpServerId=$PRONTO_MCP_SERVER_ID"
+  check_status "Activating MCP server"
+elif [ "$(echo "$PRONTO_MCP_ACCESS_JSON" | jq -r '.result.records[0].Active')" != "true" ]; then
+  sf data update record --use-tooling-api --sobject McpServerAccess --record-id "$PRONTO_MCP_ACCESS_ID" --values "Active=true"
+  check_status "Activating MCP server"
+else
+  echo "MCP server already active, skipping."
+fi
+# Sandboxes and scratch orgs need the sandbox variant of the server URL
+PRONTO_ORG_IS_SANDBOX=$(sf data query --query "SELECT IsSandbox FROM Organization" --json | jq -r '.result.records[0].IsSandbox')
+check_var "org type" "$PRONTO_ORG_IS_SANDBOX"
+if [ "$PRONTO_ORG_IS_SANDBOX" == "true" ]; then
+  PRONTO_MCP_SERVER_URL="https://api.salesforce.com/platform/mcp/v1/sandbox/custom/ProntoEmployeeServer"
+else
+  PRONTO_MCP_SERVER_URL="https://api.salesforce.com/platform/mcp/v1/custom/ProntoEmployeeServer"
+fi
+echo "MCP server URL:            $PRONTO_MCP_SERVER_URL"
+echo ""
+
 next_step "Activating messaging channel..."
 sf apex run --file apex-scripts/activate-messaging-channel.apex
 check_status "Activating messaging channel"
@@ -268,4 +295,7 @@ sf org open --path lightning/setup/EmbeddedServiceDeployments/home
 echo ""
 
 echo "Installation completed."
+echo ""
+echo "Pronto Employee MCP server URL: $PRONTO_MCP_SERVER_URL"
+echo "To call it from an agent, see \"Call the Pronto Employee MCP Server From an Agent\" in the README."
 echo ""
