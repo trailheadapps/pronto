@@ -1,0 +1,26 @@
+{
+  "title": "Storefront Profile Card Response",
+  "description": "Response fields from the GetStorefrontFromNameAction invocable action (Output) backing the getStorefrontFromName MCP tool.",
+  "type": "object",
+  "lightning:type": "lightning__objectType",
+  "lightning:tags": ["mcp"],
+  "properties": {
+    "isSuccess": {
+      "title": "isSuccess",
+      "lightning:type": "lightning__booleanType"
+    },
+    "message": {
+      "title": "message",
+      "lightning:type": "lightning__textType"
+    },
+    "storefrontId": {
+      "title": "storefrontId",
+      "lightning:type": "lightning__textType"
+    },
+    "storefrontDetails": {
+      "title": "storefrontDetails",
+      "description": "Display-ready storefront details.",
+      "lightning:type": "@apexClassType/c__GetStorefrontFromNameAction$StorefrontDetails"
+    }
+  }
+}

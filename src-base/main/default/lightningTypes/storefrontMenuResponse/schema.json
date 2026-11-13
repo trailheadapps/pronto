@@ -1,0 +1,22 @@
+{
+  "title": "Storefront Menu Response",
+  "description": "Response fields from the GetMenuItemsAction invocable action (Output) backing the getMenuItems MCP tool.",
+  "type": "object",
+  "lightning:type": "lightning__objectType",
+  "lightning:tags": ["mcp"],
+  "properties": {
+    "isSuccess": {
+      "title": "isSuccess",
+      "lightning:type": "lightning__booleanType"
+    },
+    "message": {
+      "title": "message",
+      "lightning:type": "lightning__textType"
+    },
+    "menu": {
+      "title": "menu",
+      "description": "Display-ready storefront menu.",
+      "lightning:type": "@apexClassType/c__GetMenuItemsAction$StorefrontMenu"
+    }
+  }
+}
