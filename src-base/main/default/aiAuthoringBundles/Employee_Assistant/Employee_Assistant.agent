@@ -367,6 +367,11 @@ subagent browse_storefronts:
                 storefrontId: string
                     description: "The Salesforce record ID of the storefront"
                     label: "Storefront Id"
+                storefrontDetails: object
+                    label: "Storefront Details"
+                    complex_data_type_name: "c__storefrontProfileCardOutput"
+                    filter_from_agent: False
+                    is_displayable: True
             target: "apex://GetStorefrontFromNameAction"
             label: "Get Storefront From Name"
             require_user_confirmation: False
@@ -409,6 +414,11 @@ subagent browse_storefronts:
                 menuItems: list[object]
                     label: "Menu Items"
                     complex_data_type_name: "lightning__recordInfoType"
+                menu: object
+                    label: "Menu"
+                    complex_data_type_name: "c__storefrontMenuOutput"
+                    filter_from_agent: False
+                    is_displayable: True
             target: "apex://GetMenuItemsAction"
             label: "Get Menu Items"
             require_user_confirmation: False

@@ -1,0 +1,5 @@
+{
+  "title": "Storefront Profile Card Output",
+  "description": "Display-ready storefront details returned by GetStorefrontFromNameAction, rendered as a widget",
+  "lightning:type": "@apexClassType/c__GetStorefrontFromNameAction$StorefrontDetails"
+}
