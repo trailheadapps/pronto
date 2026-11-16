@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<UiWidgetBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <masterLabel>Storefront Profile Card</masterLabel>
+    <description>Storefront name, status badge, cuisine, rating, address, phone, and follow-up buttons.</description>
+    <widgetType>JSON</widgetType>
+</UiWidgetBundle>

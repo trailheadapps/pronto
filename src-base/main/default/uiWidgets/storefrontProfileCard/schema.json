@@ -1,0 +1,47 @@
+{
+  "title": "Storefront Profile Card",
+  "description": "Attribute contract for the storefront profile card",
+  "type": "object",
+  "properties": {
+    "attributes": {
+      "lightning:type": "lightning__objectType",
+      "properties": {
+        "name": {
+          "title": "name",
+          "description": "Storefront name",
+          "lightning:type": "lightning__textType"
+        },
+        "cuisine": {
+          "title": "cuisine",
+          "description": "Cuisine type",
+          "lightning:type": "lightning__textType"
+        },
+        "status": {
+          "title": "status",
+          "description": "Storefront status",
+          "lightning:type": "lightning__textType"
+        },
+        "statusVariant": {
+          "title": "statusVariant",
+          "description": "Badge variant for the status (success, warning, error, secondary)",
+          "lightning:type": "lightning__textType"
+        },
+        "ratingLabel": {
+          "title": "ratingLabel",
+          "description": "Average rating and review count, for example 4.4 (5 reviews)",
+          "lightning:type": "lightning__textType"
+        },
+        "address": {
+          "title": "address",
+          "description": "Street, city, and state",
+          "lightning:type": "lightning__textType"
+        },
+        "phone": {
+          "title": "phone",
+          "description": "Phone number",
+          "lightning:type": "lightning__textType"
+        }
+      }
+    }
+  }
+}

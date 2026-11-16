@@ -1,0 +1,14 @@
+{
+  "renderer": {
+    "componentOverrides": {
+      "$": {
+        "definition": "@widget/c/storefrontMenu",
+        "attributes": {
+          "storefrontName": "{!$attrs.outputValues.menu.storefrontName}",
+          "summaryLabel": "{!$attrs.outputValues.menu.summaryLabel}",
+          "items": "{!$attrs.outputValues.menu.items}"
+        }
+      }
+    }
+  }
+}

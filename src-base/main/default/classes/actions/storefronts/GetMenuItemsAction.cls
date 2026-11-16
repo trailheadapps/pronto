@@ -24,6 +24,7 @@ global with sharing class GetMenuItemsAction {
       Output response = new Output();
       try {
         List<Menu_Item__c> menuItems = storefrontService.getMenuItems(request.storefrontId);
+        response.menu = new StorefrontMenu(menuItems);
         if (menuItems.isEmpty()) {
           response.menuItems = menuItems;
           response.isSuccess = false;
@@ -67,5 +68,79 @@ global with sharing class GetMenuItemsAction {
 
     @InvocableVariable(label='Menu Items' description='The retrieved available menu item records for the storefront')
     public List<Menu_Item__c> menuItems;
+
+    @InvocableVariable(label='Menu' description='Display-ready storefront menu, rendered as the storefront menu widget')
+    public StorefrontMenu menu;
+  }
+
+  /**
+   * Display-ready storefront menu. Widgets can't compute values, so labels are built here.
+   */
+  global class StorefrontMenu {
+    public StorefrontMenu() {
+    }
+    public StorefrontMenu(List<Menu_Item__c> menuItems) {
+      this.items = new List<MenuItemView>();
+      Decimal lowestPrice;
+      Decimal highestPrice;
+      for (Menu_Item__c menuItem : menuItems) {
+        this.items.add(new MenuItemView(menuItem));
+        if (menuItem.Price__c != null) {
+          lowestPrice = lowestPrice == null ? menuItem.Price__c : Math.min(lowestPrice, menuItem.Price__c);
+          highestPrice = highestPrice == null ? menuItem.Price__c : Math.max(highestPrice, menuItem.Price__c);
+        }
+      }
+      if (!menuItems.isEmpty() && menuItems[0].Menu__r?.Storefront__r != null) {
+        this.storefrontName = menuItems[0].Menu__r.Storefront__r.Name;
+      }
+      this.summaryLabel = getSummaryLabel(menuItems.size(), lowestPrice, highestPrice);
+    }
+
+    @InvocableVariable
+    public String storefrontName;
+    @InvocableVariable
+    public String summaryLabel;
+    @InvocableVariable
+    public List<MenuItemView> items;
+  }
+
+  /**
+   * Display-ready menu item
+   */
+  global class MenuItemView {
+    public MenuItemView() {
+    }
+    public MenuItemView(Menu_Item__c menuItem) {
+      this.name = menuItem.Name;
+      this.description = menuItem.Description__c;
+      this.priceLabel = getPriceLabel(menuItem.Price__c);
+    }
+
+    @InvocableVariable
+    public String name;
+    @InvocableVariable
+    public String description;
+    @InvocableVariable
+    public String priceLabel;
+  }
+
+  @TestVisible
+  private static String getPriceLabel(Decimal price) {
+    if (price == null) {
+      return '';
+    }
+    return '$' + String.valueOf(price.setScale(2));
+  }
+
+  @TestVisible
+  private static String getSummaryLabel(Integer itemCount, Decimal lowestPrice, Decimal highestPrice) {
+    String label = itemCount + (itemCount == 1 ? ' dish' : ' dishes');
+    if (lowestPrice == null) {
+      return label;
+    }
+    if (lowestPrice == highestPrice) {
+      return label + ' · ' + getPriceLabel(lowestPrice);
+    }
+    return label + ' · ' + getPriceLabel(lowestPrice) + '–' + getPriceLabel(highestPrice);
   }
 }

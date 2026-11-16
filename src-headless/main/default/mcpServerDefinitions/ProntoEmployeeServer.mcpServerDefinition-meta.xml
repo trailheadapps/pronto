@@ -126,6 +126,22 @@
     </tools>
     <tools>
         <apiDefinition>
+            <apiIdentifier>aa:apex-GetStorefrontFromNameAction</apiIdentifier>
+            <apiSource>API_CATALOG</apiSource>
+            <operation>GetStorefrontFromNameAction</operation>
+        </apiDefinition>
+        <uiResource>storefrontProfileCard</uiResource>
+        <descriptionOverride>Retrieves a storefront's details by its name</descriptionOverride>
+        <destructive>false</destructive>
+        <idempotent>true</idempotent>
+        <openWorld>false</openWorld>
+        <readOnly>true</readOnly>
+        <returnDirect>false</returnDirect>
+        <toolName>getStorefrontFromName</toolName>
+        <toolTitle>Get Storefront From Name</toolTitle>
+    </tools>
+    <tools>
+        <apiDefinition>
             <apiIdentifier>aa:apex-GetStorefrontHoursAction</apiIdentifier>
             <apiSource>API_CATALOG</apiSource>
             <operation>GetStorefrontHoursAction</operation>
@@ -145,6 +161,7 @@
             <apiSource>API_CATALOG</apiSource>
             <operation>GetMenuItemsAction</operation>
         </apiDefinition>
+        <uiResource>storefrontMenu</uiResource>
         <descriptionOverride>Retrieves the available menu items for a storefront by its Id</descriptionOverride>
         <destructive>false</destructive>
         <idempotent>true</idempotent>
@@ -196,5 +213,17 @@
         <resourceUri>ui://widget/lightningType/c__customerReviews</resourceUri>
         <resourceTitle>Customer Reviews</resourceTitle>
         <description>Represents a list of customer reviews.</description>
+    </resources>
+    <resources>
+        <resourceName>storefrontProfileCard</resourceName>
+        <resourceUri>ui://widget/lightningType/c__storefrontProfileCard</resourceUri>
+        <resourceTitle>Storefront Profile Card</resourceTitle>
+        <description>Represents a storefront profile card.</description>
+    </resources>
+    <resources>
+        <resourceName>storefrontMenu</resourceName>
+        <resourceUri>ui://widget/lightningType/c__storefrontMenu</resourceUri>
+        <resourceTitle>Storefront Menu</resourceTitle>
+        <description>Represents a storefront menu.</description>
     </resources>
 </McpServerDefinition>

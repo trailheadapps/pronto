@@ -1,0 +1,30 @@
+{
+  "title": "Storefront Menu",
+  "description": "Attribute contract for the storefront menu",
+  "type": "object",
+  "properties": {
+    "attributes": {
+      "lightning:type": "lightning__objectType",
+      "properties": {
+        "storefrontName": {
+          "title": "storefrontName",
+          "description": "Storefront name",
+          "lightning:type": "lightning__textType"
+        },
+        "summaryLabel": {
+          "title": "summaryLabel",
+          "description": "Dish count and price range, for example 6 dishes · $8.00–$20.00",
+          "lightning:type": "lightning__textType"
+        },
+        "items": {
+          "title": "items",
+          "description": "Available menu items",
+          "lightning:type": "lightning__listType",
+          "items": {
+            "lightning:type": "@apexClassType/c__GetMenuItemsAction$MenuItemView"
+          }
+        }
+      }
+    }
+  }
+}

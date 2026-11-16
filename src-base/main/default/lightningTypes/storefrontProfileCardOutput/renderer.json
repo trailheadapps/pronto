@@ -1,0 +1,18 @@
+{
+  "renderer": {
+    "componentOverrides": {
+      "$": {
+        "definition": "@widget/c/storefrontProfileCard",
+        "attributes": {
+          "name": "{!$attrs.name}",
+          "cuisine": "{!$attrs.cuisine}",
+          "status": "{!$attrs.status}",
+          "statusVariant": "{!$attrs.statusVariant}",
+          "ratingLabel": "{!$attrs.ratingLabel}",
+          "address": "{!$attrs.address}",
+          "phone": "{!$attrs.phone}"
+        }
+      }
+    }
+  }
+}

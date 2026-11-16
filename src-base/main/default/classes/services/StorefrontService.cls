@@ -218,7 +218,16 @@ public virtual with sharing class StorefrontService {
     }
 
     return [
-      SELECT Id, Name, Description__c, Price__c, Calories__c, Image_URL__c, Available__c, Menu__c
+      SELECT
+        Id,
+        Name,
+        Description__c,
+        Price__c,
+        Calories__c,
+        Image_URL__c,
+        Available__c,
+        Menu__c,
+        Menu__r.Storefront__r.Name
       FROM Menu_Item__c
       WHERE Menu__r.Storefront__c = :storefrontId AND Available__c = TRUE
       WITH USER_MODE
