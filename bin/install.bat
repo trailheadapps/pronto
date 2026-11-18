@@ -258,18 +258,10 @@ sf data create record --use-tooling-api --sobject McpServerAccess --values "Deve
 call :check_status "Activating MCP server"
 if errorlevel 1 exit /b 1
 :mcp_access_done
-rem Sandboxes and scratch orgs need the sandbox variant of the server URL
-sf data query --query "SELECT IsSandbox FROM Organization" --json > "%TMPJSON%"
-call :check_status "Querying for org type"
-if errorlevel 1 exit /b 1
-call :json_get "%TMPJSON%" "$j.result.records[0].IsSandbox" PRONTO_ORG_IS_SANDBOX
-call :check_var "org type" "%PRONTO_ORG_IS_SANDBOX%"
-if errorlevel 1 exit /b 1
-if /i "%PRONTO_ORG_IS_SANDBOX%"=="true" (
-    set "PRONTO_MCP_SERVER_URL=https://api.salesforce.com/platform/mcp/v1/sandbox/custom/ProntoEmployeeServer"
-) else (
-    set "PRONTO_MCP_SERVER_URL=https://api.salesforce.com/platform/mcp/v1/custom/ProntoEmployeeServer"
-)
+rem The server URL contains the org's My Domain host without .my.salesforce.com, with dots as slashes
+set "PRONTO_MCP_DOMAIN_PATH=%PRONTO_ORG_DOMAIN:https://=%"
+set "PRONTO_MCP_DOMAIN_PATH=%PRONTO_MCP_DOMAIN_PATH:.=/%"
+set "PRONTO_MCP_SERVER_URL=https://api.salesforce.com/platform/mcp/v1/d/%PRONTO_MCP_DOMAIN_PATH%/custom/ProntoEmployeeServer"
 echo MCP server URL:            %PRONTO_MCP_SERVER_URL%
 echo.
 

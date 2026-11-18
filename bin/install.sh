@@ -240,14 +240,10 @@ elif [ "$(echo "$PRONTO_MCP_ACCESS_JSON" | jq -r '.result.records[0].Active')" !
 else
   echo "MCP server already active, skipping."
 fi
-# Sandboxes and scratch orgs need the sandbox variant of the server URL
-PRONTO_ORG_IS_SANDBOX=$(sf data query --query "SELECT IsSandbox FROM Organization" --json | jq -r '.result.records[0].IsSandbox')
-check_var "org type" "$PRONTO_ORG_IS_SANDBOX"
-if [ "$PRONTO_ORG_IS_SANDBOX" == "true" ]; then
-  PRONTO_MCP_SERVER_URL="https://api.salesforce.com/platform/mcp/v1/sandbox/custom/ProntoEmployeeServer"
-else
-  PRONTO_MCP_SERVER_URL="https://api.salesforce.com/platform/mcp/v1/custom/ProntoEmployeeServer"
-fi
+# The server URL contains the org's My Domain host without .my.salesforce.com, with dots as slashes
+PRONTO_MCP_DOMAIN_PATH="${PRONTO_ORG_DOMAIN#https://}"
+PRONTO_MCP_DOMAIN_PATH="${PRONTO_MCP_DOMAIN_PATH//.//}"
+PRONTO_MCP_SERVER_URL="https://api.salesforce.com/platform/mcp/v1/d/$PRONTO_MCP_DOMAIN_PATH/custom/ProntoEmployeeServer"
 echo "MCP server URL:            $PRONTO_MCP_SERVER_URL"
 echo ""
 
