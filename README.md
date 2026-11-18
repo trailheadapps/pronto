@@ -76,6 +76,18 @@ If installing the app on a Sandbox, a Developer Edition org or a Trailhead Playg
    1. Click **Customer_Service_Agent**.
    1. Click **Publish**.
 
+## Call the Pronto Employee MCP Server From an Agent
+
+The installation script activates the Pronto Employee MCP server and prints its URL. The URL contains your org's My Domain, for example:
+
+```
+https://api.salesforce.com/platform/mcp/v1/d/orgfarm-0b99678488/custom/ProntoEmployeeServer
+```
+
+You can also find the URL in Setup: enter `MCP Servers` in the Quick Find box and open **Pronto Employee Server**.
+
+To call the server from an agent such as Claude or ChatGPT, create an External Client App for that agent and connect the agent as described in [Connecting an MCP Client](https://developer.salesforce.com/docs/platform/hosted-mcp-servers/guide/client-connection-overview.html). Create one External Client App per agent, as the callback URL is specific to the agent.
+
 ## Pronto Data Model
 
 The Pronto app relies on the following objects (non-relationship fields are hidden from this diagram):
