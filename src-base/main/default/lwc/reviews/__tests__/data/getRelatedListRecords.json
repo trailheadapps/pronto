@@ -1,0 +1,55 @@
+{
+  "count": 2,
+  "currentPageToken": "0",
+  "currentPageUrl": "/services/data/v68.0/ui-api/related-list-records/a01xx000003DGb1AAG/Reviews__r?fields=Review__c.Comments__c,Review__c.Rating__c,Review__c.Order_Date__c&pageSize=50&sortBy=Review__c.Order_Date__c",
+  "listReference": {
+    "inlineEditAttributes": null,
+    "listViewApiName": null,
+    "objectApiName": "Review__c",
+    "parentObjectApiName": "Store__c",
+    "recordTypeId": null,
+    "relatedListId": "Reviews__r",
+    "type": "relatedList"
+  },
+  "nextPageToken": null,
+  "nextPageUrl": null,
+  "previousPageToken": null,
+  "previousPageUrl": null,
+  "records": [
+    {
+      "apiName": "Review__c",
+      "childRelationships": {},
+      "eTag": "1",
+      "fields": {
+        "Comments__c": { "displayValue": null, "value": "Delicious food and fast delivery!" },
+        "Rating__c": { "displayValue": null, "value": 5 },
+        "Order_Date__c": { "displayValue": null, "value": "2026-10-01" }
+      },
+      "id": "a02xx000001AbcdAAA",
+      "lastModifiedById": null,
+      "lastModifiedDate": null,
+      "recordTypeId": "012000000000000AAA",
+      "recordTypeInfo": null,
+      "systemModstamp": null,
+      "weakEtag": 1
+    },
+    {
+      "apiName": "Review__c",
+      "childRelationships": {},
+      "eTag": "2",
+      "fields": {
+        "Comments__c": { "displayValue": null, "value": "Order arrived cold." },
+        "Rating__c": { "displayValue": null, "value": 2 },
+        "Order_Date__c": { "displayValue": null, "value": "2026-10-15" }
+      },
+      "id": "a02xx000001AbceAAA",
+      "lastModifiedById": null,
+      "lastModifiedDate": null,
+      "recordTypeId": "012000000000000AAA",
+      "recordTypeInfo": null,
+      "systemModstamp": null,
+      "weakEtag": 1
+    }
+  ],
+  "sortBy": ["Review__c.Order_Date__c"]
+}

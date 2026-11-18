@@ -25,7 +25,7 @@ export default class Reviews extends LightningElement {
       this.error = undefined;
     } else if (error) {
       this.error = error;
-      this.reviews = undefined;
+      this.reviews = [];
     }
   }
 }
